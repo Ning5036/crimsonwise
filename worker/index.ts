@@ -94,35 +94,42 @@ async function handleAdminExport(
       ? body.table
       : "public_feedback";
 
-  const res = await fetch(
-    `${env.SUPABASE_URL}/rest/v1/${table}?select=*&order=created_at.desc`,
-    {
-      headers: {
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+  try {
+    const supabaseUrl = env.SUPABASE_URL.replace(/\/+$/, "");
+    const res = await fetch(
+      `${supabaseUrl}/rest/v1/${table}?select=*&order=created_at.desc`,
+      {
+        headers: {
+          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        },
       },
-    },
-  );
+    );
 
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    return new Response(`Supabase error (${res.status}): ${text}`, {
-      status: 502,
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      return new Response(
+        `Supabase error (${res.status}): ${text.slice(0, 500)}`,
+        { status: 502 },
+      );
+    }
+
+    const rows = (await res.json()) as Row[];
+    const csv = rowsToCsv(rows);
+    const date = new Date().toISOString().slice(0, 10);
+    const filename = `CrimsonWise_${table}_${date}.csv`;
+
+    return new Response("﻿" + csv, {
+      headers: {
+        "Content-Type": "text/csv; charset=utf-8",
+        "Content-Disposition": `attachment; filename="${filename}"`,
+        "Cache-Control": "no-store",
+      },
     });
+  } catch (e) {
+    const msg = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+    return new Response(`Worker threw: ${msg}`, { status: 500 });
   }
-
-  const rows = (await res.json()) as Row[];
-  const csv = rowsToCsv(rows);
-  const date = new Date().toISOString().slice(0, 10);
-  const filename = `CrimsonWise_${table}_${date}.csv`;
-
-  return new Response("﻿" + csv, {
-    headers: {
-      "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${filename}"`,
-      "Cache-Control": "no-store",
-    },
-  });
 }
 
 export default {

@@ -23,7 +23,8 @@ export default function AdminPage() {
         return;
       }
       if (!res.ok) {
-        setError(`Server error (${res.status})`);
+        const detail = await res.text().catch(() => "");
+        setError(`Server error (${res.status}): ${detail.slice(0, 200)}`);
         return;
       }
       const blob = await res.blob();
