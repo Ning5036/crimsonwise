@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FFF5F3;
+  color: #1a1a1a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light theme: remap dark-mode Tailwind text classes */
+.text-white { color: #111827 !important; }
+.text-gray-100 { color: #1f2937 !important; }
+.text-gray-200 { color: #374151 !important; }
+.text-gray-300 { color: #4b5563 !important; }
+.text-gray-400 { color: #6b7280 !important; }
+.text-gray-500 { color: #9ca3af !important; }
+.text-gray-600 { color: #b8b8b8 !important; }
+
+/* Allow explicit semantic colors to pass through */
+.text-red-400 { color: #f87171 !important; }
+.text-red-300 { color: #fca5a5 !important; }
+.text-green-400 { color: #4ade80 !important; }
+.text-green-300 { color: #86efac !important; }
+.text-blue-400 { color: #60a5fa !important; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f5e8e6; }
+::-webkit-scrollbar-thumb { background: #c0392b; border-radius: 3px; }
+
+/* Premium card */
+.glass-card {
+  background: #ffffff;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(192, 57, 43, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(192, 57, 43, 0.04);
+}
+
+/* Crimson gradient text */
+.crimson-text {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect */
+.crimson-glow {
+  box-shadow: 0 4px 24px rgba(192, 57, 43, 0.35), 0 1px 4px rgba(192, 57, 43, 0.2);
+}
+
+/* Subtle background grid */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(192, 57, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192, 57, 43, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Flip card */
+.flip-card { perspective: 1000px; }
+.flip-card-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-card-back { transform: rotateY(180deg); }
+
+/* Range slider */
+input[type="range"] { accent-color: #c0392b; }
+
+/* Hide number spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+a { text-decoration: none; color: inherit; }
+
+/* Surface variants for light theme */
+.surface-subtle { background: rgba(0, 0, 0, 0.025); }
+.surface-medium { background: rgba(0, 0, 0, 0.04); }

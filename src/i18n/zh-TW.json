@@ -1,0 +1,416 @@
+{
+  "app": {
+    "name": "CrimsonWise",
+    "tagline": "輸血明智選擇",
+    "subtitle": "少輸不一定輸",
+    "disclaimer": "⚠️ 非診斷工具，具實證精神，用於協助醫病對話，做出最明智最適合每個人的醫療選擇。",
+    "start": "開始評估",
+    "restart": "重新評估",
+    "next": "下一步",
+    "back": "上一步",
+    "submit": "送出",
+    "confirm": "確認",
+    "cancel": "取消",
+    "optional": "（選填）",
+    "required": "必填",
+    "edition": "醫護版",
+    "editionFor": "專為醫護人員設計",
+    "prevPage": "上一頁",
+    "nextPage": "下一頁",
+    "slogans": [
+      "減血一袋 救人一命",
+      "謹慎用血 才能救命",
+      "有7就好 不比感到7上8下"
+    ]
+  },
+  "landing": {
+    "feature1": "引領諮詢方向，精準討論重點",
+    "feature2": "輸血替代方案，先試非輸血療法",
+    "feature3": "打破迷思，建立正確輸血觀念",
+    "feature4": "國內外指引，有實證的決策依據",
+    "feature5": "Hb & PLT 輸後數值預測計算器",
+    "feature6": "支援 7 種語言，無語言障礙"
+  },
+  "stats": {
+    "today": "今日造訪",
+    "total": "累積造訪",
+    "visitors": "人次"
+  },
+  "steps": {
+    "1": "基本資料",
+    "2": "過去病史",
+    "3": "用藥史",
+    "4": "檢驗數值",
+    "5": "症狀",
+    "6": "臨床情境",
+    "progress": "第 {{step}} / 6 關"
+  },
+  "basic": {
+    "age": "年齡",
+    "agePlaceholder": "例：65",
+    "ageUnit": "歲",
+    "sex": "性別",
+    "male": "男性",
+    "female": "女性",
+    "vegetarian": "素食者",
+    "vegetarianNote": "（影響營養狀態評估）",
+    "weight": "體重",
+    "weightPlaceholder": "例：65",
+    "weightUnit": "kg",
+    "height": "身高",
+    "heightPlaceholder": "例：165",
+    "heightUnit": "cm"
+  },
+  "history": {
+    "title": "過去病史",
+    "subtitle": "請勾選曾診斷過的疾病",
+    "none": "無特殊病史",
+    "hypertension": "高血壓",
+    "diabetes": "高血糖（糖尿病）",
+    "hyperlipidemia": "高血脂",
+    "heartDisease": "心臟疾病",
+    "pepticUlcer": "胃腸潰瘍",
+    "colonPolyp": "大腸瘜肉／痔瘡",
+    "autoimmune": "自體免疫疾病",
+    "bloodDisease": "血液疾病",
+    "ckd": "慢性腎臟病",
+    "cirrhosis": "肝硬化",
+    "cancer": "癌症",
+    "gynecological": "婦科疾病"
+  },
+  "medication": {
+    "title": "近期用藥史",
+    "subtitle": "請勾選最近使用中的藥物",
+    "none": "無特殊用藥",
+    "antiplatelet": "抗血小板／抗凝血劑（通血路的藥）",
+    "anticancer": "抗癌藥物",
+    "immunosuppressant": "免疫抑制劑",
+    "antibiotic": "抗生素",
+    "nsaid": "止痛消炎藥（NSAIDs）"
+  },
+  "lab": {
+    "title": "最近一次檢驗數值",
+    "hb": "血色素（Hb）",
+    "hbUnit": "g/dL",
+    "hbNote": "必填",
+    "plt": "血小板（PLT）",
+    "pltUnit": "×10³/μL",
+    "ptInr": "凝血功能 PT INR",
+    "ptInrUnit": "",
+    "apttInr": "凝血功能 aPTT INR",
+    "apttInrUnit": "",
+    "albumin": "白蛋白（Albumin）",
+    "albuminUnit": "g/dL",
+    "gfr": "腎絲球過濾率（eGFR）",
+    "gfrUnit": "mL/min/1.73m²"
+  },
+  "symptom": {
+    "title": "目前貧血症狀",
+    "subtitle": "請勾選目前有的症狀",
+    "none": "無明顯症狀",
+    "dizziness": "頭暈",
+    "palpitation": "心悸",
+    "weakness": "全身無力",
+    "fatigue": "虛弱",
+    "coldExtremities": "四肢末梢冰冷",
+    "dyspnea": "喘",
+    "oliguria": "尿少",
+    "edema": "水腫",
+    "other": "其他症狀（請描述）",
+    "otherPlaceholder": "請描述其他症狀..."
+  },
+  "scenario": {
+    "title": "臨床情境",
+    "subtitle": "請勾選符合的臨床情境",
+    "none": "無特殊情境",
+    "sepsisShock": "感染發燒至休克狀態",
+    "massiveBleed": "大量出血至休克狀態",
+    "malnutrition": "營養狀態不均衡或不佳",
+    "recentChemo": "近期剛接受抗癌治療",
+    "recentImmunosuppressant": "近期剛接受免疫抑制劑治療",
+    "postSurgery": "近期剛接受手術",
+    "ckdEpoResistant": "慢性腎臟病第5期對紅血球生成素具抗性",
+    "dialysisEpoResistant": "透析後對紅血球生成素具抗性",
+    "cirrhosisAscites": "肝硬化併大量腹水",
+    "hemolysis": "溶血",
+    "other": "其他情境（請描述）",
+    "otherPlaceholder": "請描述其他臨床情境..."
+  },
+  "tabs": {
+    "1": "諮詢方向",
+    "2": "替代方案",
+    "3": "輸血衛教",
+    "4": "國際指引",
+    "5": "血品珍貴",
+    "6": "做出決定",
+    "7": "決策摘要",
+    "8": "滿意度調查"
+  },
+  "tab1": {
+    "title": "引領諮詢方向",
+    "subtitle": "依您提供的資料，建議優先與醫療團隊討論以下重點",
+    "riskLevel": "評估等級",
+    "urgent": "建議積極評估輸血",
+    "consider": "可考慮輸血",
+    "watchful": "密切觀察，優先替代方案",
+    "unlikely": "目前不建議輸血",
+    "keyPoints": "重點諮詢方向",
+    "hbStatus": "血色素狀態",
+    "hbNormal": "血色素在正常範圍",
+    "hbBorderline": "血色素偏低，需評估症狀",
+    "hbLow": "血色素低，建議積極處置",
+    "consult": {
+      "hbCritical": "Hb {{value}} g/dL，低於 7 g/dL 建議積極評估輸血需求",
+      "hbBorderline": "Hb {{value}} g/dL，若有心臟病史或術後，建議閾值提高至 8 g/dL",
+      "hbSafe": "Hb {{value}} g/dL，目前數值相對安全，優先評估症狀",
+      "heartDisease": "心臟疾病史：建議維持 Hb ≥ 8 g/dL，與心臟科醫師討論輸血時機",
+      "antiplatelet": "抗血小板/抗凝血劑使用中：評估手術前是否需停藥或橋接治療",
+      "vegetarian": "素食者：優先補充鐵劑、葉酸、維生素B12再評估輸血必要性",
+      "alternativeHigh": "替代方案可行性高：先嘗試鐵劑或EPO等非輸血療法",
+      "massiveBleed": "大量出血中：即時啟動大量輸血方案，與血庫確認血品備存",
+      "general": "與醫療團隊充分溝通，了解輸血的利與弊，做出最適合您的決定"
+    }
+  },
+  "tab2": {
+    "title": "輸血替代方案",
+    "subtitle": "輸血前，先考慮這些替代方案！",
+    "feasibility": "可行性",
+    "alternatives": {
+      "iron": {
+        "name": "補充鐵劑",
+        "desc": "適用於缺鐵性貧血，口服或靜脈注射鐵劑",
+        "when": "Hb下降+缺鐵指標異常",
+        "effect": "4-8週可見效"
+      },
+      "epo": {
+        "name": "紅血球生成素（EPO）",
+        "desc": "刺激骨髓製造紅血球",
+        "when": "CKD貧血、化療引起貧血",
+        "effect": "需數週起效"
+      },
+      "folate_b12": {
+        "name": "葉酸 / 維生素B12",
+        "desc": "補充造血所需微量元素",
+        "when": "巨球性貧血、素食者",
+        "effect": "數週內改善"
+      },
+      "autologous": {
+        "name": "自體輸血",
+        "desc": "術前自行儲血，術中回輸",
+        "when": "擇期手術前規劃",
+        "effect": "零排斥風險"
+      },
+      "cellSaver": {
+        "name": "術中血液回收",
+        "desc": "手術中回收自體血液再利用",
+        "when": "大型手術",
+        "effect": "減少異體血品需求"
+      }
+    }
+  },
+  "tab3": {
+    "title": "打破輸血迷思",
+    "subtitle": "正確認識輸血，才能做出明智選擇",
+    "mythLabel": "迷思",
+    "factLabel": "事實",
+    "clickToFlip": "點擊翻面看真相",
+    "risks": {
+      "title": "輸血可能的風險",
+      "subtitle": "輸血是安全的醫療行為，但仍有一定風險",
+      "severity": {
+        "low": "低度風險",
+        "medium": "中度風險",
+        "high": "高度風險",
+        "critical": "嚴重（罕見）"
+      }
+    },
+    "indications": {
+      "title": "輸血適應症參考",
+      "items": [
+        "Hb < 7 g/dL（有症狀貧血）",
+        "Hb < 8 g/dL（心臟病、外科術後）",
+        "大量出血伴血流動力學不穩定",
+        "PLT < 10×10³/μL（預防性）",
+        "PLT < 50×10³/μL（手術前）",
+        "PT INR > 1.5（有出血風險）"
+      ]
+    }
+  },
+  "tab4": {
+    "title": "國內外輸血指引",
+    "subtitle": "各大指引均建議「限制性輸血策略」",
+    "chart": {
+      "title": "各指引建議 Hb 輸血閾值比較",
+      "yAxis": "Hb 閾值 (g/dL)",
+      "threshold": "建議閾值"
+    },
+    "references": "參考文獻",
+    "viewSource": "查看原文"
+  },
+  "tab5": {
+    "title": "血品得來不易",
+    "subtitle": "每一袋血都是愛心的結晶，請謹慎使用",
+    "facts": [
+      "一袋紅血球來自一位捐血者，耗費約 1 小時檢測流程",
+      "全血有效期僅 35 天，血小板僅 5 天",
+      "台灣每年需血約 110 萬袋，全賴公民無償捐血",
+      "輸一袋省一袋，就是幫助另一位需要的病患"
+    ],
+    "evidence": {
+      "title": "實證支持：限制性輸血策略",
+      "items": [
+        { "study": "TRICC Trial (1999)", "finding": "重症患者限制性輸血存活率不劣於自由性輸血", "level": "Grade A" },
+        { "study": "FOCUS Trial (2011)", "finding": "髖關節術後Hb≥8策略與Hb≥10效果相當", "level": "Grade A" },
+        { "study": "TRACS Trial (2011)", "finding": "心臟手術後限制性輸血30天死亡率相當", "level": "Grade A" }
+      ]
+    },
+    "sloganTitle": "院內口號",
+    "bloodJourneyTitle": "一袋血的旅程",
+    "bloodSteps": ["自願捐血者", "血液採集 (450 mL)", "多項傳染病篩檢", "成分分離製備", "冷鏈儲存", "醫院血庫配送", "輸血給病患"]
+  },
+  "tab6": {
+    "title": "做出您的決定",
+    "subtitle": "在了解相關資訊後，請做出您的選擇",
+    "predictor": {
+      "title": "輸後數值預測計算器",
+      "hbTab": "Hb 預測（RLRBC）",
+      "pltTab": "PLT 預測（血小板）",
+      "units": "輸注袋數",
+      "rdp": "濃縮血小板（RDP）",
+      "sdp": "單採血小板（SDP）",
+      "predicted": "預測輸後數值",
+      "delta": "預估上升",
+      "confidence": "預測範圍",
+      "disclaimer": "此為統計估算值，實際結果因個體差異、出血狀態、骨髓功能等因素而有所不同",
+      "cciLabel": "預估 CCI（1小時後）",
+      "cciGood": "充足（≥7,500）",
+      "cciBad": "不足（<7,500）"
+    },
+    "decisionTitle": "我的輸血決定",
+    "transfuse": "我決定輸血",
+    "noTransfuse": "我決定不輸血",
+    "reasonLabel": "決定原因（選填）",
+    "reasonPlaceholder": "請說明您做出此決定的原因...",
+    "physicianLabel": "醫師／護理師姓名（選填）",
+    "physicianPlaceholder": "請輸入姓名",
+    "confirmTitle": "確認您的決定",
+    "confirmTransfuse": "確認選擇輸血",
+    "confirmNo": "確認選擇不輸血"
+  },
+  "tab7": {
+    "title": "決策摘要與建議",
+    "yourDecision": "您的決定",
+    "medAdvice": "醫療專業建議",
+    "agree": "✅ 您的決定與醫療建議一致",
+    "disagree": "⚠️ 您的決定與醫療建議不同，建議再次與醫療團隊溝通",
+    "followUp": "後續追蹤建議",
+    "followUpItems": [
+      "1-2週後追蹤血色素數值",
+      "若症狀加重請立即就醫",
+      "持續補充鐵劑/葉酸（如適用）",
+      "定期回診評估貧血原因"
+    ],
+    "urgentLevel": {
+      "urgent": "強烈建議輸血",
+      "consider": "建議考慮輸血",
+      "watchful": "建議優先替代方案",
+      "unlikely": "目前不建議輸血"
+    },
+    "notDecided": "尚未做出決定",
+    "riskScore": "風險分數",
+    "hbTargetLabel": "建議目標 Hb ≥ {{value}} g/dL",
+    "predictedHbLabel": "輸 {{units}} 袋後預測 Hb: {{value}} g/dL",
+    "predictedPltLabel": "輸 {{units}} 袋 {{type}} 後預測 PLT: {{value}} ×10³/μL"
+  },
+  "tab8": {
+    "title": "滿意度調查",
+    "subtitle": "您的回饋有助於我們持續改善，謝謝！",
+    "satisfactionLabel": "整體使用滿意度",
+    "stars": ["非常不滿意", "不滿意", "普通", "滿意", "非常滿意"],
+    "betterLabel": "使用後對輸血是否有更正確的觀念？",
+    "betterYes": "是，有更正確的認識",
+    "betterPartial": "部分有幫助",
+    "betterNo": "沒有太大改變",
+    "suggestionsLabel": "活動建議（選填）",
+    "suggestionsPlaceholder": "請分享您的建議或想法...",
+    "submitSurvey": "送出問卷",
+    "thankYou": "感謝您的回饋！",
+    "thankYouSub": "您的意見將幫助我們讓更多人做出明智的輸血選擇",
+    "stats": "整體滿意度分布"
+  },
+  "myth": {
+    "myth1": {
+      "myth": "輸血可以快速補充體力，讓人馬上有精神",
+      "fact": "輸血只能補充紅血球攜氧能力，無法直接補充能量或蛋白質，效果因人而異"
+    },
+    "myth2": {
+      "myth": "血色素低就一定要輸血",
+      "fact": "輸血決策需綜合考量症狀、臨床情境，Hb≥7 g/dL 的穩定患者通常不需要輸血"
+    },
+    "myth3": {
+      "myth": "輸越多袋血越好、補越多越安全",
+      "fact": "研究顯示過度輸血反而增加感染、肺水腫等風險，限制性輸血策略結果更好"
+    },
+    "myth4": {
+      "myth": "素食者貧血一定要輸血",
+      "fact": "素食者貧血多為缺鐵或B12缺乏，先補充缺乏的營養素往往比輸血更有效"
+    },
+    "myth5": {
+      "myth": "血庫血液百分之百安全，沒有風險",
+      "fact": "現代血庫篩檢已極為嚴格，但仍有輸血反應、TACO、TRALI 等風險存在"
+    },
+    "myth6": {
+      "myth": "Hb 只要在7以上就可以等，不用緊張",
+      "fact": "合併心臟病、術後、出血中的患者可能需要更高的輸血閾值（Hb≥8）"
+    }
+  },
+  "risk": {
+    "febrile": "發燒性非溶血性輸血反應（FNHTR）",
+    "allergic": "過敏反應",
+    "taco": "輸血相關循環超負荷（TACO）",
+    "trali": "輸血相關急性肺損傷（TRALI）",
+    "hemolytic": "溶血性輸血反應",
+    "infection": "感染性疾病傳播（極罕見）",
+    "immunomod": "輸血相關免疫調節（TRIM）",
+    "iron_overload": "慢性輸血鐵質沉積",
+    "factor": {
+      "hbCritical": "Hb 嚴重偏低（< 6 g/dL）",
+      "hbLow": "Hb 偏低（< 7 g/dL）",
+      "hbBorderline": "Hb 臨界值（< 8 g/dL）",
+      "sepsisShock": "敗血性休克",
+      "massiveBleed": "大量出血",
+      "hemolysis": "溶血",
+      "recentChemo": "近期化療",
+      "ckdEpoResistant": "CKD 合併促紅素治療無效",
+      "dialysisEpo": "透析合併促紅素治療無效",
+      "postSurgery": "術後恢復期",
+      "cirrhosisAscites": "肝硬化腹水",
+      "heartDisease": "心臟病史",
+      "ckd": "慢性腎臟病",
+      "cancer": "惡性腫瘤",
+      "bloodDisease": "血液疾病",
+      "coagPt": "凝血異常（PT INR > 1.5）",
+      "coagAptt": "凝血異常（APTT > 1.5）",
+      "pltCritical": "血小板嚴重低下（< 10×10³/μL）",
+      "pltLow": "血小板偏低（< 50×10³/μL）",
+      "albumin": "白蛋白低下（< 3 g/dL）",
+      "gfrLow": "腎功能重度損傷（GFR < 15）",
+      "severeSx": "嚴重貧血症狀（心悸／喘／寡尿）",
+      "multipleSx": "多重貧血症狀",
+      "antiplatelet": "服用抗血小板藥物"
+    }
+  },
+  "admin": {
+    "downloadTitle": "管理員資料下載",
+    "passwordLabel": "請輸入管理員密碼",
+    "passwordPlaceholder": "輸入密碼",
+    "downloadBtn": "下載 Excel 報表",
+    "recordCount": "共 {{count}} 筆紀錄",
+    "wrongPassword": "密碼錯誤，請重試",
+    "noData": "目前無資料可供下載",
+    "sheet1": "問答紀錄",
+    "sheet2": "決策結果",
+    "sheet3": "指引對照",
+    "sheet4": "滿意度統計"
+  }
+}
