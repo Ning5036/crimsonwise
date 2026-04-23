@@ -1,23 +1,26 @@
 /**
- * Cloudflare Pages Function — admin CSV export.
- * Path: POST /api/admin/export
- * Body: { password: string, table?: 'public_feedback' | 'sessions' }
+ * Cloudflare Worker entry point.
  *
- * Env vars (set in Cloudflare Pages → Settings → Environment variables):
- *   SUPABASE_URL                 e.g. https://abc.supabase.co
- *   SUPABASE_SERVICE_ROLE_KEY    server-only; never exposed to the browser
- *   ADMIN_PASSWORD               the admin gate
+ * Routes:
+ *   POST /api/admin/export  → password-gated CSV export (service_role)
+ *   *                       → static SPA assets (dist/)
  *
- * The service role key bypasses RLS, so password-gating is mandatory here.
+ * Runtime env vars (set in Cloudflare → Settings → Variables and Secrets):
+ *   SUPABASE_URL                 — https://...supabase.co
+ *   SUPABASE_SERVICE_ROLE_KEY    — service_role JWT (secret)
+ *   ADMIN_PASSWORD               — admin gate (secret)
+ *
+ * Build-time env vars (set in Cloudflare → Settings → Build):
+ *   VITE_SUPABASE_URL            — baked into client bundle
+ *   VITE_SUPABASE_ANON_KEY       — baked into client bundle
  */
 
 interface Env {
-  SUPABASE_URL: string;
-  SUPABASE_SERVICE_ROLE_KEY: string;
-  ADMIN_PASSWORD: string;
+  ASSETS: { fetch: (request: Request) => Promise<Response> };
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  ADMIN_PASSWORD?: string;
 }
-
-type Row = Record<string, unknown>;
 
 const ALLOWED_TABLES = new Set(["public_feedback", "sessions"]);
 
@@ -34,6 +37,8 @@ function csvEscape(v: unknown): string {
   return `"${s.replace(/"/g, '""')}"`;
 }
 
+type Row = Record<string, unknown>;
+
 function rowsToCsv(rows: Row[]): string {
   if (!rows.length) return "";
   const headers = Array.from(
@@ -49,7 +54,16 @@ function rowsToCsv(rows: Row[]): string {
   return head + "\r\n" + body;
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+async function handleAdminExport(
+  request: Request,
+  env: Env,
+): Promise<Response> {
+  if (request.method !== "POST") {
+    return new Response("Method Not Allowed", {
+      status: 405,
+      headers: { Allow: "POST" },
+    });
+  }
   if (
     !env.SUPABASE_URL ||
     !env.SUPABASE_SERVICE_ROLE_KEY ||
@@ -62,7 +76,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   let body: { password?: string; table?: string };
   try {
-    body = await request.json();
+    body = (await request.json()) as { password?: string; table?: string };
   } catch {
     return new Response("Bad JSON", { status: 400 });
   }
@@ -109,10 +123,16 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       "Cache-Control": "no-store",
     },
   });
-};
+}
 
-export const onRequestGet: PagesFunction<Env> = async () =>
-  new Response("Method Not Allowed", {
-    status: 405,
-    headers: { Allow: "POST" },
-  });
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/api/admin/export") {
+      return handleAdminExport(request, env);
+    }
+
+    return env.ASSETS.fetch(request);
+  },
+};
