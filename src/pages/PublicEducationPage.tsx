@@ -487,12 +487,23 @@ const QUIZ: Record<Lang, QuizItem[]> = {
 const QUEUE_KEY = "cw_pub_pending";
 
 type Feedback = {
+  client_id: string;
   ts: string;
   lang: Lang;
   stars: number;
   concept: string;
   suggestion: string;
 };
+
+function newClientId(): string {
+  if (
+    typeof crypto !== "undefined" &&
+    typeof crypto.randomUUID === "function"
+  ) {
+    return crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}-${Math.random().toString(16).slice(2)}`;
+}
 
 async function flushQueue(): Promise<void> {
   if (!supabaseConfigured()) return;
@@ -505,10 +516,13 @@ async function flushQueue(): Promise<void> {
   if (!queue.length) return;
   const remaining: Feedback[] = [];
   for (const row of queue) {
+    const withId: Feedback = row.client_id
+      ? row
+      : { ...row, client_id: newClientId() };
     try {
-      await sbInsert("public_feedback", row);
+      await sbInsert("public_feedback", withId);
     } catch {
-      remaining.push(row);
+      remaining.push(withId);
     }
   }
   localStorage.setItem(QUEUE_KEY, JSON.stringify(remaining));
@@ -521,6 +535,7 @@ async function saveSubmission(
   lang: Lang,
 ): Promise<{ ok: boolean; queued: boolean }> {
   const row: Feedback = {
+    client_id: newClientId(),
     ts: new Date().toISOString(),
     lang,
     stars,

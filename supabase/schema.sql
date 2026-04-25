@@ -11,8 +11,15 @@ create table if not exists public.public_feedback (
   lang        text not null check (lang in ('zh-TW','en')),
   stars       smallint not null check (stars between 1 and 5),
   concept     text not null,
-  suggestion  text
+  suggestion  text,
+  client_id   uuid
 );
+
+-- Partial unique index: legacy rows with NULL client_id are allowed; new rows
+-- with a non-NULL client_id are deduplicated across retries / multi-tab flushes.
+create unique index if not exists public_feedback_client_id_key
+  on public.public_feedback (client_id)
+  where client_id is not null;
 
 alter table public.public_feedback enable row level security;
 

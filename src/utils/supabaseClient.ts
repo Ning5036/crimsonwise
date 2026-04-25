@@ -26,6 +26,7 @@ export async function sbInsert<T extends object>(
     },
     body: JSON.stringify(row),
   });
+  if (res.status === 409) return;
   if (!res.ok) {
     const text = await res.text().catch(() => "");
     throw new Error(`Supabase insert failed (${res.status}): ${text}`);
