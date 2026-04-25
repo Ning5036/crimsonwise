@@ -3,7 +3,6 @@ import { sbInsert, supabaseConfigured } from "../utils/supabaseClient";
 
 const TODAY_KEY = () => `cw_daily_${new Date().toISOString().split("T")[0]}`;
 const TOTAL_KEY = "cw_total";
-const SESSIONS_KEY = "cw_sessions";
 const CLINICAL_QUEUE_KEY = "cw_clinical_pending";
 
 function getStored(key: string, fallback: number): number {
@@ -173,14 +172,5 @@ export async function flushClinicalQueue(): Promise<void> {
 }
 
 export function saveSession(record: SessionRecord) {
-  const sessions: SessionRecord[] = JSON.parse(
-    localStorage.getItem(SESSIONS_KEY) || "[]",
-  );
-  sessions.push(record);
-  localStorage.setItem(SESSIONS_KEY, JSON.stringify(sessions));
   void sendOrQueue(recordToInsert(record));
-}
-
-export function getAllSessions(): SessionRecord[] {
-  return JSON.parse(localStorage.getItem(SESSIONS_KEY) || "[]");
 }
