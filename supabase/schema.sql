@@ -43,8 +43,13 @@ create table if not exists public.sessions (
   decision        jsonb,       -- decision, reason, predictedHb, ...
   survey          jsonb,       -- satisfaction, betterUnderstanding, suggestions
   risk_level      text,
-  physician_name  text
+  physician_name  text,
+  client_id       uuid
 );
+
+create unique index if not exists sessions_client_id_key
+  on public.sessions (client_id)
+  where client_id is not null;
 
 alter table public.sessions enable row level security;
 
