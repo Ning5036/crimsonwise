@@ -19,7 +19,7 @@ export default function PltPredictorWidget() {
   const curve = pltPredictionCurve(prePlt, maxUnits, plateletType, weightKg, heightCm)
   const result = predictPostTransfusionPlt({ prePlt, units, plateletType, weightKg, heightCm })
 
-  const color = result.predictedPlt < 50 ? '#e74c3c' : result.predictedPlt < 150 ? '#f39c12' : '#27ae60'
+  const color = result.predictedPlt < 50 ? 'var(--crimson-500)' : result.predictedPlt < 150 ? 'var(--status-warn-fg)' : 'var(--status-ok-fg)'
 
   const handleTypeChange = (type: PlateletType) => {
     setPlateletType(type)
@@ -65,7 +65,7 @@ export default function PltPredictorWidget() {
               className="w-9 h-9 rounded-lg font-bold text-sm transition-all"
               style={{
                 background: units === n ? 'linear-gradient(135deg,#2980b9,#3498db)' : 'rgba(0,0,0,0.05)',
-                color: units === n ? 'white' : '#666',
+                color: units === n ? 'white' : 'var(--gray-500)',
                 border: units === n ? 'none' : '1px solid rgba(0,0,0,0.08)', cursor: 'pointer',
               }}>{n}</button>
           ))}
@@ -75,22 +75,22 @@ export default function PltPredictorWidget() {
       {/* PL → PH result display */}
       <div className="flex items-center gap-3">
         <div className="flex-1 p-4 rounded-2xl text-center" style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.1)' }}>
-          <div className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#888' }}>PL（輸前）</div>
-          <div className="text-3xl font-black" style={{ color: '#1a1a1a' }}>{prePlt}</div>
-          <div className="text-xs mt-0.5" style={{ color: '#9ca3af' }}>×10³/μL</div>
+          <div className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: 'var(--gray-400)' }}>PL（輸前）</div>
+          <div className="text-3xl font-black" style={{ color: 'var(--gray-800)' }}>{prePlt}</div>
+          <div className="text-xs mt-0.5" style={{ color: 'var(--gray-400)' }}>×10³/μL</div>
         </div>
         <div className="flex flex-col items-center gap-1 flex-shrink-0">
           <div className="text-xl font-bold" style={{ color: '#2980b9' }}>→</div>
           <div className="text-xs font-medium" style={{ color: '#2980b9' }}>+{result.deltaPlt}</div>
         </div>
-        <div className="flex-1 p-4 rounded-2xl text-center" style={{ background: `rgba(${color === '#27ae60' ? '39,174,96' : color === '#f39c12' ? '243,156,18' : '231,76,60'},0.1)`, border: `1.5px solid ${color}40` }}>
-          <div className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#888' }}>PH（預測輸後）</div>
+        <div className="flex-1 p-4 rounded-2xl text-center" style={{ background: `rgba(${color === 'var(--status-ok-fg)' ? '39,174,96' : color === 'var(--status-warn-fg)' ? '243,156,18' : '231,76,60'},0.1)`, border: `1.5px solid ${color}40` }}>
+          <div className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: 'var(--gray-400)' }}>PH（預測輸後）</div>
           <div className="text-3xl font-black" style={{ color }}>{result.predictedPlt}</div>
-          <div className="text-xs mt-0.5" style={{ color: '#9ca3af' }}>×10³/μL</div>
+          <div className="text-xs mt-0.5" style={{ color: 'var(--gray-400)' }}>×10³/μL</div>
         </div>
       </div>
 
-      <div className="text-xs text-center" style={{ color: '#9ca3af' }}>
+      <div className="text-xs text-center" style={{ color: 'var(--gray-400)' }}>
         預測範圍：{result.confidenceLow} – {result.confidenceHigh} ×10³/μL
       </div>
 
@@ -99,18 +99,18 @@ export default function PltPredictorWidget() {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={curve}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.07)" />
-            <XAxis dataKey="units" tick={{ fill: '#888', fontSize: 11 }} label={{ value: '袋數', position: 'insideBottom', offset: -2, fill: '#888', fontSize: 11 }} />
-            <YAxis tick={{ fill: '#888', fontSize: 11 }} domain={[Math.max(0, prePlt - 20), 'auto']} />
-            <Tooltip formatter={(v) => [`${v} ×10³/μL`, 'PLT']} contentStyle={{ background: 'white', border: '1px solid rgba(41,128,185,0.3)', borderRadius: 8, color: '#1a1a1a' }} />
-            <ReferenceLine y={50} stroke="#f39c12" strokeDasharray="4 4" label={{ value: '50', fill: '#f39c12', fontSize: 10 }} />
-            <ReferenceLine y={150} stroke="#27ae60" strokeDasharray="4 4" label={{ value: '150', fill: '#27ae60', fontSize: 10 }} />
+            <XAxis dataKey="units" tick={{ fill: 'var(--gray-400)', fontSize: 11 }} label={{ value: '袋數', position: 'insideBottom', offset: -2, fill: 'var(--gray-400)', fontSize: 11 }} />
+            <YAxis tick={{ fill: 'var(--gray-400)', fontSize: 11 }} domain={[Math.max(0, prePlt - 20), 'auto']} />
+            <Tooltip formatter={(v) => [`${v} ×10³/μL`, 'PLT']} contentStyle={{ background: 'white', border: '1px solid rgba(41,128,185,0.3)', borderRadius: 8, color: 'var(--gray-800)' }} />
+            <ReferenceLine y={50} stroke="#f39c12" strokeDasharray="4 4" label={{ value: '50', fill: 'var(--status-warn-fg)', fontSize: 10 }} />
+            <ReferenceLine y={150} stroke="#27ae60" strokeDasharray="4 4" label={{ value: '150', fill: 'var(--status-ok-fg)', fontSize: 10 }} />
             <ReferenceLine x={units} stroke="#2980b9" strokeDasharray="4 4" />
             <Line type="monotone" dataKey="plt" stroke="#2980b9" strokeWidth={2.5} dot={{ fill: '#2980b9', r: 4 }} activeDot={{ r: 6 }} />
           </LineChart>
         </ResponsiveContainer>
       </div>
 
-      <p className="text-xs text-center px-2" style={{ color: '#9ca3af' }}>⚠️ {t('tab6.predictor.disclaimer')}</p>
+      <p className="text-xs text-center px-2" style={{ color: 'var(--gray-400)' }}>⚠️ {t('tab6.predictor.disclaimer')}</p>
     </div>
   )
 }

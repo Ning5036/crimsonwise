@@ -188,40 +188,25 @@ export default function Tab8_Survey() {
 
             {/* Suggestions */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="field-label">
                 {t("tab8.suggestionsLabel")} {t("app.optional")}
               </label>
               <textarea
+                className="input-field"
                 rows={3}
                 value={survey.suggestions}
                 onChange={(e) => updateSurvey({ suggestions: e.target.value })}
                 placeholder={t("tab8.suggestionsPlaceholder")}
-                className="w-full px-3 py-2 rounded-xl text-white text-sm resize-none"
-                style={{
-                  background: "rgba(0,0,0,0.04)",
-                  border: "1px solid rgba(192,57,43,0.3)",
-                  outline: "none",
-                }}
+                style={{ resize: "none", fontSize: "0.9rem" }}
               />
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
               onClick={handleSubmit}
               disabled={!survey.satisfaction}
-              className="w-full py-4 rounded-xl font-bold text-lg transition-all"
-              style={{
-                background: survey.satisfaction
-                  ? "linear-gradient(135deg,#c0392b,#e74c3c)"
-                  : "rgba(0,0,0,0.06)",
-                color: survey.satisfaction ? "white" : "#666",
-                border: "none",
-                cursor: survey.satisfaction ? "pointer" : "not-allowed",
-                boxShadow: survey.satisfaction
-                  ? "0 4px 20px rgba(192,57,43,0.4)"
-                  : "none",
-              }}
+              className="btn btn-primary btn-lg w-full"
             >
               ⭐ {t("tab8.submitSurvey")}
             </motion.button>

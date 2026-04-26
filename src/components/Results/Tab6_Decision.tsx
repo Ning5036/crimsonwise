@@ -1,26 +1,30 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { motion, AnimatePresence } from 'framer-motion'
-import { usePatientStore } from '../../store/patientStore'
-import { saveSession } from '../../store/statsStore'
-import { assessRisk } from '../../utils/riskAssessment'
-import HbPredictorWidget from '../Charts/HbPredictorWidget'
-import PltPredictorWidget from '../Charts/PltPredictorWidget'
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePatientStore } from "../../store/patientStore";
+import { saveSession } from "../../store/statsStore";
+import { assessRisk } from "../../utils/riskAssessment";
+import HbPredictorWidget from "../Charts/HbPredictorWidget";
+import PltPredictorWidget from "../Charts/PltPredictorWidget";
 
-interface Props { onDecisionMade?: () => void }
+interface Props {
+  onDecisionMade?: () => void;
+}
 
 export default function Tab6_Decision({ onDecisionMade }: Props) {
-  const { t, i18n } = useTranslation()
-  const { patient, decision, updateDecision, survey } = usePatientStore()
-  const [predictorTab, setPredictorTab] = useState<'hb' | 'plt'>('hb')
-  const [confirmModal, setConfirmModal] = useState<'transfuse' | 'no_transfuse' | null>(null)
+  const { t, i18n } = useTranslation();
+  const { patient, decision, updateDecision, survey } = usePatientStore();
+  const [predictorTab, setPredictorTab] = useState<"hb" | "plt">("hb");
+  const [confirmModal, setConfirmModal] = useState<
+    "transfuse" | "no_transfuse" | null
+  >(null);
 
-  const showPlt = patient.plt !== null
+  const showPlt = patient.plt !== null;
 
-  const handleConfirm = (d: 'transfuse' | 'no_transfuse') => {
-    const risk = assessRisk(patient)
-    const timestamp = new Date().toISOString()
-    updateDecision({ decision: d, timestamp })
+  const handleConfirm = (d: "transfuse" | "no_transfuse") => {
+    const risk = assessRisk(patient);
+    const timestamp = new Date().toISOString();
+    updateDecision({ decision: d, timestamp });
 
     // Save session record
     saveSession({
@@ -28,21 +32,21 @@ export default function Tab6_Decision({ onDecisionMade }: Props) {
       timestamp,
       lang: i18n.language,
       age: patient.age,
-      sex: patient.sex ?? '',
+      sex: patient.sex ?? "",
       isVegetarian: patient.isVegetarian,
       weightKg: patient.weightKg,
       heightCm: patient.heightCm,
-      medicalHistory: patient.medicalHistory.join(', '),
-      medications: patient.medications.join(', '),
+      medicalHistory: patient.medicalHistory.join(", "),
+      medications: patient.medications.join(", "),
       hb: patient.hb,
       plt: patient.plt,
       ptInr: patient.ptInr,
       apttInr: patient.apttInr,
       albumin: patient.albumin,
       gfr: patient.gfr,
-      symptoms: patient.symptoms.join(', '),
+      symptoms: patient.symptoms.join(", "),
       symptomsOther: patient.symptomsOther,
-      clinicalScenarios: patient.clinicalScenarios.join(', '),
+      clinicalScenarios: patient.clinicalScenarios.join(", "),
       clinicalOther: patient.clinicalOther,
       decision: d,
       decisionReason: decision.reason,
@@ -54,103 +58,236 @@ export default function Tab6_Decision({ onDecisionMade }: Props) {
       predictedPlt: decision.predictedPlt,
       riskLevel: risk.urgency,
       satisfaction: survey.satisfaction,
-      betterUnderstanding: survey.betterUnderstanding ?? '',
+      betterUnderstanding: survey.betterUnderstanding ?? "",
       suggestions: survey.suggestions,
-    })
+    });
 
-    setConfirmModal(null)
-    onDecisionMade?.()
-  }
+    setConfirmModal(null);
+    onDecisionMade?.();
+  };
 
   return (
     <div className="space-y-5">
       {/* Predictor */}
-      <div className="glass-card p-4">
-        <h3 className="font-bold mb-3" style={{ color: '#1a1a1a' }}>🔢 {t('tab6.predictor.title')}</h3>
+      <div className="glass-card" style={{ padding: "1.25rem" }}>
+        <h3
+          className="font-semibold mb-3 text-base"
+          style={{ color: "var(--gray-800)" }}
+        >
+          🔢 {t("tab6.predictor.title")}
+        </h3>
         <div className="flex gap-2 mb-4">
-          <button onClick={() => setPredictorTab('hb')}
-            className="flex-1 py-2 rounded-xl text-sm font-medium transition-all"
-            style={{ background: predictorTab === 'hb' ? 'linear-gradient(135deg,#c0392b,#e74c3c)' : 'rgba(0,0,0,0.05)', color: predictorTab === 'hb' ? 'white' : '#555', border: predictorTab === 'hb' ? 'none' : '1px solid rgba(0,0,0,0.1)', cursor: 'pointer' }}>
-            🩸 {t('tab6.predictor.hbTab')}
+          <button
+            onClick={() => setPredictorTab("hb")}
+            className="flex-1 text-sm transition-all"
+            style={{
+              padding: "0.5rem 0.875rem",
+              borderRadius: "var(--r-md)",
+              background:
+                predictorTab === "hb" ? "var(--crimson-500)" : "var(--gray-25)",
+              color: predictorTab === "hb" ? "#fff" : "var(--gray-600)",
+              border:
+                predictorTab === "hb"
+                  ? "1px solid var(--crimson-500)"
+                  : "1px solid var(--border)",
+              fontWeight: predictorTab === "hb" ? 700 : 500,
+              cursor: "pointer",
+            }}
+          >
+            🩸 {t("tab6.predictor.hbTab")}
           </button>
           {showPlt && (
-            <button onClick={() => setPredictorTab('plt')}
-              className="flex-1 py-2 rounded-xl text-sm font-medium transition-all"
-              style={{ background: predictorTab === 'plt' ? 'linear-gradient(135deg,#2980b9,#3498db)' : 'rgba(0,0,0,0.05)', color: predictorTab === 'plt' ? 'white' : '#555', border: predictorTab === 'plt' ? 'none' : '1px solid rgba(0,0,0,0.1)', cursor: 'pointer' }}>
-              🧫 {t('tab6.predictor.pltTab')}
+            <button
+              onClick={() => setPredictorTab("plt")}
+              className="flex-1 text-sm transition-all"
+              style={{
+                padding: "0.5rem 0.875rem",
+                borderRadius: "var(--r-md)",
+                background:
+                  predictorTab === "plt"
+                    ? "var(--status-info-fg)"
+                    : "var(--gray-25)",
+                color: predictorTab === "plt" ? "#fff" : "var(--gray-600)",
+                border:
+                  predictorTab === "plt"
+                    ? "1px solid var(--status-info-fg)"
+                    : "1px solid var(--border)",
+                fontWeight: predictorTab === "plt" ? 700 : 500,
+                cursor: "pointer",
+              }}
+            >
+              🧫 {t("tab6.predictor.pltTab")}
             </button>
           )}
         </div>
-        {predictorTab === 'hb' ? <HbPredictorWidget /> : <PltPredictorWidget />}
+        {predictorTab === "hb" ? <HbPredictorWidget /> : <PltPredictorWidget />}
       </div>
 
       {/* Reason & physician */}
-      <div className="glass-card p-4 space-y-3">
+      <div className="glass-card space-y-3" style={{ padding: "1.25rem" }}>
         <div>
-          <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>{t('tab6.reasonLabel')}</label>
-          <textarea rows={2} value={decision.reason} onChange={e => updateDecision({ reason: e.target.value })}
-            placeholder={t('tab6.reasonPlaceholder')}
-            className="w-full px-3 py-2 rounded-xl text-sm resize-none"
-            style={{ background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(192,57,43,0.25)', outline: 'none', color: '#1a1a1a' }} />
+          <label className="field-label">{t("tab6.reasonLabel")}</label>
+          <textarea
+            rows={2}
+            value={decision.reason}
+            onChange={(e) => updateDecision({ reason: e.target.value })}
+            placeholder={t("tab6.reasonPlaceholder")}
+            className="input-field"
+            style={{ resize: "none" }}
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>{t('tab6.physicianLabel')}</label>
-          <input type="text" value={decision.physicianName} onChange={e => updateDecision({ physicianName: e.target.value })}
-            placeholder={t('tab6.physicianPlaceholder')}
-            className="w-full px-3 py-2 rounded-xl text-sm"
-            style={{ background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(192,57,43,0.25)', outline: 'none', color: '#1a1a1a' }} />
+          <label className="field-label">{t("tab6.physicianLabel")}</label>
+          <input
+            type="text"
+            value={decision.physicianName}
+            onChange={(e) => updateDecision({ physicianName: e.target.value })}
+            placeholder={t("tab6.physicianPlaceholder")}
+            className="input-field"
+          />
         </div>
       </div>
 
       {/* Decision buttons */}
       <div>
-        <h3 className="font-bold text-center mb-4" style={{ color: '#1a1a1a' }}>{t('tab6.decisionTitle')}</h3>
-        <div className="grid grid-cols-2 gap-4">
-          <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-            onClick={() => setConfirmModal('transfuse')}
-            className="py-6 rounded-2xl font-bold text-lg flex flex-col items-center gap-2"
-            style={{ background: decision.decision === 'transfuse' ? 'linear-gradient(135deg,#c0392b,#e74c3c)' : 'rgba(192,57,43,0.08)', border: '2px solid rgba(192,57,43,0.4)', color: decision.decision === 'transfuse' ? 'white' : '#c0392b', cursor: 'pointer', boxShadow: decision.decision === 'transfuse' ? '0 4px 24px rgba(192,57,43,0.4)' : 'none' }}>
-            <span className="text-3xl">🩸</span>
-            <span className="text-base">{t('tab6.transfuse')}</span>
+        <h3
+          className="font-semibold text-center mb-3"
+          style={{ color: "var(--gray-800)" }}
+        >
+          {t("tab6.decisionTitle")}
+        </h3>
+        <div className="grid grid-cols-2 gap-3">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setConfirmModal("transfuse")}
+            className="font-bold flex flex-col items-center gap-2"
+            style={{
+              padding: "1.25rem 1rem",
+              borderRadius: "var(--r-lg)",
+              background:
+                decision.decision === "transfuse"
+                  ? "var(--crimson-500)"
+                  : "var(--surface)",
+              border:
+                decision.decision === "transfuse"
+                  ? "1px solid var(--crimson-500)"
+                  : "1px solid var(--crimson-100)",
+              color:
+                decision.decision === "transfuse"
+                  ? "#fff"
+                  : "var(--crimson-600)",
+              cursor: "pointer",
+              boxShadow:
+                decision.decision === "transfuse"
+                  ? "var(--shadow-crimson)"
+                  : "var(--shadow-sm)",
+              transition: "all 0.18s var(--easing)",
+            }}
+          >
+            <span className="text-3xl" aria-hidden>
+              🩸
+            </span>
+            <span className="text-sm">{t("tab6.transfuse")}</span>
           </motion.button>
-          <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-            onClick={() => setConfirmModal('no_transfuse')}
-            className="py-6 rounded-2xl font-bold flex flex-col items-center gap-2"
-            style={{ background: decision.decision === 'no_transfuse' ? 'rgba(39,174,96,0.15)' : 'rgba(0,0,0,0.03)', border: `2px solid ${decision.decision === 'no_transfuse' ? '#27ae60' : 'rgba(0,0,0,0.1)'}`, color: decision.decision === 'no_transfuse' ? '#27ae60' : '#888', cursor: 'pointer' }}>
-            <span className="text-3xl">🌿</span>
-            <span className="text-base">{t('tab6.noTransfuse')}</span>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setConfirmModal("no_transfuse")}
+            className="font-bold flex flex-col items-center gap-2"
+            style={{
+              padding: "1.25rem 1rem",
+              borderRadius: "var(--r-lg)",
+              background:
+                decision.decision === "no_transfuse"
+                  ? "var(--status-ok-bg)"
+                  : "var(--surface)",
+              border: `1px solid ${decision.decision === "no_transfuse" ? "var(--status-ok-fg)" : "var(--border)"}`,
+              color:
+                decision.decision === "no_transfuse"
+                  ? "var(--status-ok-fg)"
+                  : "var(--gray-600)",
+              cursor: "pointer",
+              boxShadow: "var(--shadow-sm)",
+              transition: "all 0.18s var(--easing)",
+            }}
+          >
+            <span className="text-3xl" aria-hidden>
+              🌿
+            </span>
+            <span className="text-sm">{t("tab6.noTransfuse")}</span>
           </motion.button>
         </div>
       </div>
 
       {decision.decision && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           className="p-3 rounded-xl text-center text-sm"
-          style={{ background: 'rgba(39,174,96,0.06)', border: '1px solid rgba(39,174,96,0.2)', color: '#555' }}>
-          ✅ 已記錄：{decision.decision === 'transfuse' ? t('tab6.transfuse') : t('tab6.noTransfuse')}
-          {decision.timestamp && <span className="text-xs ml-2" style={{ color: '#9ca3af' }}>({new Date(decision.timestamp).toLocaleString()})</span>}
+          style={{
+            background: "rgba(39,174,96,0.06)",
+            border: "1px solid rgba(39,174,96,0.2)",
+            color: "#555",
+          }}
+        >
+          ✅ 已記錄：
+          {decision.decision === "transfuse"
+            ? t("tab6.transfuse")
+            : t("tab6.noTransfuse")}
+          {decision.timestamp && (
+            <span className="text-xs ml-2" style={{ color: "var(--gray-400)" }}>
+              ({new Date(decision.timestamp).toLocaleString()})
+            </span>
+          )}
         </motion.div>
       )}
 
       {/* Confirm modal */}
       <AnimatePresence>
         {confirmModal && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 flex items-center justify-center z-50 px-4"
-            style={{ background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)' }}>
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              className="glass-card p-6 max-w-sm w-full">
-              <h3 className="font-bold text-lg mb-3 text-center" style={{ color: '#1a1a1a' }}>{t('tab6.confirmTitle')}</h3>
-              <p className="text-center mb-5 text-sm" style={{ color: '#555' }}>
-                {confirmModal === 'transfuse' ? t('tab6.confirmTransfuse') : t('tab6.confirmNo')}
+            style={{
+              background: "rgba(0,0,0,0.4)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="glass-card p-6 max-w-sm w-full"
+            >
+              <h3
+                className="font-bold text-lg mb-3 text-center"
+                style={{ color: "var(--gray-800)" }}
+              >
+                {t("tab6.confirmTitle")}
+              </h3>
+              <p
+                className="text-center mb-5 text-sm"
+                style={{ color: "var(--gray-600)", lineHeight: 1.5 }}
+              >
+                {confirmModal === "transfuse"
+                  ? t("tab6.confirmTransfuse")
+                  : t("tab6.confirmNo")}
               </p>
               <div className="flex gap-3">
-                <button onClick={() => setConfirmModal(null)} className="flex-1 py-3 rounded-xl" style={{ background: 'rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.1)', cursor: 'pointer', color: '#666' }}>
-                  {t('app.cancel')}
+                <button
+                  onClick={() => setConfirmModal(null)}
+                  className="btn btn-secondary flex-1"
+                >
+                  {t("app.cancel")}
                 </button>
-                <button onClick={() => handleConfirm(confirmModal)} className="flex-1 py-3 rounded-xl font-bold"
-                  style={{ background: 'linear-gradient(135deg,#c0392b,#e74c3c)', border: 'none', cursor: 'pointer', color: 'white' }}>
-                  {t('app.confirm')}
+                <button
+                  onClick={() => handleConfirm(confirmModal)}
+                  className="btn btn-primary flex-1"
+                >
+                  {t("app.confirm")}
                 </button>
               </div>
             </motion.div>
@@ -158,5 +295,5 @@ export default function Tab6_Decision({ onDecisionMade }: Props) {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
