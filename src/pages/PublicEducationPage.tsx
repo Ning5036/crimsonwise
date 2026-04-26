@@ -5,9 +5,72 @@ import { sbInsert, supabaseConfigured } from "../utils/supabaseClient";
 type Lang = "zh-TW" | "en" | "id" | "vi";
 
 const LANG_ORDER: Lang[] = ["zh-TW", "en", "id", "vi"];
-function nextLang(current: Lang): Lang {
-  const i = LANG_ORDER.indexOf(current);
-  return LANG_ORDER[(i + 1) % LANG_ORDER.length];
+const LANG_LABEL: Record<Lang, string> = {
+  "zh-TW": "繁中",
+  en: "EN",
+  id: "Bahasa",
+  vi: "Tiếng Việt",
+};
+
+function LangPills({
+  current,
+  onChange,
+  variant,
+}: {
+  current: Lang;
+  onChange: (l: Lang) => void;
+  variant: "light" | "dark";
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: 4,
+        flexWrap: "wrap",
+        justifyContent: "flex-end",
+      }}
+    >
+      {LANG_ORDER.map((lng) => {
+        const isActive = lng === current;
+        const isLight = variant === "light";
+        const styles: React.CSSProperties = isLight
+          ? {
+              padding: "5px 11px",
+              borderRadius: 14,
+              border: `1.5px solid ${isActive ? "var(--crimson-500)" : "var(--crimson-100)"}`,
+              background: isActive ? "var(--crimson-500)" : "#fff",
+              color: isActive ? "#fff" : "var(--crimson-600)",
+              fontSize: 11,
+              fontWeight: 700,
+              cursor: "pointer",
+              transition: "all 0.15s ease",
+              whiteSpace: "nowrap",
+            }
+          : {
+              padding: "4px 10px",
+              borderRadius: 12,
+              border: `1.5px solid ${isActive ? "#fff" : "rgba(255,255,255,0.35)"}`,
+              background: isActive ? "#fff" : "rgba(255,255,255,0.12)",
+              color: isActive ? "var(--crimson-600)" : "#fff",
+              fontSize: 11,
+              fontWeight: 700,
+              cursor: "pointer",
+              transition: "all 0.15s ease",
+              whiteSpace: "nowrap",
+            };
+        return (
+          <button
+            key={lng}
+            onClick={() => onChange(lng)}
+            aria-pressed={isActive}
+            style={styles}
+          >
+            {LANG_LABEL[lng]}
+          </button>
+        );
+      })}
+    </div>
+  );
 }
 
 type Alt = { icon: string; t: string; d: string };
@@ -2348,21 +2411,7 @@ export default function PublicEducationPage() {
             padding: "12px 16px",
           }}
         >
-          <button
-            onClick={() => setLang((l) => nextLang(l))}
-            style={{
-              padding: "6px 16px",
-              borderRadius: 20,
-              border: "1.5px solid var(--crimson-100)",
-              background: "#fff",
-              color: "var(--crimson-600)",
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: "pointer",
-            }}
-          >
-            {t.langBtn}
-          </button>
+          <LangPills current={lang} onChange={setLang} variant="light" />
         </div>
         <div
           style={{
@@ -2561,21 +2610,7 @@ export default function PublicEducationPage() {
             >
               🩸 {t.appName}
             </span>
-            <button
-              onClick={() => setLang((l) => nextLang(l))}
-              style={{
-                padding: "4px 11px",
-                borderRadius: 14,
-                border: "2px solid rgba(255,255,255,0.4)",
-                background: "rgba(255,255,255,0.15)",
-                color: "#fff",
-                fontSize: 11,
-                fontWeight: 700,
-                cursor: "pointer",
-              }}
-            >
-              {t.langBtn}
-            </button>
+            <LangPills current={lang} onChange={setLang} variant="dark" />
             <span
               style={{
                 fontSize: 12,
