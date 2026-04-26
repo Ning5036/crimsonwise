@@ -2,7 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { sbInsert, supabaseConfigured } from "../utils/supabaseClient";
 
 /* ── i18n ────────────────────────────────────────────────────────────── */
-type Lang = "zh-TW" | "en";
+type Lang = "zh-TW" | "en" | "id" | "vi";
+
+const LANG_ORDER: Lang[] = ["zh-TW", "en", "id", "vi"];
+function nextLang(current: Lang): Lang {
+  const i = LANG_ORDER.indexOf(current);
+  return LANG_ORDER[(i + 1) % LANG_ORDER.length];
+}
 
 type Alt = { icon: string; t: string; d: string };
 type Myth = { m: string; f: string; r: string };
@@ -222,7 +228,7 @@ const T: Record<Lang, Strings> = {
     restart: "Start Over",
     next: "Next →",
     prev: "← Back",
-    langBtn: "繁中",
+    langBtn: "Bahasa",
     disc: "For educational purposes only — not a diagnostic tool. Always consult your healthcare provider.",
     estTime: "Estimated time: ~5 minutes",
     stagesFull: [
@@ -375,6 +381,342 @@ const T: Record<Lang, Strings> = {
     ],
     offlineNotice: "Network busy — saved locally, will retry on next visit.",
   },
+  id: {
+    appName: "CrimsonWise",
+    appSub: "Pilihan Bijak Transfusi · Edukasi Publik",
+    home: "🩸 Seberapa banyak Anda tahu tentang transfusi darah?",
+    homeDesc:
+      "Pelajari mitos umum, alternatif transfusi, pedoman internasional, dan fakta tentang darah melalui alat interaktif ini — selesaikan kuis singkat dalam 5 menit!",
+    start: "Mulai Belajar →",
+    restart: "Mulai Ulang",
+    next: "Berikutnya →",
+    prev: "← Kembali",
+    langBtn: "Tiếng Việt",
+    disc: "Hanya untuk tujuan edukasi — bukan alat diagnosis. Selalu konsultasikan dengan tenaga medis Anda.",
+    estTime: "Perkiraan waktu: ~5 menit",
+    stagesFull: [
+      "🔍 Mitos vs Fakta",
+      "💊 Alternatif Transfusi",
+      "📚 Pedoman Klinis",
+      "🩸 Darah Sangat Berharga",
+      "📝 Kuis Pengetahuan",
+      "⭐ Umpan Balik",
+    ],
+    mythsIntro:
+      "Berikut adalah miskonsepsi paling umum tentang transfusi darah. Memahaminya membantu Anda membuat keputusan medis yang lebih bijak.",
+    s1intro:
+      "Transfusi bukan satu-satunya pilihan! Diskusikan alternatif berikut dengan dokter Anda.",
+    alts: [
+      {
+        icon: "💊",
+        t: "Suplementasi Zat Besi",
+        d: "Zat besi oral atau intravena untuk anemia defisiensi besi. Efek terlihat dalam 2–4 minggu.",
+      },
+      {
+        icon: "💉",
+        t: "Eritropoietin (EPO)",
+        d: "Merangsang sumsum tulang memproduksi sel darah merah; cocok untuk anemia karena penyakit ginjal atau kemoterapi.",
+      },
+      {
+        icon: "🥦",
+        t: "Optimasi Pola Makan",
+        d: "Makanan kaya zat besi (daging merah, kacang-kacangan, sayuran hijau) ditambah Vitamin C untuk meningkatkan penyerapan.",
+      },
+      {
+        icon: "🩸",
+        t: "Cell Salvage",
+        d: "Mengumpulkan kembali darah pasien selama operasi untuk mengurangi kebutuhan darah donor.",
+      },
+      {
+        icon: "🧪",
+        t: "Agen Hemostatik (TXA)",
+        d: "Asam traneksamat mengurangi kehilangan darah saat operasi atau trauma.",
+      },
+      {
+        icon: "🌿",
+        t: "Folat / Vitamin B12",
+        d: "Memulihkan pembentukan sel darah; terutama untuk anemia megaloblastik atau vegetarian.",
+      },
+    ],
+    myths: [
+      {
+        m: "Transfusi lebih banyak = pemulihan lebih cepat",
+        f: "Transfusi berlebihan meningkatkan risiko reaksi imun, infeksi, TRALI dan TACO. Strategi restriktif setara atau lebih unggul.",
+        r: "TRICC Trial · NEJM 1999",
+      },
+      {
+        m: "Hb rendah selalu memerlukan transfusi",
+        f: "Keputusan harus mempertimbangkan gejala, konteks klinis, dan toleransi pasien — bukan sekadar angka.",
+        r: "Carson et al. · JAMA 2016",
+      },
+      {
+        m: "Transfusi sepenuhnya aman",
+        f: "Risiko meliputi reaksi alergi, demam, TRALI (cedera paru akut), TACO (kelebihan beban sirkulasi), dan infeksi langka.",
+        r: "WHO PBM Policy Brief 2021",
+      },
+      {
+        m: "Transfusi langsung memberi efek instan",
+        f: "Sel darah merah yang ditransfusi memiliki masa hidup terbatas (80–120 hari). Pemulihan butuh waktu, dan penyebab dasar tetap perlu diobati.",
+        r: "AABB Technical Manual 2023",
+      },
+    ],
+    guideTitle: "Ambang Batas Transfusi Internasional",
+    guideNote:
+      "Ambang ini hanya referensi. Keputusan akhir harus melalui penilaian dokter.",
+    thresholds: [
+      ["Dewasa Umum", "Hb < 7 g/dL"],
+      ["Penyakit Jantung", "Hb < 8 g/dL"],
+      ["Infark Miokard Akut", "Hb < 8–10 g/dL"],
+      ["Syok Hemoragik", "Penilaian Klinis"],
+      ["Penyakit Ginjal Kronis", "Hb < 7–8 g/dL"],
+    ],
+    refs: [
+      "AABB Clinical Practice Guidelines · JAMA 2023",
+      "British Society for Haematology (BSH) · 2023",
+      "WHO Patient Blood Management · 2021",
+      "TRISS Trial · NEJM 2014",
+      "TRICC Trial · NEJM 1999",
+    ],
+    tsbt: "Taiwan Society of Blood Transfusion — Unduhan ↗",
+    bloodHero: "Setiap Kantong Darah Adalah Hadiah Kehidupan",
+    bloodSub: "Gunakan dengan bijak — buat setiap tetes berarti",
+    facts: [
+      {
+        icon: "🕐",
+        v: "Setiap 1.2 detik",
+        d: "Satu kantong digunakan di Taiwan",
+      },
+      { icon: "🩸", v: "400–500 mL", d: "Per donasi" },
+      {
+        icon: "⏳",
+        v: "35–42 hari",
+        d: "Masa simpan maksimum sel darah merah",
+      },
+      { icon: "👤", v: "1 pendonor", d: "Dapat membantu hingga 3 pasien" },
+      { icon: "🧪", v: "9 skrining", d: "Per kantong — pengujian ketat" },
+      { icon: "❤️", v: "100% sukarela", d: "Pasokan darah Taiwan" },
+    ],
+    progress: "Progres",
+    unanswered: "",
+    unanswered2: "pertanyaan tersisa",
+    submitBtn: "Kirim Jawaban →",
+    submitDisabled: "Mohon jawab semua pertanyaan terlebih dahulu",
+    correct: "✅ Benar!",
+    wrong: "❌ Salah. Jawaban yang benar:",
+    explanation: "Penjelasan",
+    score3: "Skor sempurna! 🎉",
+    score2: "2 dari 3 — bagus sekali!",
+    scoreElse: "Terus belajar!",
+    keyPoints: "Poin Penting",
+    keyList: [
+      [
+        "🩸",
+        "Dewasa umum: transfusi pada Hb < 7 g/dL bila bergejala; pasien jantung pada Hb < 8 g/dL.",
+      ],
+      [
+        "🔍",
+        "Transfusi lebih banyak ≠ hasil lebih baik — strategi restriktif setara dengan strategi liberal.",
+      ],
+      [
+        "❤️",
+        "Sel darah merah bertahan 35–42 hari. Pasokan Taiwan 100% sukarela — satu pendonor membantu hingga 3 pasien.",
+      ],
+    ],
+    nextAfterQuiz: "Lanjutkan →",
+    quizBackWarn:
+      "Hasil kuis Anda akan tetap terlihat di halaman ini. Tetap kembali?",
+    shareBtn: "Bagikan Alat Ini 🔗",
+    shareCopied: "✅ Tautan Disalin!",
+    shareTitle: "CrimsonWise – Dukungan Keputusan Transfusi",
+    shareText:
+      "Pelajari tentang transfusi darah melalui alat interaktif ini dan ikuti kuis pengetahuan!",
+    satTitle: "Kepuasan Keseluruhan",
+    satQ: "Apakah alat ini meningkatkan pemahaman Anda tentang transfusi darah?",
+    satOpts: [
+      "Sama sekali tidak membantu",
+      "Tidak membantu",
+      "Netral",
+      "Membantu",
+      "Sangat membantu",
+    ],
+    satSug: "Saran (opsional)",
+    satPh: "Bagikan pemikiran Anda…",
+    satBtn: "Kirim",
+    satTy: "🎉 Terima Kasih atas Partisipasi Anda!",
+    satFin:
+      "Tanggapan Anda telah direkam. Transfusi adalah keputusan medis penting — selalu diskusikan dengan tim medis Anda.",
+    slogans: [
+      "🩸 Selamatkan Satu Kantong, Selamatkan Satu Nyawa",
+      "💡 Transfusi Bijak Menyelamatkan Nyawa",
+      "🎯 Hb 7 Sudah Cukup",
+    ],
+    offlineNotice:
+      "Jaringan sibuk — disimpan lokal, akan dicoba lagi pada kunjungan berikutnya.",
+  },
+  vi: {
+    appName: "CrimsonWise",
+    appSub: "Lựa chọn Truyền máu Sáng suốt · Phiên bản Cộng đồng",
+    home: "🩸 Bạn hiểu bao nhiêu về truyền máu?",
+    homeDesc:
+      "Tìm hiểu về những hiểu lầm phổ biến, các phương pháp thay thế truyền máu, hướng dẫn quốc tế và kiến thức về máu — hoàn thành bài kiểm tra ngắn trong 5 phút!",
+    start: "Bắt đầu học →",
+    restart: "Bắt đầu lại",
+    next: "Tiếp theo →",
+    prev: "← Quay lại",
+    langBtn: "繁中",
+    disc: "Chỉ dành cho mục đích giáo dục — không phải công cụ chẩn đoán. Vui lòng tham vấn nhân viên y tế của bạn.",
+    estTime: "Thời gian ước tính: khoảng 5 phút",
+    stagesFull: [
+      "🔍 Phá vỡ hiểu lầm",
+      "💊 Phương pháp thay thế",
+      "📚 Hướng dẫn lâm sàng",
+      "🩸 Máu rất quý giá",
+      "📝 Bài kiểm tra",
+      "⭐ Đánh giá",
+    ],
+    mythsIntro:
+      "Đây là những hiểu lầm phổ biến nhất về truyền máu. Hiểu rõ chúng giúp bạn đưa ra quyết định y tế sáng suốt hơn.",
+    s1intro:
+      "Truyền máu không phải là lựa chọn duy nhất! Hãy thảo luận các phương pháp thay thế sau với bác sĩ của bạn.",
+    alts: [
+      {
+        icon: "💊",
+        t: "Bổ sung sắt",
+        d: "Sắt uống hoặc tiêm tĩnh mạch cho thiếu máu thiếu sắt. Hiệu quả sau 2–4 tuần.",
+      },
+      {
+        icon: "💉",
+        t: "Erythropoietin (EPO)",
+        d: "Kích thích tủy xương sản xuất hồng cầu, phù hợp cho thiếu máu do bệnh thận hoặc hóa trị.",
+      },
+      {
+        icon: "🥦",
+        t: "Tối ưu chế độ ăn",
+        d: "Thực phẩm giàu sắt (thịt đỏ, đậu, rau lá xanh đậm) cùng Vitamin C để tăng hấp thu.",
+      },
+      {
+        icon: "🩸",
+        t: "Tái sử dụng máu (Cell Salvage)",
+        d: "Thu lại máu của chính bệnh nhân trong phẫu thuật để giảm nhu cầu máu hiến.",
+      },
+      {
+        icon: "🧪",
+        t: "Thuốc cầm máu (TXA)",
+        d: "Acid tranexamic giảm mất máu trong phẫu thuật hoặc chấn thương.",
+      },
+      {
+        icon: "🌿",
+        t: "Folate / Vitamin B12",
+        d: "Phục hồi tạo máu, đặc biệt cho thiếu máu hồng cầu khổng lồ hoặc người ăn chay.",
+      },
+    ],
+    myths: [
+      {
+        m: "Truyền máu càng nhiều = hồi phục càng nhanh",
+        f: "Truyền máu quá mức làm tăng nguy cơ phản ứng miễn dịch, nhiễm trùng, TRALI và TACO. Chiến lược hạn chế không thua kém hoặc tốt hơn.",
+        r: "TRICC Trial · NEJM 1999",
+      },
+      {
+        m: "Hb thấp luôn cần truyền máu",
+        f: "Quyết định phải dựa trên triệu chứng, bối cảnh lâm sàng và sức chịu đựng — không chỉ con số.",
+        r: "Carson et al. · JAMA 2016",
+      },
+      {
+        m: "Truyền máu hoàn toàn an toàn",
+        f: "Nguy cơ bao gồm phản ứng dị ứng, sốt, TRALI (tổn thương phổi cấp), TACO (quá tải tuần hoàn) và nhiễm trùng hiếm gặp.",
+        r: "WHO PBM Policy Brief 2021",
+      },
+      {
+        m: "Truyền máu có tác dụng tức thì",
+        f: "Hồng cầu truyền vào có tuổi thọ giới hạn (80–120 ngày). Phục hồi cần thời gian, và nguyên nhân nền vẫn cần được điều trị.",
+        r: "AABB Technical Manual 2023",
+      },
+    ],
+    guideTitle: "Ngưỡng Truyền máu Quốc tế",
+    guideNote:
+      "Các ngưỡng này chỉ mang tính tham khảo. Quyết định cuối cùng cần đánh giá của bác sĩ.",
+    thresholds: [
+      ["Người lớn nói chung", "Hb < 7 g/dL"],
+      ["Bệnh tim", "Hb < 8 g/dL"],
+      ["Nhồi máu cơ tim cấp", "Hb < 8–10 g/dL"],
+      ["Sốc mất máu", "Đánh giá lâm sàng"],
+      ["Bệnh thận mạn", "Hb < 7–8 g/dL"],
+    ],
+    refs: [
+      "AABB Clinical Practice Guidelines · JAMA 2023",
+      "British Society for Haematology (BSH) · 2023",
+      "WHO Patient Blood Management · 2021",
+      "TRISS Trial · NEJM 2014",
+      "TRICC Trial · NEJM 1999",
+    ],
+    tsbt: "Hội Truyền máu Đài Loan — Tải xuống ↗",
+    bloodHero: "Mỗi Đơn vị Máu là Một Món Quà Sự Sống",
+    bloodSub: "Sử dụng khôn ngoan — trân trọng từng giọt",
+    facts: [
+      { icon: "🕐", v: "Mỗi 1.2 giây", d: "Một đơn vị được dùng tại Đài Loan" },
+      { icon: "🩸", v: "400–500 mL", d: "Mỗi lần hiến" },
+      { icon: "⏳", v: "35–42 ngày", d: "Hạn bảo quản tối đa của hồng cầu" },
+      { icon: "👤", v: "1 người hiến", d: "Có thể giúp tối đa 3 bệnh nhân" },
+      { icon: "🧪", v: "9 xét nghiệm", d: "Mỗi đơn vị — kiểm tra nghiêm ngặt" },
+      { icon: "❤️", v: "100% tự nguyện", d: "Nguồn máu của Đài Loan" },
+    ],
+    progress: "Tiến độ",
+    unanswered: "",
+    unanswered2: "câu hỏi còn lại",
+    submitBtn: "Gửi câu trả lời →",
+    submitDisabled: "Vui lòng trả lời tất cả các câu hỏi trước",
+    correct: "✅ Chính xác!",
+    wrong: "❌ Sai. Đáp án đúng:",
+    explanation: "Giải thích",
+    score3: "Điểm tuyệt đối! 🎉",
+    score2: "Đúng 2 trên 3 — rất tốt!",
+    scoreElse: "Hãy tiếp tục học hỏi!",
+    keyPoints: "Điểm chính",
+    keyList: [
+      [
+        "🩸",
+        "Người lớn nói chung: truyền khi Hb < 7 g/dL có triệu chứng; bệnh nhân tim mạch khi Hb < 8 g/dL.",
+      ],
+      [
+        "🔍",
+        "Truyền nhiều hơn ≠ kết quả tốt hơn — chiến lược hạn chế không thua kém chiến lược tự do.",
+      ],
+      [
+        "❤️",
+        "Hồng cầu sống được 35–42 ngày. Nguồn máu Đài Loan 100% tự nguyện — một người hiến giúp tối đa 3 bệnh nhân.",
+      ],
+    ],
+    nextAfterQuiz: "Tiếp tục →",
+    quizBackWarn:
+      "Kết quả bài kiểm tra của bạn vẫn sẽ được hiển thị trên trang này. Vẫn quay lại?",
+    shareBtn: "Chia sẻ công cụ này 🔗",
+    shareCopied: "✅ Đã sao chép liên kết!",
+    shareTitle: "CrimsonWise – Hỗ trợ Quyết định Truyền máu",
+    shareText:
+      "Tìm hiểu về truyền máu qua công cụ tương tác này và làm bài kiểm tra kiến thức!",
+    satTitle: "Mức độ hài lòng tổng thể",
+    satQ: "Công cụ này có cải thiện hiểu biết của bạn về truyền máu không?",
+    satOpts: [
+      "Hoàn toàn không hữu ích",
+      "Không hữu ích",
+      "Bình thường",
+      "Hữu ích",
+      "Rất hữu ích",
+    ],
+    satSug: "Góp ý (tùy chọn)",
+    satPh: "Chia sẻ suy nghĩ của bạn…",
+    satBtn: "Gửi",
+    satTy: "🎉 Cảm ơn bạn đã tham gia!",
+    satFin:
+      "Phản hồi của bạn đã được ghi nhận. Truyền máu là một quyết định y tế quan trọng — luôn thảo luận với đội ngũ y tế của bạn.",
+    slogans: [
+      "🩸 Cứu một đơn vị, cứu một mạng người",
+      "💡 Truyền máu khôn ngoan cứu mạng",
+      "🎯 Hb 7 là đủ",
+    ],
+    offlineNotice:
+      "Mạng đang bận — đã lưu cục bộ, sẽ thử lại trong lần truy cập tiếp theo.",
+  },
 };
 
 type QuizItem = {
@@ -481,6 +823,118 @@ const QUIZ: Record<Lang, QuizItem[]> = {
       src: "CrimsonWise Education · Taiwan Blood Services Foundation",
     },
   ],
+  id: [
+    {
+      id: 1,
+      q: "Menurut pedoman internasional, kapan transfusi sebaiknya dipertimbangkan untuk dewasa umum?",
+      opts: [
+        { l: "A", t: "Saat Hb < 10 g/dL dan pasien merasa lelah" },
+        { l: "B", t: "Saat Hb < 7 g/dL dengan gejala anemia" },
+        { l: "C", t: "Segera saat hemoglobin di bawah normal" },
+        { l: "D", t: "Sedini mungkin untuk mencegah perburukan" },
+      ],
+      ans: "B",
+      exp: "Menurut AABB (2023), ambangnya adalah Hb < 7 g/dL dengan gejala anemia. Pasien jantung: Hb < 8 g/dL. Angka saja tidak cukup.",
+      src: "AABB Clinical Practice Guidelines · JAMA 2023",
+    },
+    {
+      id: 2,
+      q: "Manakah dari pernyataan berikut yang merupakan mitos transfusi yang sebenarnya tidak benar?",
+      opts: [
+        {
+          l: "A",
+          t: "Transfusi dapat menyebabkan reaksi alergi, demam, atau TRALI",
+        },
+        {
+          l: "B",
+          t: "Lebih banyak transfusi berarti pemulihan lebih cepat dan lebih bertenaga",
+        },
+        {
+          l: "C",
+          t: "Suplemen zat besi dan EPO dapat menjadi alternatif transfusi",
+        },
+        {
+          l: "D",
+          t: "Strategi transfusi restriktif tidak kalah dengan strategi liberal",
+        },
+      ],
+      ans: "B",
+      exp: "TRICC Trial (NEJM 1999) menunjukkan strategi restriktif memiliki mortalitas 30 hari yang setara, dengan beberapa subkelompok lebih baik. Transfusi berlebihan meningkatkan risiko.",
+      src: "Hébert et al., NEJM 1999 · TRICC Trial",
+    },
+    {
+      id: 3,
+      q: "Pernyataan manakah tentang sumber daya darah yang benar?",
+      opts: [
+        { l: "A", t: "Sel darah merah dapat disimpan tanpa batas waktu" },
+        { l: "B", t: "Setiap pendonor hanya dapat membantu satu pasien" },
+        {
+          l: "C",
+          t: "Pasokan darah Taiwan bergantung pada pengumpulan yang diwajibkan pemerintah",
+        },
+        {
+          l: "D",
+          t: "Sel darah merah bertahan 35–42 hari dan pasokan 100% sukarela",
+        },
+      ],
+      ans: "D",
+      exp: "Sel darah merah bertahan 35–42 hari. Pasokan Taiwan 100% sukarela — setiap pendonor membantu hingga 3 pasien, dan setiap kantong melalui 9 uji skrining.",
+      src: "CrimsonWise Education · Taiwan Blood Services Foundation",
+    },
+  ],
+  vi: [
+    {
+      id: 1,
+      q: "Theo hướng dẫn quốc tế, khi nào nên cân nhắc truyền máu cho người lớn nói chung?",
+      opts: [
+        { l: "A", t: "Khi Hb < 10 g/dL và bệnh nhân cảm thấy mệt mỏi" },
+        { l: "B", t: "Khi Hb < 7 g/dL kèm triệu chứng thiếu máu" },
+        { l: "C", t: "Ngay khi hemoglobin dưới mức bình thường" },
+        { l: "D", t: "Càng sớm càng tốt để ngăn diễn tiến xấu" },
+      ],
+      ans: "B",
+      exp: "Theo AABB (2023), ngưỡng là Hb < 7 g/dL kèm triệu chứng thiếu máu. Bệnh nhân tim mạch: Hb < 8 g/dL. Chỉ con số là không đủ.",
+      src: "AABB Clinical Practice Guidelines · JAMA 2023",
+    },
+    {
+      id: 2,
+      q: "Phát biểu nào sau đây là một hiểu lầm phổ biến về truyền máu thực tế là sai?",
+      opts: [
+        { l: "A", t: "Truyền máu có thể gây phản ứng dị ứng, sốt hoặc TRALI" },
+        {
+          l: "B",
+          t: "Truyền máu càng nhiều thì hồi phục càng nhanh và khỏe hơn",
+        },
+        {
+          l: "C",
+          t: "Bổ sung sắt và EPO có thể là phương pháp thay thế truyền máu",
+        },
+        {
+          l: "D",
+          t: "Chiến lược truyền máu hạn chế không thua kém chiến lược tự do",
+        },
+      ],
+      ans: "B",
+      exp: "TRICC Trial (NEJM 1999) cho thấy chiến lược hạn chế có tỷ lệ tử vong 30 ngày tương đương, một số phân nhóm còn tốt hơn. Truyền quá nhiều làm tăng nguy cơ.",
+      src: "Hébert et al., NEJM 1999 · TRICC Trial",
+    },
+    {
+      id: 3,
+      q: "Phát biểu nào sau đây về nguồn máu là đúng?",
+      opts: [
+        { l: "A", t: "Hồng cầu có thể bảo quản vô thời hạn" },
+        { l: "B", t: "Mỗi người hiến chỉ có thể giúp một bệnh nhân" },
+        {
+          l: "C",
+          t: "Nguồn máu Đài Loan dựa vào thu thập bắt buộc của chính phủ",
+        },
+        { l: "D", t: "Hồng cầu sống 35–42 ngày và nguồn cung 100% tự nguyện" },
+      ],
+      ans: "D",
+      exp: "Hồng cầu sống 35–42 ngày. Nguồn máu Đài Loan 100% tự nguyện — mỗi người hiến giúp tối đa 3 bệnh nhân, và mỗi đơn vị qua 9 xét nghiệm sàng lọc.",
+      src: "CrimsonWise Education · Taiwan Blood Services Foundation",
+    },
+  ],
 };
 
 /* ── Submission handling (Supabase + local fallback queue) ────────────── */
@@ -493,6 +947,8 @@ type Feedback = {
   stars: number;
   concept: string;
   suggestion: string;
+  quiz_score: number | null;
+  quiz_total: number | null;
 };
 
 function newClientId(): string {
@@ -533,6 +989,8 @@ async function saveSubmission(
   concept: string,
   suggestion: string,
   lang: Lang,
+  quizScore: number | null,
+  quizTotal: number | null,
 ): Promise<{ ok: boolean; queued: boolean }> {
   const row: Feedback = {
     client_id: newClientId(),
@@ -541,6 +999,8 @@ async function saveSubmission(
     stars,
     concept,
     suggestion,
+    quiz_score: quizScore,
+    quiz_total: quizTotal,
   };
   if (!supabaseConfigured()) {
     const q: Feedback[] = JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]");
@@ -986,7 +1446,7 @@ function SQuiz({
   lang: Lang;
   t: Strings;
   onDone: () => void;
-  onSubmitted: () => void;
+  onSubmitted: (score: number, total: number) => void;
 }) {
   const questions = QUIZ[lang];
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -1004,7 +1464,7 @@ function SQuiz({
   const handleSubmit = () => {
     if (!allAnswered) return;
     setSub(true);
-    onSubmitted();
+    onSubmitted(score, questions.length);
     setTimeout(() => {
       anchorRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
       document.querySelector("[data-scroll]")?.scrollTo(0, 0);
@@ -1525,10 +1985,14 @@ function SSat({
   lang,
   t,
   onRestart,
+  quizScore,
+  quizTotal,
 }: {
   lang: Lang;
   t: Strings;
   onRestart: () => void;
+  quizScore: number | null;
+  quizTotal: number | null;
 }) {
   const [stars, setStars] = useState(0);
   const [concept, setConcept] = useState("");
@@ -1627,7 +2091,14 @@ function SSat({
   const handleSubmit = async () => {
     if (!ready || sending) return;
     setSending(true);
-    const res = await saveSubmission(stars, concept, sug, lang);
+    const res = await saveSubmission(
+      stars,
+      concept,
+      sug,
+      lang,
+      quizScore,
+      quizTotal,
+    );
     setQueued(res.queued);
     setDone(true);
     setSending(false);
@@ -1774,6 +2245,8 @@ export default function PublicEducationPage() {
   const [page, setPage] = useState(0);
   const [visible, setVisible] = useState(true);
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+  const [quizScore, setQuizScore] = useState<number | null>(null);
+  const [quizTotal, setQuizTotal] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const bottomInset = useBottomInset();
@@ -1802,6 +2275,8 @@ export default function PublicEducationPage() {
     setPhase("home");
     setPage(0);
     setQuizSubmitted(false);
+    setQuizScore(null);
+    setQuizTotal(null);
   };
 
   const handleBack = () => {
@@ -1829,11 +2304,23 @@ export default function PublicEducationPage() {
             lang={lang}
             t={t}
             onDone={() => goTo(5)}
-            onSubmitted={() => setQuizSubmitted(true)}
+            onSubmitted={(score, total) => {
+              setQuizSubmitted(true);
+              setQuizScore(score);
+              setQuizTotal(total);
+            }}
           />
         );
       case 5:
-        return <SSat lang={lang} t={t} onRestart={restart} />;
+        return (
+          <SSat
+            lang={lang}
+            t={t}
+            onRestart={restart}
+            quizScore={quizScore}
+            quizTotal={quizTotal}
+          />
+        );
       default:
         return null;
     }
@@ -1862,7 +2349,7 @@ export default function PublicEducationPage() {
           }}
         >
           <button
-            onClick={() => setLang((l) => (l === "zh-TW" ? "en" : "zh-TW"))}
+            onClick={() => setLang((l) => nextLang(l))}
             style={{
               padding: "6px 16px",
               borderRadius: 20,
@@ -2075,7 +2562,7 @@ export default function PublicEducationPage() {
               🩸 {t.appName}
             </span>
             <button
-              onClick={() => setLang((l) => (l === "zh-TW" ? "en" : "zh-TW"))}
+              onClick={() => setLang((l) => nextLang(l))}
               style={{
                 padding: "4px 11px",
                 borderRadius: 14,

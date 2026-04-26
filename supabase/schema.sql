@@ -8,11 +8,13 @@ create table if not exists public.public_feedback (
   id          uuid primary key default gen_random_uuid(),
   created_at  timestamptz not null default now(),
   ts          timestamptz,
-  lang        text not null check (lang in ('zh-TW','en')),
+  lang        text not null check (lang in ('zh-TW','en','id','vi')),
   stars       smallint not null check (stars between 1 and 5),
   concept     text not null,
   suggestion  text,
-  client_id   uuid
+  client_id   uuid,
+  quiz_score  smallint,
+  quiz_total  smallint
 );
 
 -- Partial unique index: legacy rows with NULL client_id are allowed; new rows
