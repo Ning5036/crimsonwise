@@ -31,175 +31,160 @@ export default function LandingPage() {
   };
 
   return (
-    <div
-      className="min-h-screen flex flex-col bg-grid"
-      style={{
-        background:
-          "linear-gradient(180deg,#FFF5F3 0%,#FFF0EE 50%,#FFF5F3 100%)",
-      }}
-    >
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-14">
+    <div className="min-h-screen flex flex-col bg-app bg-grid">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 py-16">
         {/* Hero */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
+        <motion.section
+          initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
           className="text-center mb-12 w-full max-w-xl"
         >
           <motion.div
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-            className="text-8xl mb-5 drop-shadow-sm"
+            animate={{ scale: [1, 1.04, 1] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+            className="text-7xl mb-5"
           >
             🩸
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl font-black mb-3 crimson-text tracking-tight">
+          <h1 className="text-5xl sm:text-6xl font-black mb-4 crimson-text tracking-tight leading-none">
             {t("app.name")}
           </h1>
 
           {/* Edition badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.25 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-3"
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center gap-2 mb-4 tag tag-neutral"
             style={{
-              background:
-                "linear-gradient(135deg,rgba(192,57,43,0.12),rgba(231,76,60,0.08))",
-              border: "1.5px solid rgba(192,57,43,0.35)",
+              paddingTop: 6,
+              paddingBottom: 6,
+              paddingLeft: 12,
+              paddingRight: 12,
             }}
           >
-            <span className="text-sm">🏥</span>
+            <span style={{ color: "var(--crimson-500)" }}>🏥</span>
             <span
-              className="text-sm font-black tracking-widest"
-              style={{ color: "#c0392b", letterSpacing: "0.12em" }}
+              style={{
+                color: "var(--crimson-600)",
+                letterSpacing: "0.10em",
+                fontWeight: 700,
+              }}
             >
               {t("app.edition")}
             </span>
             <span
               className="w-1 h-1 rounded-full"
-              style={{ background: "rgba(192,57,43,0.4)" }}
+              style={{ background: "var(--gray-300)" }}
             />
-            <span className="text-xs font-medium" style={{ color: "#888" }}>
+            <span style={{ color: "var(--gray-500)", fontWeight: 500 }}>
               {t("app.editionFor")}
             </span>
           </motion.div>
 
-          <div
-            className="text-2xl sm:text-3xl font-bold mb-1"
-            style={{ color: "#1a1a1a" }}
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight"
+            style={{ color: "var(--gray-800)" }}
           >
             {t("app.tagline")}
-          </div>
-          <div className="text-base mb-6 font-medium" style={{ color: "#888" }}>
+          </h2>
+          <p className="text-base mb-7" style={{ color: "var(--gray-500)" }}>
             「{t("app.subtitle")}」
-          </div>
+          </p>
 
           {/* Stats badges */}
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <div
-              className="flex items-center gap-2 px-4 py-2 rounded-full"
-              style={{
-                background: "rgba(39,174,96,0.1)",
-                border: "1px solid rgba(39,174,96,0.25)",
-              }}
-            >
+          <div className="flex items-center justify-center gap-2.5 mb-2 flex-wrap">
+            <span className="tag tag-ok">
               <span
-                className="w-2 h-2 rounded-full animate-pulse inline-block"
-                style={{ background: "#27ae60" }}
+                className="w-1.5 h-1.5 rounded-full animate-pulse inline-block"
+                style={{ background: "var(--status-ok-fg)" }}
               />
-              <span className="text-sm" style={{ color: "#27ae60" }}>
-                {t("stats.today")}: <strong>{todayCount}</strong>
-              </span>
-            </div>
-            <div
-              className="flex items-center gap-2 px-4 py-2 rounded-full"
-              style={{
-                background: "rgba(192,57,43,0.08)",
-                border: "1px solid rgba(192,57,43,0.2)",
-              }}
-            >
-              <span className="text-sm" style={{ color: "#c0392b" }}>
-                👥 {t("stats.total")}: <strong>{totalCount}</strong>
-              </span>
-            </div>
+              {t("stats.today")}:{" "}
+              <strong className="ml-0.5">{todayCount}</strong>
+            </span>
+            <span className="tag tag-urgent">
+              👥 {t("stats.total")}:{" "}
+              <strong className="ml-0.5">{totalCount}</strong>
+            </span>
           </div>
-        </motion.div>
+        </motion.section>
 
         {/* Features grid */}
-        <motion.div
+        <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl w-full mb-12"
+          transition={{ delay: 0.25 }}
+          className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-3xl w-full mb-12"
         >
           {FEATURES.map((f, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + i * 0.08 }}
-              className="glass-card p-4 flex items-start gap-3"
+              transition={{ delay: 0.3 + i * 0.06 }}
+              className="glass-card glass-card-hover p-4 flex items-start gap-3"
             >
-              <span className="text-2xl flex-shrink-0">{f.icon}</span>
+              <span className="text-xl flex-shrink-0 mt-0.5" aria-hidden>
+                {f.icon}
+              </span>
               <span
                 className="text-sm leading-snug"
-                style={{ color: "#374151" }}
+                style={{ color: "var(--gray-700)" }}
               >
                 {t(f.key)}
               </span>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.section>
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.7 }}
           className="w-full max-w-sm"
         >
           <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.015 }}
+            whileTap={{ scale: 0.98 }}
             onClick={handleStart}
-            className="w-full py-5 rounded-2xl font-black text-xl crimson-glow"
+            className="btn btn-primary btn-lg w-full"
             style={{
-              background: "linear-gradient(135deg,#c0392b,#e74c3c)",
-              border: "none",
-              cursor: "pointer",
-              color: "white",
+              fontSize: "1.1rem",
+              fontWeight: 700,
+              padding: "1.1rem 1.5rem",
             }}
           >
-            🚀 {t("app.start")}
+            {t("app.start")}
+            <span aria-hidden>→</span>
           </motion.button>
         </motion.div>
 
         {/* Disclaimer */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="mt-5 max-w-lg text-center"
+          transition={{ delay: 1.2 }}
+          className="mt-6 max-w-lg text-center text-xs leading-relaxed"
+          style={{ color: "var(--gray-400)" }}
         >
-          <p className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>
-            {t("app.disclaimer")}
-          </p>
-        </motion.div>
-      </div>
+          {t("app.disclaimer")}
+        </motion.p>
+      </main>
 
       {/* Footer */}
       <footer
-        className="py-4 px-4 text-center"
-        style={{ borderTop: "1px solid rgba(192,57,43,0.1)" }}
+        className="py-5 px-4 text-center"
+        style={{ borderTop: "1px solid var(--border)" }}
       >
         <div
-          className="flex items-center justify-center gap-4 text-xs"
-          style={{ color: "#b4b4b4" }}
+          className="flex items-center justify-center gap-3 text-xs"
+          style={{ color: "var(--gray-400)" }}
         >
           <span>CrimsonWise © 2026</span>
-          <span>•</span>
+          <span aria-hidden>·</span>
           <span>{t("app.edition")} v1.0</span>
         </div>
       </footer>

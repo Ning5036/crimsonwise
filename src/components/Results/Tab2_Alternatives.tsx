@@ -52,69 +52,116 @@ function feasibilityScore(
   }
 }
 
+function feasibilityToken(score: number): {
+  fg: string;
+  bg: string;
+  trackBg: string;
+} {
+  if (score >= 70)
+    return {
+      fg: "var(--status-ok-fg)",
+      bg: "var(--status-ok-bg)",
+      trackBg: "var(--status-ok-fg)",
+    };
+  if (score >= 40)
+    return {
+      fg: "var(--status-warn-fg)",
+      bg: "var(--status-warn-bg)",
+      trackBg: "var(--status-warn-fg)",
+    };
+  return {
+    fg: "var(--gray-500)",
+    bg: "var(--gray-100)",
+    trackBg: "var(--gray-400)",
+  };
+}
+
 export default function Tab2_Alternatives() {
   const { t } = useTranslation();
   const { patient } = usePatientStore();
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div
-        className="p-4 rounded-xl"
+        className="rounded-xl"
         style={{
-          background: "rgba(39,174,96,0.1)",
-          border: "1px solid rgba(39,174,96,0.3)",
+          background: "var(--status-ok-bg)",
+          border: "1px solid var(--status-ok-bg)",
+          padding: "0.875rem 1rem",
         }}
       >
-        <p className="text-sm font-bold" style={{ color: "#000" }}>
+        <p
+          className="text-sm font-bold"
+          style={{ color: "var(--status-ok-fg)", lineHeight: 1.45 }}
+        >
           🌿 {t("tab2.subtitle")}
         </p>
       </div>
 
       {ALTERNATIVES.map((alt, i) => {
         const score = feasibilityScore(alt, patient);
-        const color =
-          score >= 70 ? "#27ae60" : score >= 40 ? "#f39c12" : "#95a5a6";
+        const tok = feasibilityToken(score);
         return (
           <motion.div
             key={alt}
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="glass-card p-4"
+            transition={{ delay: i * 0.06, duration: 0.25 }}
+            className="glass-card glass-card-hover"
+            style={{ padding: "1.125rem" }}
           >
             <div className="flex items-start justify-between gap-4">
-              <div className="flex items-start gap-3 flex-1">
-                <span className="text-2xl flex-shrink-0 mt-1">
+              <div className="flex items-start gap-3 flex-1 min-w-0">
+                <span
+                  className="text-2xl flex-shrink-0"
+                  aria-hidden
+                  style={{ marginTop: 2 }}
+                >
                   {ALT_ICONS[alt]}
                 </span>
-                <div className="flex-1">
-                  <h3 className="font-bold text-white">
+                <div className="flex-1 min-w-0">
+                  <h3
+                    className="font-semibold text-base"
+                    style={{ color: "var(--gray-800)" }}
+                  >
                     {t(`tab2.alternatives.${alt}.name`)}
                   </h3>
-                  <p className="text-sm text-gray-400 mt-0.5">
+                  <p
+                    className="text-sm mt-0.5"
+                    style={{ color: "var(--gray-500)", lineHeight: 1.5 }}
+                  >
                     {t(`tab2.alternatives.${alt}.desc`)}
                   </p>
-                  <div className="flex flex-wrap gap-3 mt-2 text-xs">
-                    <span className="text-gray-400">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs">
+                    <span style={{ color: "var(--gray-500)" }}>
                       ⏰ {t(`tab2.alternatives.${alt}.effect`)}
                     </span>
-                    <span className="text-gray-400">
+                    <span style={{ color: "var(--gray-500)" }}>
                       🎯 {t(`tab2.alternatives.${alt}.when`)}
                     </span>
                   </div>
                 </div>
               </div>
-              {/* Feasibility arc */}
+              {/* Feasibility chip */}
               <div className="flex flex-col items-center flex-shrink-0">
-                <div className="text-xs text-gray-500 mb-1">
+                <div
+                  className="text-xs mb-1.5"
+                  style={{
+                    color: "var(--gray-500)",
+                    letterSpacing: "0.02em",
+                  }}
+                >
                   {t("tab2.feasibility")}
                 </div>
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm"
+                  className="rounded-full flex items-center justify-center font-bold"
                   style={{
-                    background: `${color}22`,
-                    border: `2px solid ${color}`,
-                    color,
+                    background: tok.bg,
+                    color: tok.fg,
+                    width: 52,
+                    height: 52,
+                    fontSize: 13,
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   {score}%
@@ -123,15 +170,15 @@ export default function Tab2_Alternatives() {
             </div>
             {/* Progress bar */}
             <div
-              className="mt-3 h-1.5 rounded-full"
-              style={{ background: "rgba(0,0,0,0.05)" }}
+              className="mt-3 h-1 rounded-full overflow-hidden"
+              style={{ background: "var(--gray-100)" }}
             >
               <motion.div
-                className="h-1.5 rounded-full"
-                style={{ background: color }}
+                className="h-full rounded-full"
+                style={{ background: tok.trackBg }}
                 initial={{ width: 0 }}
                 animate={{ width: `${score}%` }}
-                transition={{ duration: 0.8, delay: i * 0.1 + 0.3 }}
+                transition={{ duration: 0.7, delay: i * 0.06 + 0.2 }}
               />
             </div>
           </motion.div>

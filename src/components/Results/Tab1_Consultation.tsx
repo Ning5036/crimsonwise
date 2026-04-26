@@ -3,83 +3,91 @@ import { motion } from "framer-motion";
 import { usePatientStore } from "../../store/patientStore";
 import { assessRisk } from "../../utils/riskAssessment";
 
-const URGENCY_CONFIG = {
-  urgent: {
-    color: "#e74c3c",
-    bg: "rgba(231,76,60,0.15)",
-    border: "#e74c3c",
-    emoji: "🚨",
-  },
-  consider: {
-    color: "#f39c12",
-    bg: "rgba(243,156,18,0.15)",
-    border: "#f39c12",
-    emoji: "⚠️",
-  },
-  watchful: {
-    color: "#3498db",
-    bg: "rgba(52,152,219,0.15)",
-    border: "#3498db",
-    emoji: "👁️",
-  },
-  unlikely: {
-    color: "#27ae60",
-    bg: "rgba(39,174,96,0.15)",
-    border: "#27ae60",
-    emoji: "✅",
-  },
+const URGENCY_TAG: Record<ReturnType<typeof assessRisk>["urgency"], string> = {
+  urgent: "tag tag-urgent tag-dot",
+  consider: "tag tag-warn tag-dot",
+  watchful: "tag tag-info tag-dot",
+  unlikely: "tag tag-ok tag-dot",
+};
+
+const URGENCY_DOT_COLOR: Record<
+  ReturnType<typeof assessRisk>["urgency"],
+  string
+> = {
+  urgent: "var(--status-urgent-fg)",
+  consider: "var(--status-warn-fg)",
+  watchful: "var(--status-info-fg)",
+  unlikely: "var(--status-ok-fg)",
 };
 
 export default function Tab1_Consultation() {
   const { t } = useTranslation();
   const { patient } = usePatientStore();
   const risk = assessRisk(patient);
-  const cfg = URGENCY_CONFIG[risk.urgency];
   const slogans = t("app.slogans", { returnObjects: true }) as string[];
+  const dotColor = URGENCY_DOT_COLOR[risk.urgency];
 
   const keyPoints = buildKeyPoints(patient, risk, t);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       {/* Combined: 病人重點諮詢方向 (key factors + consultation points) */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="glass-card p-4"
+        transition={{ delay: 0.05, duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+        className="glass-card"
+        style={{ padding: "1.25rem" }}
       >
-        <h3 className="font-semibold mb-3" style={{ color: "#1a1a1a" }}>
-          💬 {t("tab1.keyPoints")}
-        </h3>
+        <div className="flex items-center justify-between mb-3 gap-2">
+          <h3
+            className="font-semibold text-base"
+            style={{ color: "var(--gray-800)" }}
+          >
+            💬 {t("tab1.keyPoints")}
+          </h3>
+          <span className={URGENCY_TAG[risk.urgency]}>
+            {t(`tab1.${risk.urgency}`)}
+          </span>
+        </div>
+
         {risk.keyFactors.length > 0 && (
-          <ul className="space-y-2 mb-3">
+          <ul className="space-y-1.5 mb-3">
             {risk.keyFactors.map((f, i) => (
               <motion.li
                 key={i}
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 + i * 0.07 }}
+                transition={{ delay: 0.15 + i * 0.05 }}
                 className="flex items-center gap-2 text-sm"
-                style={{ color: "#374151" }}
+                style={{ color: "var(--gray-600)" }}
               >
                 <span
                   className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: cfg.color }}
+                  style={{ background: dotColor }}
                 />
                 {t(f)}
               </motion.li>
             ))}
           </ul>
         )}
+
         <ul className="space-y-2">
           {keyPoints.map((pt, i) => (
             <li
               key={i}
-              className="flex items-start gap-2 text-sm p-2.5 rounded-xl"
-              style={{ background: "rgba(0,0,0,0.03)", color: "#374151" }}
+              className="flex items-start gap-3 text-sm rounded-xl"
+              style={{
+                background: "var(--gray-25)",
+                color: "var(--gray-700)",
+                padding: "0.625rem 0.75rem",
+                border: "1px solid var(--border)",
+              }}
             >
-              <span className="mt-0.5">{pt.icon}</span>
-              <span>{pt.text}</span>
+              <span className="mt-0.5" aria-hidden>
+                {pt.icon}
+              </span>
+              <span style={{ lineHeight: 1.5 }}>{pt.text}</span>
             </li>
           ))}
         </ul>
@@ -89,23 +97,26 @@ export default function Tab1_Consultation() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="p-4 rounded-2xl text-center"
+        transition={{ delay: 0.35 }}
+        className="text-center rounded-2xl"
         style={{
-          background:
-            "linear-gradient(135deg,rgba(192,57,43,0.07),rgba(231,76,60,0.04))",
-          border: "1px solid rgba(192,57,43,0.2)",
+          background: "var(--crimson-50)",
+          border: "1px solid var(--crimson-100)",
+          padding: "1rem 1rem",
         }}
       >
-        <div className="text-xs mb-2" style={{ color: "#888" }}>
-          🏥 {t("tab5.sloganTitle")}
+        <div
+          className="text-xs mb-2 font-medium tracking-wider uppercase"
+          style={{ color: "var(--gray-500)", letterSpacing: "0.08em" }}
+        >
+          {t("tab5.sloganTitle")}
         </div>
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           {slogans.map((s, i) => (
             <div
               key={i}
               className="text-sm font-medium"
-              style={{ color: "#e74c3c" }}
+              style={{ color: "var(--crimson-600)" }}
             >
               「{s}」
             </div>

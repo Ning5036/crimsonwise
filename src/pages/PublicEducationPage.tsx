@@ -615,7 +615,7 @@ function SecTitle({ children }: { children: React.ReactNode }) {
         style={{
           width: 3,
           height: 17,
-          background: "#dc2626",
+          background: "var(--crimson-500)",
           borderRadius: 2,
           display: "inline-block",
           flexShrink: 0,
@@ -625,7 +625,7 @@ function SecTitle({ children }: { children: React.ReactNode }) {
         style={{
           fontSize: 13,
           fontWeight: 800,
-          color: "#b91c1c",
+          color: "var(--crimson-600)",
           textTransform: "uppercase",
           letterSpacing: 0.4,
         }}
@@ -642,7 +642,7 @@ function SMyths({ t }: { t: Strings }) {
     <div>
       <div
         style={{
-          background: "#fef2f2",
+          background: "var(--crimson-50)",
           borderRadius: 13,
           padding: "12px 15px",
           marginBottom: 14,
@@ -651,7 +651,9 @@ function SMyths({ t }: { t: Strings }) {
         }}
       >
         <span style={{ fontSize: 20, flexShrink: 0 }}>🔍</span>
-        <span style={{ fontSize: 14, color: "#7f1d1d", lineHeight: 1.6 }}>
+        <span
+          style={{ fontSize: 14, color: "var(--crimson-700)", lineHeight: 1.6 }}
+        >
           {t.mythsIntro}
         </span>
       </div>
@@ -659,7 +661,7 @@ function SMyths({ t }: { t: Strings }) {
         <Card key={i} style={{ padding: 0, overflow: "hidden" }}>
           <div
             style={{
-              background: "#fef2f2",
+              background: "var(--crimson-50)",
               padding: "12px 15px",
               display: "flex",
               gap: 10,
@@ -671,7 +673,7 @@ function SMyths({ t }: { t: Strings }) {
                 width: 26,
                 height: 26,
                 borderRadius: 7,
-                background: "#fecaca",
+                background: "var(--crimson-100)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -685,7 +687,7 @@ function SMyths({ t }: { t: Strings }) {
               style={{
                 fontWeight: 600,
                 fontSize: 13,
-                color: "#b91c1c",
+                color: "var(--crimson-600)",
                 lineHeight: 1.5,
               }}
             >
@@ -720,7 +722,9 @@ function SMyths({ t }: { t: Strings }) {
               <div style={{ fontSize: 13, color: "#166534", lineHeight: 1.6 }}>
                 {m.f}
               </div>
-              <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 4 }}>
+              <div
+                style={{ fontSize: 11, color: "var(--gray-400)", marginTop: 4 }}
+              >
                 📖 {m.r}
               </div>
             </div>
@@ -764,7 +768,7 @@ function SAlts({ t }: { t: Strings }) {
               width: 44,
               height: 44,
               borderRadius: 12,
-              background: "#fef2f2",
+              background: "var(--crimson-50)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -779,13 +783,19 @@ function SAlts({ t }: { t: Strings }) {
               style={{
                 fontWeight: 700,
                 fontSize: 14,
-                color: "#b91c1c",
+                color: "var(--crimson-600)",
                 marginBottom: 3,
               }}
             >
               {a.t}
             </div>
-            <div style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>
+            <div
+              style={{
+                fontSize: 13,
+                color: "var(--gray-500)",
+                lineHeight: 1.6,
+              }}
+            >
               {a.d}
             </div>
           </div>
@@ -824,13 +834,15 @@ function SGuide({ t }: { t: Strings }) {
                 i < t.thresholds.length - 1 ? "1px solid #f3f4f6" : "none",
             }}
           >
-            <span style={{ fontSize: 14, color: "#374151" }}>{grp}</span>
+            <span style={{ fontSize: 14, color: "var(--gray-700)" }}>
+              {grp}
+            </span>
             <span
               style={{
                 fontWeight: 800,
                 fontSize: 13,
-                color: "#dc2626",
-                background: "#fef2f2",
+                color: "var(--crimson-500)",
+                background: "var(--crimson-50)",
                 padding: "4px 13px",
                 borderRadius: 20,
               }}
@@ -868,7 +880,7 @@ function SGuide({ t }: { t: Strings }) {
               borderBottom:
                 i < t.refs.length - 1 ? "1px solid #f3f4f6" : "none",
               fontSize: 13,
-              color: "#6b7280",
+              color: "var(--gray-500)",
               display: "flex",
               gap: 8,
             }}
@@ -887,7 +899,8 @@ function SBlood({ t }: { t: Strings }) {
     <div>
       <div
         style={{
-          background: "linear-gradient(135deg,#b91c1c,#991b1b)",
+          background:
+            "linear-gradient(135deg,var(--crimson-600),var(--crimson-700))",
           borderRadius: 16,
           padding: 22,
           marginBottom: 14,
@@ -915,7 +928,7 @@ function SBlood({ t }: { t: Strings }) {
               background: "#fff",
               borderRadius: 14,
               padding: "14px 8px",
-              border: "2px solid #fecaca",
+              border: "1.5px solid var(--crimson-100)",
               textAlign: "center",
               boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
             }}
@@ -925,13 +938,19 @@ function SBlood({ t }: { t: Strings }) {
               style={{
                 fontWeight: 800,
                 fontSize: 12,
-                color: "#dc2626",
+                color: "var(--crimson-500)",
                 marginBottom: 2,
               }}
             >
               {f.v}
             </div>
-            <div style={{ fontSize: 10, color: "#6b7280", lineHeight: 1.3 }}>
+            <div
+              style={{
+                fontSize: 10,
+                color: "var(--gray-500)",
+                lineHeight: 1.3,
+              }}
+            >
               {f.d}
             </div>
           </div>
@@ -939,11 +958,11 @@ function SBlood({ t }: { t: Strings }) {
       </div>
       <div
         style={{
-          background: "#fef2f2",
+          background: "var(--crimson-50)",
           borderRadius: 13,
           padding: "13px 15px",
           fontSize: 13,
-          color: "#7f1d1d",
+          color: "var(--crimson-700)",
           lineHeight: 1.7,
           textAlign: "center",
         }}
@@ -1020,13 +1039,29 @@ function SQuiz({
   const optStyle = (q: QuizItem, opt: { l: string; t: string }) => {
     if (!submitted)
       return answers[q.id] === opt.l
-        ? { bg: "#fef2f2", border: "#dc2626", text: "#b91c1c" }
-        : { bg: "#fafafa", border: "#e5e7eb", text: "#374151" };
+        ? {
+            bg: "var(--crimson-50)",
+            border: "var(--crimson-500)",
+            text: "var(--crimson-600)",
+          }
+        : {
+            bg: "var(--gray-25)",
+            border: "var(--gray-200)",
+            text: "var(--gray-700)",
+          };
     if (opt.l === q.ans)
       return { bg: "#f0fdf4", border: "#86efac", text: "#15803d" };
     if (answers[q.id] === opt.l)
-      return { bg: "#fef2f2", border: "#fca5a5", text: "#b91c1c" };
-    return { bg: "#fafafa", border: "#e5e7eb", text: "#9ca3af" };
+      return {
+        bg: "var(--crimson-50)",
+        border: "var(--crimson-200)",
+        text: "var(--crimson-600)",
+      };
+    return {
+      bg: "var(--gray-25)",
+      border: "var(--gray-200)",
+      text: "var(--gray-400)",
+    };
   };
 
   return (
@@ -1039,15 +1074,27 @@ function SQuiz({
             style={{
               fontSize: 18,
               fontWeight: 900,
-              color: "#b91c1c",
+              color: "var(--crimson-600)",
               marginBottom: 6,
             }}
           >
             {scoreMsg}
           </div>
-          <div style={{ fontSize: 36, fontWeight: 900, color: "#dc2626" }}>
+          <div
+            style={{
+              fontSize: 36,
+              fontWeight: 900,
+              color: "var(--crimson-500)",
+            }}
+          >
             {score}{" "}
-            <span style={{ fontSize: 16, color: "#9ca3af", fontWeight: 600 }}>
+            <span
+              style={{
+                fontSize: 16,
+                color: "var(--gray-400)",
+                fontWeight: 600,
+              }}
+            >
               / 3
             </span>
           </div>
@@ -1068,8 +1115,8 @@ function SQuiz({
                     width: 48,
                     height: 48,
                     borderRadius: 12,
-                    background: ok ? "#f0fdf4" : "#fef2f2",
-                    border: `2px solid ${ok ? "#86efac" : "#fca5a5"}`,
+                    background: ok ? "#f0fdf4" : "var(--crimson-50)",
+                    border: `2px solid ${ok ? "#86efac" : "var(--crimson-200)"}`,
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -1079,7 +1126,11 @@ function SQuiz({
                 >
                   <span style={{ fontSize: 18 }}>{ok ? "✅" : "❌"}</span>
                   <span
-                    style={{ fontSize: 9, color: "#9ca3af", fontWeight: 700 }}
+                    style={{
+                      fontSize: 9,
+                      color: "var(--gray-400)",
+                      fontWeight: 700,
+                    }}
                   >
                     Q{q.id}
                   </span>
@@ -1096,7 +1147,7 @@ function SQuiz({
               borderRadius: 12,
               border: "2px solid #e5e7eb",
               background: linkCopied ? "#f0fdf4" : "#fff",
-              color: linkCopied ? "#15803d" : "#374151",
+              color: linkCopied ? "#15803d" : "var(--gray-700)",
               fontWeight: 700,
               fontSize: 13,
               cursor: "pointer",
@@ -1125,10 +1176,22 @@ function SQuiz({
               marginBottom: 7,
             }}
           >
-            <span style={{ fontSize: 12, fontWeight: 700, color: "#374151" }}>
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 700,
+                color: "var(--gray-700)",
+              }}
+            >
               {t.progress}
             </span>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "#dc2626" }}>
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 700,
+                color: "var(--crimson-500)",
+              }}
+            >
               {Object.keys(answers).length} / 3
             </span>
           </div>
@@ -1136,7 +1199,7 @@ function SQuiz({
             style={{
               height: 6,
               borderRadius: 4,
-              background: "#f3f4f6",
+              background: "var(--gray-100)",
               overflow: "hidden",
             }}
           >
@@ -1144,7 +1207,8 @@ function SQuiz({
               style={{
                 height: "100%",
                 borderRadius: 4,
-                background: "linear-gradient(90deg,#dc2626,#f87171)",
+                background:
+                  "linear-gradient(90deg,var(--crimson-500),var(--crimson-400))",
                 width: `${(Object.keys(answers).length / 3) * 100}%`,
                 transition: "width .3s",
               }}
@@ -1171,10 +1235,10 @@ function SQuiz({
                 background: submitted
                   ? ok
                     ? "#f0fdf4"
-                    : "#fef2f2"
+                    : "var(--crimson-50)"
                   : answers[q.id]
                     ? "linear-gradient(135deg,#fef2f2,#fff7ed)"
-                    : "#f9fafb",
+                    : "var(--gray-25)",
                 padding: "13px 16px",
                 borderBottom: "2px solid #f3f4f6",
               }}
@@ -1190,10 +1254,10 @@ function SQuiz({
                     background: submitted
                       ? ok
                         ? "#16a34a"
-                        : "#dc2626"
+                        : "var(--crimson-500)"
                       : answers[q.id]
-                        ? "#dc2626"
-                        : "#d1d5db",
+                        ? "var(--crimson-500)"
+                        : "var(--gray-300)",
                     color: "#fff",
                     fontWeight: 900,
                     fontSize: 12,
@@ -1217,7 +1281,7 @@ function SQuiz({
                   style={{
                     fontSize: 14,
                     fontWeight: 500,
-                    color: "#1a1a1a",
+                    color: "var(--gray-800)",
                     lineHeight: 1.6,
                   }}
                 >
@@ -1277,11 +1341,11 @@ function SQuiz({
                           ? isAns
                             ? "#16a34a"
                             : isSel
-                              ? "#dc2626"
-                              : "#f3f4f6"
+                              ? "var(--crimson-500)"
+                              : "var(--gray-100)"
                           : isSel
-                            ? "#dc2626"
-                            : "#f3f4f6",
+                            ? "var(--crimson-500)"
+                            : "var(--gray-100)",
                         color: "#fff",
                         fontSize: 11,
                         fontWeight: 900,
@@ -1327,7 +1391,7 @@ function SQuiz({
                       marginLeft: "auto",
                       fontSize: 12,
                       fontWeight: 700,
-                      color: ok ? "#86efac" : "#fca5a5",
+                      color: ok ? "#86efac" : "var(--crimson-200)",
                     }}
                   >
                     {ok ? t.correct : `${t.wrong} ${q.ans}`}
@@ -1351,7 +1415,7 @@ function SQuiz({
                   >
                     {q.exp}
                   </div>
-                  <div style={{ fontSize: 11, color: "#9ca3af" }}>
+                  <div style={{ fontSize: 11, color: "var(--gray-400)" }}>
                     📖 {q.src}
                   </div>
                 </div>
@@ -1375,7 +1439,13 @@ function SQuiz({
               }}
             >
               <span style={{ fontSize: 17, flexShrink: 0 }}>{icon}</span>
-              <span style={{ fontSize: 13, color: "#374151", lineHeight: 1.6 }}>
+              <span
+                style={{
+                  fontSize: 13,
+                  color: "var(--gray-700)",
+                  lineHeight: 1.6,
+                }}
+              >
                 {text}
               </span>
             </div>
@@ -1390,12 +1460,14 @@ function SQuiz({
               style={{
                 textAlign: "center",
                 fontSize: 12,
-                color: "#9ca3af",
+                color: "var(--gray-400)",
                 marginBottom: 8,
               }}
             >
               {t.unanswered}{" "}
-              <strong style={{ color: "#dc2626" }}>{unanswered.length}</strong>{" "}
+              <strong style={{ color: "var(--crimson-500)" }}>
+                {unanswered.length}
+              </strong>{" "}
               {t.unanswered2}(Q{unanswered.join("、Q")})
             </div>
           )}
@@ -1408,14 +1480,14 @@ function SQuiz({
               borderRadius: 14,
               border: "none",
               background: allAnswered
-                ? "linear-gradient(135deg,#dc2626,#b91c1c)"
-                : "#e5e7eb",
+                ? "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))"
+                : "var(--gray-200)",
               color: "#fff",
               fontWeight: 800,
               fontSize: 15,
               cursor: allAnswered ? "pointer" : "not-allowed",
               boxShadow: allAnswered
-                ? "0 4px 16px rgba(220,38,38,0.3)"
+                ? "0 4px 16px rgba(200,65,50,0.18)"
                 : "none",
               transition: "all .25s",
             }}
@@ -1433,12 +1505,13 @@ function SQuiz({
             padding: 15,
             borderRadius: 14,
             border: "none",
-            background: "linear-gradient(135deg,#dc2626,#b91c1c)",
+            background:
+              "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))",
             color: "#fff",
             fontWeight: 800,
             fontSize: 15,
             cursor: "pointer",
-            boxShadow: "0 4px 16px rgba(220,38,38,0.3)",
+            boxShadow: "0 4px 16px rgba(200,65,50,0.18)",
           }}
         >
           {t.nextAfterQuiz}
@@ -1473,7 +1546,7 @@ function SSat({
           style={{
             fontSize: 20,
             fontWeight: 900,
-            color: "#b91c1c",
+            color: "var(--crimson-600)",
             marginBottom: 10,
           }}
         >
@@ -1482,7 +1555,7 @@ function SSat({
         <div
           style={{
             fontSize: 14,
-            color: "#6b7280",
+            color: "var(--gray-500)",
             lineHeight: 1.8,
             maxWidth: 300,
             margin: "0 auto 24px",
@@ -1520,8 +1593,8 @@ function SSat({
               style={{
                 padding: "6px 14px",
                 borderRadius: 20,
-                background: "#fef2f2",
-                color: "#b91c1c",
+                background: "var(--crimson-50)",
+                color: "var(--crimson-600)",
                 fontSize: 13,
                 fontWeight: 700,
               }}
@@ -1537,12 +1610,13 @@ function SSat({
             padding: 14,
             borderRadius: 14,
             border: "none",
-            background: "linear-gradient(135deg,#dc2626,#b91c1c)",
+            background:
+              "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))",
             color: "#fff",
             fontWeight: 800,
             fontSize: 15,
             cursor: "pointer",
-            boxShadow: "0 4px 16px rgba(220,38,38,0.3)",
+            boxShadow: "0 4px 16px rgba(200,65,50,0.18)",
           }}
         >
           🔄 {t.restart}
@@ -1579,8 +1653,8 @@ function SSat({
                 width: 50,
                 height: 50,
                 borderRadius: 13,
-                border: `2px solid ${stars >= s ? "#fbbf24" : "#e5e7eb"}`,
-                background: stars >= s ? "#fffbeb" : "#fafafa",
+                border: `2px solid ${stars >= s ? "#fbbf24" : "var(--gray-200)"}`,
+                background: stars >= s ? "#fffbeb" : "var(--gray-25)",
                 fontSize: 26,
                 cursor: "pointer",
                 display: "flex",
@@ -1604,9 +1678,10 @@ function SSat({
               style={{
                 padding: "12px 14px",
                 borderRadius: 12,
-                border: `2px solid ${concept === o ? "#dc2626" : "#e5e7eb"}`,
-                background: concept === o ? "#fef2f2" : "#fafafa",
-                color: concept === o ? "#b91c1c" : "#374151",
+                border: `2px solid ${concept === o ? "var(--crimson-500)" : "var(--gray-200)"}`,
+                background:
+                  concept === o ? "var(--crimson-50)" : "var(--gray-25)",
+                color: concept === o ? "var(--crimson-600)" : "var(--gray-700)",
                 fontSize: 14,
                 cursor: "pointer",
                 textAlign: "left",
@@ -1621,8 +1696,8 @@ function SSat({
                   width: 20,
                   height: 20,
                   borderRadius: 20,
-                  border: `2px solid ${concept === o ? "#dc2626" : "#d1d5db"}`,
-                  background: concept === o ? "#dc2626" : "#fff",
+                  border: `2px solid ${concept === o ? "var(--crimson-500)" : "var(--gray-300)"}`,
+                  background: concept === o ? "var(--crimson-500)" : "#fff",
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -1675,14 +1750,14 @@ function SSat({
           border: "none",
           background:
             ready && !sending
-              ? "linear-gradient(135deg,#dc2626,#b91c1c)"
-              : "#e5e7eb",
+              ? "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))"
+              : "var(--gray-200)",
           color: "#fff",
           fontWeight: 800,
           fontSize: 16,
           cursor: ready && !sending ? "pointer" : "not-allowed",
           boxShadow:
-            ready && !sending ? "0 4px 16px rgba(220,38,38,0.3)" : "none",
+            ready && !sending ? "0 4px 16px rgba(200,65,50,0.18)" : "none",
           transition: "all .2s",
         }}
       >
@@ -1770,8 +1845,12 @@ export default function PublicEducationPage() {
       <div
         style={{
           minHeight: "100vh",
-          background: "linear-gradient(160deg,#fff1f2,#fef9f9,#fff7ed)",
-          fontFamily: 'system-ui, -apple-system, "Noto Sans TC", sans-serif',
+          background:
+            "radial-gradient(circle at 0% 0%, rgba(200,65,50,0.05), transparent 45%)," +
+            "radial-gradient(circle at 100% 100%, rgba(200,65,50,0.04), transparent 45%)," +
+            "var(--bg)",
+          fontFamily:
+            'Inter, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", sans-serif',
         }}
       >
         <div
@@ -1787,9 +1866,9 @@ export default function PublicEducationPage() {
             style={{
               padding: "6px 16px",
               borderRadius: 20,
-              border: "2px solid #fecaca",
+              border: "1.5px solid var(--crimson-100)",
               background: "#fff",
-              color: "#b91c1c",
+              color: "var(--crimson-600)",
               fontSize: 12,
               fontWeight: 700,
               cursor: "pointer",
@@ -1811,13 +1890,14 @@ export default function PublicEducationPage() {
               width: 82,
               height: 82,
               borderRadius: 24,
-              background: "linear-gradient(135deg,#dc2626,#991b1b)",
+              background:
+                "linear-gradient(135deg,var(--crimson-500),var(--crimson-700))",
               margin: "0 auto 18px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontSize: 44,
-              boxShadow: "0 8px 28px rgba(220,38,38,0.35)",
+              boxShadow: "0 8px 28px var(--shadow-crimson)",
             }}
           >
             🩸
@@ -1826,23 +1906,25 @@ export default function PublicEducationPage() {
             style={{
               fontSize: 26,
               fontWeight: 900,
-              color: "#b91c1c",
+              color: "var(--crimson-600)",
               letterSpacing: -0.5,
               marginBottom: 4,
             }}
           >
             {t.appName}
           </div>
-          <div style={{ fontSize: 13, color: "#9ca3af", marginBottom: 6 }}>
+          <div
+            style={{ fontSize: 13, color: "var(--gray-400)", marginBottom: 6 }}
+          >
             {t.appSub}
           </div>
           <div
             style={{
               fontSize: 12,
-              color: "#dc2626",
+              color: "var(--crimson-500)",
               fontWeight: 600,
               marginBottom: 18,
-              background: "#fef2f2",
+              background: "var(--crimson-50)",
               borderRadius: 20,
               padding: "5px 14px",
               display: "inline-block",
@@ -1854,7 +1936,7 @@ export default function PublicEducationPage() {
             style={{
               fontSize: 17,
               fontWeight: 800,
-              color: "#374151",
+              color: "var(--gray-700)",
               lineHeight: 1.4,
               marginBottom: 14,
             }}
@@ -1864,7 +1946,7 @@ export default function PublicEducationPage() {
           <div
             style={{
               fontSize: 14,
-              color: "#6b7280",
+              color: "var(--gray-500)",
               lineHeight: 1.7,
               marginBottom: 24,
             }}
@@ -1886,8 +1968,8 @@ export default function PublicEducationPage() {
                 style={{
                   padding: "5px 12px",
                   borderRadius: 20,
-                  background: "#fef2f2",
-                  color: "#b91c1c",
+                  background: "var(--crimson-50)",
+                  color: "var(--crimson-600)",
                   fontSize: 12,
                   fontWeight: 700,
                   border: "1.5px solid #fecaca",
@@ -1903,13 +1985,14 @@ export default function PublicEducationPage() {
               width: "100%",
               padding: 17,
               borderRadius: 16,
-              background: "linear-gradient(135deg,#dc2626,#b91c1c)",
+              background:
+                "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))",
               color: "#fff",
               fontWeight: 800,
               fontSize: 17,
               border: "none",
               cursor: "pointer",
-              boxShadow: "0 6px 24px rgba(220,38,38,0.4)",
+              boxShadow: "0 6px 24px var(--shadow-crimson)",
               marginBottom: 14,
             }}
           >
@@ -1939,15 +2022,17 @@ export default function PublicEducationPage() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#f9fafb",
-        fontFamily: 'system-ui, -apple-system, "Noto Sans TC", sans-serif',
+        background: "var(--bg)",
+        fontFamily:
+          'Inter, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", sans-serif',
         display: "flex",
         flexDirection: "column",
       }}
     >
       <header
         style={{
-          background: "linear-gradient(135deg,#dc2626,#b91c1c)",
+          background:
+            "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))",
           padding: "13px 16px 10px",
           position: "sticky",
           top: 0,
@@ -2089,7 +2174,7 @@ export default function PublicEducationPage() {
               borderRadius: 12,
               border: "2px solid #e5e7eb",
               background: "#fff",
-              color: "#374151",
+              color: "var(--gray-700)",
               fontWeight: 700,
               cursor: "pointer",
               fontSize: 14,
@@ -2105,12 +2190,13 @@ export default function PublicEducationPage() {
                 padding: 13,
                 borderRadius: 12,
                 border: "none",
-                background: "linear-gradient(135deg,#dc2626,#b91c1c)",
+                background:
+                  "linear-gradient(135deg,var(--crimson-500),var(--crimson-600))",
                 color: "#fff",
                 fontWeight: 800,
                 cursor: "pointer",
                 fontSize: 14,
-                boxShadow: "0 3px 12px rgba(220,38,38,0.3)",
+                boxShadow: "0 3px 12px rgba(200,65,50,0.18)",
               }}
             >
               {t.next}
