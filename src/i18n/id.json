@@ -1,24 +1,442 @@
 {
-  "app": { "name": "CrimsonWise", "tagline": "Pilihan Transfusi yang Bijak", "subtitle": "Transfusi Sedikit Bukan Berarti Kalah", "disclaimer": "⚠️ Bukan alat diagnostik. Berbasis bukti, untuk mendukung dialog dokter-pasien dalam membuat keputusan medis terbaik.", "start": "Mulai Penilaian", "restart": "Penilaian Ulang", "next": "Berikutnya", "back": "Kembali", "submit": "Kirim", "confirm": "Konfirmasi", "cancel": "Batal", "optional": "（Opsional）", "required": "Wajib", "edition": "Edisi Tenaga Kesehatan", "editionFor": "Dirancang untuk Tenaga Kesehatan Profesional", "prevPage": "Sebelumnya", "nextPage": "Berikutnya", "slogans": ["Hemat 1 Kantong Darah = Selamatkan 1 Nyawa", "Transfusi Bijak Selamatkan Jiwa", "Hb≥7 Sudah Cukup"] },
-  "landing": { "feature1": "Panduan arah konsultasi, diskusi poin penting secara tepat", "feature2": "Alternatif transfusi, coba terapi non-transfusi terlebih dahulu", "feature3": "Hancurkan mitos, bangun pengetahuan transfusi yang benar", "feature4": "Panduan dalam dan luar negeri, dasar keputusan berbasis bukti", "feature5": "Kalkulator prediksi nilai Hb & PLT pasca transfusi", "feature6": "Mendukung 7 bahasa, tanpa hambatan bahasa" },
-  "stats": { "today": "Kunjungan Hari Ini", "total": "Total Kunjungan", "visitors": "orang" },
-  "steps": { "1": "Info Dasar", "2": "Riwayat Penyakit", "3": "Riwayat Obat", "4": "Nilai Lab", "5": "Gejala", "6": "Kondisi Klinis", "progress": "Langkah {{step}} / 6" },
-  "basic": { "age": "Usia", "agePlaceholder": "contoh：65", "ageUnit": "tahun", "sex": "Jenis Kelamin", "male": "Laki-laki", "female": "Perempuan", "vegetarian": "Vegetarian", "vegetarianNote": "（mempengaruhi penilaian nutrisi）", "weight": "Berat Badan", "weightPlaceholder": "contoh：65", "weightUnit": "kg", "height": "Tinggi Badan", "heightPlaceholder": "contoh：165", "heightUnit": "cm" },
-  "history": { "title": "Riwayat Penyakit", "subtitle": "Pilih semua penyakit yang pernah didiagnosis", "none": "Tidak ada riwayat khusus", "hypertension": "Hipertensi", "diabetes": "Diabetes", "hyperlipidemia": "Hiperlipidemia", "heartDisease": "Penyakit Jantung", "pepticUlcer": "Tukak Lambung", "colonPolyp": "Polip Usus / Wasir", "autoimmune": "Penyakit Autoimun", "bloodDisease": "Penyakit Darah", "ckd": "Penyakit Ginjal Kronis", "cirrhosis": "Sirosis Hati", "cancer": "Kanker", "gynecological": "Penyakit Ginekologi" },
-  "medication": { "title": "Riwayat Obat Terkini", "subtitle": "Pilih obat yang sedang digunakan", "none": "Tidak ada obat khusus", "antiplatelet": "Antiplatelet / Antikoagulan", "anticancer": "Kemoterapi", "immunosuppressant": "Imunosupresan", "antibiotic": "Antibiotik", "nsaid": "NSAID（antiinflamasi）" },
-  "lab": { "title": "Nilai Lab Terbaru", "hb": "Hemoglobin（Hb）", "hbUnit": "g/dL", "hbNote": "Wajib", "plt": "Trombosit（PLT）", "pltUnit": "×10³/μL", "ptInr": "PT INR", "ptInrUnit": "", "apttInr": "aPTT INR", "apttInrUnit": "", "albumin": "Albumin", "albuminUnit": "g/dL", "gfr": "eGFR", "gfrUnit": "mL/min/1.73m²" },
-  "symptom": { "title": "Gejala Anemia", "subtitle": "Pilih gejala yang dialami saat ini", "none": "Tidak ada gejala nyata", "dizziness": "Pusing", "palpitation": "Jantung berdebar", "weakness": "Lemah seluruh badan", "fatigue": "Kelelahan", "coldExtremities": "Tangan kaki dingin", "dyspnea": "Sesak napas", "oliguria": "Urin sedikit", "edema": "Pembengkakan", "other": "Lainnya（jelaskan）", "otherPlaceholder": "Jelaskan gejala lain..." },
-  "scenario": { "title": "Kondisi Klinis", "subtitle": "Pilih situasi yang sesuai", "none": "Tidak ada kondisi khusus", "sepsisShock": "Sepsis/demam hingga syok", "massiveBleed": "Perdarahan masif hingga syok", "malnutrition": "Status gizi buruk", "recentChemo": "Kemoterapi baru-baru ini", "recentImmunosuppressant": "Terapi imunosupresan baru-baru ini", "postSurgery": "Pasca operasi baru-baru ini", "ckdEpoResistant": "CKD tahap 5 resisten EPO", "dialysisEpoResistant": "Dialisis resisten EPO", "cirrhosisAscites": "Sirosis dengan asites masif", "hemolysis": "Hemolisis", "other": "Lainnya（jelaskan）", "otherPlaceholder": "Jelaskan kondisi klinis lain..." },
-  "tabs": { "1": "Arah Konsultasi", "2": "Alternatif", "3": "Edukasi", "4": "Panduan", "5": "Nilai Darah", "6": "Keputusan", "7": "Ringkasan", "8": "Survei" },
-  "tab1": { "title": "Arah Panduan Konsultasi", "subtitle": "Berdasarkan data Anda, prioritaskan diskusi ini dengan tim medis", "riskLevel": "Tingkat Penilaian", "urgent": "Evaluasi transfusi aktif direkomendasikan", "consider": "Transfusi dapat dipertimbangkan", "watchful": "Pantau ketat, prioritaskan alternatif", "unlikely": "Transfusi saat ini tidak diperlukan", "keyPoints": "Poin Diskusi Utama", "hbStatus": "Status Hemoglobin", "hbNormal": "Hb dalam kisaran normal", "hbBorderline": "Hb sedikit rendah, evaluasi gejala diperlukan", "hbLow": "Hb rendah, penanganan aktif direkomendasikan", "consult": { "hbCritical": "Hb {{value}} g/dL — di bawah 7 g/dL: evaluasi transfusi aktif direkomendasikan", "hbBorderline": "Hb {{value}} g/dL — riwayat jantung atau pasca operasi, pertimbangkan ambang 8 g/dL", "hbSafe": "Hb {{value}} g/dL — relatif aman. Prioritaskan evaluasi gejala", "heartDisease": "Riwayat penyakit jantung: pertahankan Hb≥8 g/dL, diskusikan waktu dengan kardiolog", "antiplatelet": "Sedang menggunakan antiplatelet/antikoagulan: evaluasi penghentian atau bridging sebelum operasi", "vegetarian": "Vegetarian: prioritaskan suplemen besi, folat, B12 sebelum mempertimbangkan transfusi", "alternativeHigh": "Kelayakan alternatif tinggi: coba besi atau EPO terlebih dahulu", "massiveBleed": "Perdarahan masif aktif: aktifkan protokol transfusi masif, konfirmasi ketersediaan darah", "general": "Diskusikan sepenuhnya dengan tim medis untuk mempertimbangkan manfaat dan risiko" } },
-  "tab2": { "title": "Alternatif Transfusi", "subtitle": "Pertimbangkan alternatif ini sebelum transfusi！", "feasibility": "Kelayakan", "alternatives": { "iron": { "name": "Suplemen Besi", "desc": "Untuk anemia defisiensi besi; oral atau IV", "when": "Hb turun + indeks besi abnormal", "effect": "Efektif dalam 4-8 minggu" }, "epo": { "name": "Eritropoietin（EPO）", "desc": "Merangsang sumsum tulang memproduksi sel darah merah", "when": "Anemia CKD, anemia akibat kemoterapi", "effect": "Beberapa minggu untuk efek" }, "folate_b12": { "name": "Asam Folat / Vitamin B12", "desc": "Mengisi mikronutrien yang diperlukan untuk hematopoiesis", "when": "Anemia megaloblastik, vegetarian", "effect": "Perbaikan dalam beberapa minggu" }, "autologous": { "name": "Transfusi Autologus", "desc": "Donor darah sendiri sebelum operasi, ditransfusikan saat operasi", "when": "Operasi elektif yang direncanakan", "effect": "Tidak ada risiko penolakan" }, "cellSaver": { "name": "Cell Saver Intraoperatif", "desc": "Daur ulang darah yang hilang selama operasi", "when": "Operasi besar", "effect": "Mengurangi kebutuhan darah alogenik" } } },
-  "tab3": { "title": "Meluruskan Mitos Transfusi", "subtitle": "Pahami transfusi dengan benar untuk membuat keputusan bijak", "mythLabel": "MITOS", "factLabel": "FAKTA", "clickToFlip": "Klik untuk melihat kebenaran", "risks": { "title": "Potensi Risiko Transfusi", "subtitle": "Transfusi umumnya aman tetapi memiliki risiko", "severity": { "low": "Risiko Rendah", "medium": "Risiko Sedang", "high": "Risiko Tinggi", "critical": "Serius（Jarang）" } }, "indications": { "title": "Indikasi Transfusi", "items": ["Hb < 7 g/dL（anemia simtomatik）", "Hb < 8 g/dL（penyakit jantung, pasca operasi）", "Perdarahan masif dengan hemodinamik tidak stabil", "PLT < 10×10³/μL（profilaksis）", "PLT < 50×10³/μL（pre-operasi）", "PT INR > 1.5（dengan risiko perdarahan）"] } },
-  "tab4": { "title": "Panduan Transfusi Internasional", "subtitle": "Semua panduan utama merekomendasikan 'Strategi Transfusi Restriktif'", "chart": { "title": "Perbandingan Ambang Hb Transfusi", "yAxis": "Ambang Hb (g/dL)", "threshold": "Ambang Rekomendasi" }, "references": "Referensi", "viewSource": "Lihat Sumber" },
-  "tab5": { "title": "Nilai Darah yang Berharga", "subtitle": "Setiap kantong darah adalah hadiah berharga — gunakan dengan bijak", "facts": ["1 kantong sel darah merah berasal dari 1 donor, membutuhkan ~1 jam pengujian", "Sel darah merah kedaluwarsa dalam 35 hari; trombosit hanya 5 hari", "Taiwan membutuhkan ~1,1 juta kantong/tahun, semuanya dari donor sukarela", "Hemat 1 kantong = bantu pasien lain yang membutuhkan"], "evidence": { "title": "Bukti: Strategi Transfusi Restriktif", "items": [{ "study": "TRICC Trial (1999)", "finding": "Strategi restriktif tidak inferior dari liberal pada pasien ICU", "level": "Grade A" }, { "study": "FOCUS Trial (2011)", "finding": "Ambang Hb≥8 setara dengan Hb≥10 pasca operasi pinggul", "level": "Grade A" }, { "study": "TRACS Trial (2011)", "finding": "Mortalitas 30 hari setara pasca operasi jantung", "level": "Grade A" }] }, "sloganTitle": "Slogan Rumah Sakit", "bloodJourneyTitle": "Perjalanan Satu Kantong Darah", "bloodSteps": ["Donor Sukarela", "Pengambilan Darah (450 mL)", "Skrining Penyakit Menular", "Persiapan Komponen", "Penyimpanan Rantai Dingin", "Pengiriman ke Bank Darah RS", "Transfusi ke Pasien"] },
-  "tab6": { "title": "Buat Keputusan Anda", "subtitle": "Setelah meninjau informasi, buat pilihan Anda", "predictor": { "title": "Kalkulator Prediksi Nilai Post-Transfusi", "hbTab": "Prediksi Hb（RLRBC）", "pltTab": "Prediksi PLT（Trombosit）", "units": "Jumlah Kantong", "rdp": "Trombosit Acak（RDP）", "sdp": "Trombosit Aferesis（SDP）", "predicted": "Nilai Prediksi Post-Tx", "delta": "Kenaikan Estimasi", "confidence": "Rentang Prediksi", "disclaimer": "Ini adalah estimasi statistik. Hasil aktual bervariasi berdasarkan faktor individu, status perdarahan, dan fungsi sumsum tulang.", "cciLabel": "CCI Estimasi（1 jam post-tx）", "cciGood": "Cukup（≥7.500）", "cciBad": "Tidak cukup（<7.500）" }, "decisionTitle": "Keputusan Transfusi Saya", "transfuse": "Saya Memilih Transfusi", "noTransfuse": "Saya Menolak Transfusi", "reasonLabel": "Alasan（opsional）", "reasonPlaceholder": "Jelaskan alasan keputusan Anda...", "physicianLabel": "Nama Dokter/Perawat（opsional）", "physicianPlaceholder": "Masukkan nama", "confirmTitle": "Konfirmasi Keputusan", "confirmTransfuse": "Konfirmasi: Transfusi", "confirmNo": "Konfirmasi: Tolak Transfusi" },
-  "tab7": { "title": "Ringkasan Keputusan & Rekomendasi", "yourDecision": "Keputusan Anda", "medAdvice": "Rekomendasi Medis", "agree": "✅ Keputusan Anda sesuai dengan rekomendasi medis", "disagree": "⚠️ Keputusan Anda berbeda dari rekomendasi medis. Pertimbangkan diskusi lebih lanjut dengan tim medis.", "followUp": "Rekomendasi Tindak Lanjut", "followUpItems": ["Periksa ulang hemoglobin dalam 1-2 minggu", "Segera cari perawatan medis jika gejala memburuk", "Lanjutkan suplemen besi/folat（jika berlaku）", "Kunjungan rutin untuk mengevaluasi penyebab anemia"], "urgentLevel": { "urgent": "Sangat Direkomendasikan Transfusi", "consider": "Pertimbangkan Transfusi", "watchful": "Prioritaskan Alternatif", "unlikely": "Transfusi Saat Ini Tidak Diperlukan" }, "notDecided": "Belum ada keputusan", "riskScore": "Skor Risiko", "hbTargetLabel": "Target Hb ≥ {{value}} g/dL", "predictedHbLabel": "Prediksi Hb setelah {{units}} kantong: {{value}} g/dL", "predictedPltLabel": "Prediksi PLT setelah {{units}} kantong {{type}}: {{value}} ×10³/μL" },
-  "tab8": { "title": "Survei Kepuasan", "subtitle": "Masukan Anda membantu kami meningkatkan layanan. Terima kasih！", "satisfactionLabel": "Kepuasan Keseluruhan", "stars": ["Sangat Tidak Puas", "Tidak Puas", "Biasa", "Puas", "Sangat Puas"], "betterLabel": "Apakah alat ini meningkatkan pemahaman Anda tentang transfusi?", "betterYes": "Ya, saya lebih memahami sekarang", "betterPartial": "Agak membantu", "betterNo": "Tidak banyak perubahan", "suggestionsLabel": "Saran（opsional）", "suggestionsPlaceholder": "Bagikan pikiran Anda...", "submitSurvey": "Kirim Survei", "thankYou": "Terima kasih atas masukan Anda！", "thankYouSub": "Masukan Anda membantu lebih banyak orang membuat keputusan transfusi yang bijak", "stats": "Distribusi Kepuasan Keseluruhan" },
-  "myth": { "myth1": { "myth": "Transfusi dengan cepat mengisi energi dan membuat Anda langsung merasa lebih baik", "fact": "Transfusi hanya memulihkan kapasitas pembawa oksigen sel darah merah, bukan energi atau protein" }, "myth2": { "myth": "Hemoglobin rendah pasti memerlukan transfusi", "fact": "Keputusan transfusi harus mempertimbangkan gejala dan konteks klinis secara komprehensif. Pasien stabil dengan Hb≥7 biasanya tidak perlu transfusi" }, "myth3": { "myth": "Semakin banyak kantong transfusi semakin baik dan aman", "fact": "Penelitian menunjukkan transfusi berlebihan meningkatkan risiko infeksi dan edema paru. Strategi restriktif memberikan hasil lebih baik" }, "myth4": { "myth": "Vegetarian dengan anemia pasti memerlukan transfusi", "fact": "Anemia pada vegetarian sering disebabkan defisiensi besi atau B12; suplementasi nutrisi biasanya lebih efektif" }, "myth5": { "myth": "Darah dari bank darah 100% aman tanpa risiko", "fact": "Skrining bank darah modern sangat ketat, tetapi reaksi transfusi, TACO, dan TRALI masih mungkin terjadi" }, "myth6": { "myth": "Hb di atas 7 tidak perlu buru-buru", "fact": "Pasien dengan penyakit jantung, pasca operasi, atau sedang berdarah mungkin memerlukan ambang lebih tinggi（Hb≥8）" } },
-  "risk": { "febrile": "Reaksi Febris Non-Hemolitik（FNHTR）", "allergic": "Reaksi Alergi", "taco": "Kelebihan Sirkulasi Terkait Transfusi（TACO）", "trali": "Cedera Paru Akut Terkait Transfusi（TRALI）", "hemolytic": "Reaksi Hemolitik Transfusi", "infection": "Penularan Penyakit Menular（sangat jarang）", "immunomod": "Imunomodulasi Terkait Transfusi（TRIM）", "iron_overload": "Kelebihan Besi akibat Transfusi Kronis", "factor": { "hbCritical": "Hb sangat rendah（< 6 g/dL）", "hbLow": "Hb rendah（< 7 g/dL）", "hbBorderline": "Hb batas（< 8 g/dL）", "sepsisShock": "Syok septik", "massiveBleed": "Perdarahan masif", "hemolysis": "Hemolisis", "recentChemo": "Kemoterapi baru-baru ini", "ckdEpoResistant": "CKD dengan resistensi EPO", "dialysisEpo": "Dialisis dengan resistensi EPO", "postSurgery": "Pemulihan pasca operasi", "cirrhosisAscites": "Sirosis hati dengan asites", "heartDisease": "Riwayat penyakit jantung", "ckd": "Penyakit ginjal kronis", "cancer": "Keganasan", "bloodDisease": "Penyakit hematologi", "coagPt": "Koagulopati（PT INR > 1.5）", "coagAptt": "Koagulopati（APTT > 1.5）", "pltCritical": "Trombosit sangat rendah（< 10×10³/μL）", "pltLow": "Trombosit rendah（< 50×10³/μL）", "albumin": "Albumin rendah（< 3 g/dL）", "gfrLow": "Gangguan ginjal berat（GFR < 15）", "severeSx": "Gejala anemia berat（berdebar／sesak napas／oliguria）", "multipleSx": "Banyak gejala anemia", "antiplatelet": "Sedang menggunakan antiplatelet" } },
-  "admin": { "downloadTitle": "Unduh Data Admin", "passwordLabel": "Masukkan Kata Sandi Admin", "passwordPlaceholder": "Masukkan kata sandi", "downloadBtn": "Unduh Laporan Excel", "recordCount": "{{count}} catatan tersimpan", "wrongPassword": "Kata sandi salah. Silakan coba lagi.", "noData": "Tidak ada data yang tersedia untuk diunduh", "sheet1": "Catatan Q&A", "sheet2": "Hasil Keputusan", "sheet3": "Referensi Panduan", "sheet4": "Statistik Kepuasan" }
+  "app": {
+    "name": "CrimsonWise",
+    "tagline": "Pilihan Transfusi yang Bijak",
+    "subtitle": "Transfusi Sedikit Bukan Berarti Kalah",
+    "disclaimer": "⚠️ Bukan alat diagnostik. Berbasis bukti, untuk mendukung dialog dokter-pasien dalam membuat keputusan medis terbaik.",
+    "start": "Mulai Penilaian",
+    "restart": "Penilaian Ulang",
+    "next": "Berikutnya",
+    "back": "Kembali",
+    "submit": "Kirim",
+    "confirm": "Konfirmasi",
+    "cancel": "Batal",
+    "optional": "（Opsional）",
+    "required": "Wajib",
+    "edition": "Edisi Tenaga Kesehatan",
+    "editionFor": "Dirancang untuk Tenaga Kesehatan Profesional",
+    "prevPage": "Sebelumnya",
+    "nextPage": "Berikutnya",
+    "slogans": [
+      "Hemat 1 Kantong Darah = Selamatkan 1 Nyawa",
+      "Transfusi Bijak Selamatkan Jiwa",
+      "Hb≥7 Sudah Cukup"
+    ]
+  },
+  "landing": {
+    "feature1": "Panduan arah konsultasi, diskusi poin penting secara tepat",
+    "feature2": "Alternatif transfusi, coba terapi non-transfusi terlebih dahulu",
+    "feature3": "Hancurkan mitos, bangun pengetahuan transfusi yang benar",
+    "feature4": "Panduan dalam dan luar negeri, dasar keputusan berbasis bukti",
+    "feature5": "Kalkulator prediksi nilai Hb & PLT pasca transfusi",
+    "feature6": "Mendukung 7 bahasa, tanpa hambatan bahasa"
+  },
+  "stats": {
+    "today": "Kunjungan Hari Ini",
+    "total": "Total Kunjungan",
+    "visitors": "orang"
+  },
+  "steps": {
+    "1": "Info Dasar",
+    "2": "Riwayat Penyakit",
+    "3": "Riwayat Obat",
+    "4": "Nilai Lab",
+    "5": "Gejala",
+    "6": "Kondisi Klinis",
+    "progress": "Langkah {{step}} / 6"
+  },
+  "basic": {
+    "age": "Usia",
+    "agePlaceholder": "contoh：65",
+    "ageUnit": "tahun",
+    "sex": "Jenis Kelamin",
+    "male": "Laki-laki",
+    "female": "Perempuan",
+    "vegetarian": "Vegetarian",
+    "vegetarianNote": "（mempengaruhi penilaian nutrisi）",
+    "weight": "Berat Badan",
+    "weightPlaceholder": "contoh：65",
+    "weightUnit": "kg",
+    "height": "Tinggi Badan",
+    "heightPlaceholder": "contoh：165",
+    "heightUnit": "cm"
+  },
+  "history": {
+    "title": "Riwayat Penyakit",
+    "subtitle": "Pilih semua penyakit yang pernah didiagnosis",
+    "none": "Tidak ada riwayat khusus",
+    "hypertension": "Hipertensi",
+    "diabetes": "Diabetes",
+    "hyperlipidemia": "Hiperlipidemia",
+    "heartDisease": "Penyakit Jantung",
+    "pepticUlcer": "Tukak Lambung",
+    "colonPolyp": "Polip Usus / Wasir",
+    "autoimmune": "Penyakit Autoimun",
+    "bloodDisease": "Penyakit Darah",
+    "ckd": "Penyakit Ginjal Kronis",
+    "cirrhosis": "Sirosis Hati",
+    "cancer": "Kanker",
+    "gynecological": "Penyakit Ginekologi"
+  },
+  "medication": {
+    "title": "Riwayat Obat Terkini",
+    "subtitle": "Pilih obat yang sedang digunakan",
+    "none": "Tidak ada obat khusus",
+    "antiplatelet": "Antiplatelet / Antikoagulan",
+    "anticancer": "Kemoterapi",
+    "immunosuppressant": "Imunosupresan",
+    "antibiotic": "Antibiotik",
+    "nsaid": "NSAID（antiinflamasi）"
+  },
+  "lab": {
+    "title": "Nilai Lab Terbaru",
+    "hb": "Hemoglobin（Hb）",
+    "hbUnit": "g/dL",
+    "hbNote": "Wajib",
+    "plt": "Trombosit（PLT）",
+    "pltUnit": "×10³/μL",
+    "ptInr": "PT INR",
+    "ptInrUnit": "",
+    "apttInr": "aPTT INR",
+    "apttInrUnit": "",
+    "albumin": "Albumin",
+    "albuminUnit": "g/dL",
+    "gfr": "eGFR",
+    "gfrUnit": "mL/min/1.73m²"
+  },
+  "symptom": {
+    "title": "Gejala Anemia",
+    "subtitle": "Pilih gejala yang dialami saat ini",
+    "none": "Tidak ada gejala nyata",
+    "dizziness": "Pusing",
+    "palpitation": "Jantung berdebar",
+    "weakness": "Lemah seluruh badan",
+    "fatigue": "Kelelahan",
+    "coldExtremities": "Tangan kaki dingin",
+    "dyspnea": "Sesak napas",
+    "oliguria": "Urin sedikit",
+    "edema": "Pembengkakan",
+    "other": "Lainnya（jelaskan）",
+    "otherPlaceholder": "Jelaskan gejala lain..."
+  },
+  "scenario": {
+    "title": "Kondisi Klinis",
+    "subtitle": "Pilih situasi yang sesuai",
+    "none": "Tidak ada kondisi khusus",
+    "sepsisShock": "Sepsis/demam hingga syok",
+    "massiveBleed": "Perdarahan masif hingga syok",
+    "malnutrition": "Status gizi buruk",
+    "recentChemo": "Kemoterapi baru-baru ini",
+    "recentImmunosuppressant": "Terapi imunosupresan baru-baru ini",
+    "postSurgery": "Pasca operasi baru-baru ini",
+    "ckdEpoResistant": "CKD tahap 5 resisten EPO",
+    "dialysisEpoResistant": "Dialisis resisten EPO",
+    "cirrhosisAscites": "Sirosis dengan asites masif",
+    "hemolysis": "Hemolisis",
+    "other": "Lainnya（jelaskan）",
+    "otherPlaceholder": "Jelaskan kondisi klinis lain..."
+  },
+  "tabs": {
+    "1": "Arah Konsultasi",
+    "2": "Alternatif",
+    "3": "Edukasi",
+    "4": "Panduan",
+    "5": "Nilai Darah",
+    "6": "Keputusan",
+    "7": "Ringkasan",
+    "8": "Survei"
+  },
+  "tab1": {
+    "title": "Arah Panduan Konsultasi",
+    "subtitle": "Berdasarkan data Anda, prioritaskan diskusi ini dengan tim medis",
+    "riskLevel": "Tingkat Penilaian",
+    "urgent": "Evaluasi transfusi aktif direkomendasikan",
+    "consider": "Transfusi dapat dipertimbangkan",
+    "watchful": "Pantau ketat, prioritaskan alternatif",
+    "unlikely": "Transfusi saat ini tidak diperlukan",
+    "keyPoints": "Poin Diskusi Pasien Utama",
+    "hbStatus": "Status Hemoglobin",
+    "hbNormal": "Hb dalam kisaran normal",
+    "hbBorderline": "Hb sedikit rendah, evaluasi gejala diperlukan",
+    "hbLow": "Hb rendah, penanganan aktif direkomendasikan",
+    "consult": {
+      "hbCritical": "Hb {{value}} g/dL — di bawah 7 g/dL: evaluasi transfusi aktif direkomendasikan",
+      "hbBorderline": "Hb {{value}} g/dL — riwayat jantung atau pasca operasi, pertimbangkan ambang 8 g/dL",
+      "hbSafe": "Hb {{value}} g/dL — relatif aman. Prioritaskan evaluasi gejala",
+      "heartDisease": "Riwayat penyakit jantung: pertahankan Hb≥8 g/dL, diskusikan waktu dengan kardiolog",
+      "antiplatelet": "Sedang menggunakan antiplatelet/antikoagulan: evaluasi penghentian atau bridging sebelum operasi",
+      "vegetarian": "Vegetarian: prioritaskan suplemen besi, folat, B12 sebelum mempertimbangkan transfusi",
+      "alternativeHigh": "Kelayakan alternatif tinggi: coba besi atau EPO terlebih dahulu",
+      "massiveBleed": "Perdarahan masif aktif: aktifkan protokol transfusi masif, konfirmasi ketersediaan darah",
+      "general": "Diskusikan sepenuhnya dengan tim medis untuk mempertimbangkan manfaat dan risiko"
+    }
+  },
+  "tab2": {
+    "title": "Alternatif Transfusi",
+    "subtitle": "Pertimbangkan alternatif ini sebelum transfusi！",
+    "feasibility": "Kelayakan",
+    "alternatives": {
+      "iron": {
+        "name": "Suplemen Besi",
+        "desc": "Untuk anemia defisiensi besi; oral atau IV",
+        "when": "Hb turun + indeks besi abnormal",
+        "effect": "Efektif dalam 4-8 minggu"
+      },
+      "epo": {
+        "name": "Eritropoietin（EPO）",
+        "desc": "Merangsang sumsum tulang memproduksi sel darah merah",
+        "when": "Anemia CKD, anemia akibat kemoterapi",
+        "effect": "Beberapa minggu untuk efek"
+      },
+      "folate_b12": {
+        "name": "Asam Folat / Vitamin B12",
+        "desc": "Mengisi mikronutrien yang diperlukan untuk hematopoiesis",
+        "when": "Anemia megaloblastik, vegetarian",
+        "effect": "Perbaikan dalam beberapa minggu"
+      },
+      "autologous": {
+        "name": "Transfusi Autologus",
+        "desc": "Donor darah sendiri sebelum operasi, ditransfusikan saat operasi",
+        "when": "Operasi elektif yang direncanakan",
+        "effect": "Tidak ada risiko penolakan"
+      },
+      "cellSaver": {
+        "name": "Cell Saver Intraoperatif",
+        "desc": "Daur ulang darah yang hilang selama operasi",
+        "when": "Operasi besar",
+        "effect": "Mengurangi kebutuhan darah alogenik"
+      }
+    }
+  },
+  "tab3": {
+    "title": "Meluruskan Mitos Transfusi",
+    "subtitle": "Pahami transfusi dengan benar untuk membuat keputusan bijak",
+    "mythLabel": "MITOS",
+    "factLabel": "FAKTA",
+    "clickToFlip": "Klik untuk melihat kebenaran",
+    "risks": {
+      "title": "Potensi Risiko Transfusi",
+      "subtitle": "Transfusi umumnya aman tetapi memiliki risiko",
+      "severity": {
+        "low": "Risiko Rendah",
+        "medium": "Risiko Sedang",
+        "high": "Risiko Tinggi",
+        "critical": "Serius（Jarang）"
+      }
+    },
+    "indications": {
+      "title": "Indikasi Transfusi",
+      "items": [
+        "Hb < 7 g/dL（anemia simtomatik）",
+        "Hb < 8 g/dL（penyakit jantung, pasca operasi）",
+        "Perdarahan masif dengan hemodinamik tidak stabil",
+        "PLT < 10×10³/μL（profilaksis）",
+        "PLT < 50×10³/μL（pre-operasi）",
+        "PT INR > 1.5（dengan risiko perdarahan）"
+      ]
+    }
+  },
+  "tab4": {
+    "title": "Panduan Transfusi Internasional",
+    "subtitle": "Semua panduan utama merekomendasikan 'Strategi Transfusi Restriktif'",
+    "chart": {
+      "title": "Perbandingan Ambang Hb Transfusi",
+      "yAxis": "Ambang Hb (g/dL)",
+      "threshold": "Ambang Rekomendasi"
+    },
+    "references": "Referensi",
+    "viewSource": "Lihat Sumber"
+  },
+  "tab5": {
+    "title": "Nilai Darah yang Berharga",
+    "subtitle": "Setiap kantong darah adalah hadiah berharga — gunakan dengan bijak",
+    "facts": [
+      "1 kantong sel darah merah berasal dari 1 donor, membutuhkan ~1 jam pengujian",
+      "Sel darah merah kedaluwarsa dalam 35 hari; trombosit hanya 5 hari",
+      "Taiwan membutuhkan ~1,1 juta kantong/tahun, semuanya dari donor sukarela",
+      "Hemat 1 kantong = bantu pasien lain yang membutuhkan"
+    ],
+    "evidence": {
+      "title": "Bukti: Strategi Transfusi Restriktif",
+      "items": [
+        {
+          "study": "TRICC Trial (1999)",
+          "finding": "Strategi restriktif tidak inferior dari liberal pada pasien ICU",
+          "level": "Grade A"
+        },
+        {
+          "study": "FOCUS Trial (2011)",
+          "finding": "Ambang Hb≥8 setara dengan Hb≥10 pasca operasi pinggul",
+          "level": "Grade A"
+        },
+        {
+          "study": "TRACS Trial (2011)",
+          "finding": "Mortalitas 30 hari setara pasca operasi jantung",
+          "level": "Grade A"
+        }
+      ]
+    },
+    "sloganTitle": "Slogan Rumah Sakit",
+    "bloodJourneyTitle": "Perjalanan Satu Kantong Darah",
+    "bloodSteps": [
+      "Donor Sukarela",
+      "Pengambilan Darah (450 mL)",
+      "Skrining Penyakit Menular",
+      "Persiapan Komponen",
+      "Penyimpanan Rantai Dingin",
+      "Pengiriman ke Bank Darah RS",
+      "Transfusi ke Pasien"
+    ]
+  },
+  "tab6": {
+    "title": "Buat Keputusan Anda",
+    "subtitle": "Setelah meninjau informasi, buat pilihan Anda",
+    "predictor": {
+      "title": "Kalkulator Prediksi Nilai Post-Transfusi",
+      "hbTab": "Prediksi Hb（RLRBC）",
+      "pltTab": "Prediksi PLT（Trombosit）",
+      "units": "Jumlah Kantong",
+      "rdp": "Trombosit Acak（RDP）",
+      "sdp": "Trombosit Aferesis（SDP）",
+      "predicted": "Nilai Prediksi Post-Tx",
+      "delta": "Kenaikan Estimasi",
+      "confidence": "Rentang Prediksi",
+      "disclaimer": "Ini adalah estimasi statistik. Hasil aktual bervariasi berdasarkan faktor individu, status perdarahan, dan fungsi sumsum tulang.",
+      "cciLabel": "CCI Estimasi（1 jam post-tx）",
+      "cciGood": "Cukup（≥7.500）",
+      "cciBad": "Tidak cukup（<7.500）"
+    },
+    "decisionTitle": "Keputusan Transfusi Saya",
+    "transfuse": "Saya Memilih Transfusi",
+    "noTransfuse": "Saya Menolak Transfusi",
+    "reasonLabel": "Alasan（opsional）",
+    "reasonPlaceholder": "Jelaskan alasan keputusan Anda...",
+    "physicianLabel": "Nama Dokter/Perawat（opsional）",
+    "physicianPlaceholder": "Masukkan nama",
+    "confirmTitle": "Konfirmasi Keputusan",
+    "confirmTransfuse": "Konfirmasi: Transfusi",
+    "confirmNo": "Konfirmasi: Tolak Transfusi"
+  },
+  "tab7": {
+    "title": "Ringkasan Keputusan & Rekomendasi",
+    "yourDecision": "Keputusan Anda",
+    "medAdvice": "Rekomendasi Medis",
+    "agree": "✅ Keputusan Anda sesuai dengan rekomendasi medis",
+    "disagree": "⚠️ Keputusan Anda berbeda dari rekomendasi medis. Pertimbangkan diskusi lebih lanjut dengan tim medis.",
+    "followUp": "Rekomendasi Tindak Lanjut",
+    "followUpItems": [
+      "Periksa ulang hemoglobin dalam 1-2 minggu",
+      "Segera cari perawatan medis jika gejala memburuk",
+      "Lanjutkan suplemen besi/folat（jika berlaku）",
+      "Kunjungan rutin untuk mengevaluasi penyebab anemia"
+    ],
+    "urgentLevel": {
+      "urgent": "Sangat Direkomendasikan Transfusi",
+      "consider": "Pertimbangkan Transfusi",
+      "watchful": "Prioritaskan Alternatif",
+      "unlikely": "Transfusi Saat Ini Tidak Diperlukan"
+    },
+    "notDecided": "Belum ada keputusan",
+    "riskScore": "Skor Risiko",
+    "hbTargetLabel": "Target Hb ≥ {{value}} g/dL",
+    "predictedHbLabel": "Prediksi Hb setelah {{units}} kantong: {{value}} g/dL",
+    "predictedPltLabel": "Prediksi PLT setelah {{units}} kantong {{type}}: {{value}} ×10³/μL"
+  },
+  "tab8": {
+    "title": "Survei Kepuasan",
+    "subtitle": "Masukan Anda membantu kami meningkatkan layanan. Terima kasih！",
+    "satisfactionLabel": "Kepuasan Keseluruhan",
+    "stars": [
+      "Sangat Tidak Puas",
+      "Tidak Puas",
+      "Biasa",
+      "Puas",
+      "Sangat Puas"
+    ],
+    "betterLabel": "Apakah alat ini meningkatkan pemahaman Anda tentang transfusi?",
+    "betterYes": "Ya, saya lebih memahami sekarang",
+    "betterPartial": "Agak membantu",
+    "betterNo": "Tidak banyak perubahan",
+    "suggestionsLabel": "Saran（opsional）",
+    "suggestionsPlaceholder": "Bagikan pikiran Anda...",
+    "submitSurvey": "Kirim Survei",
+    "thankYou": "Terima kasih atas masukan Anda！",
+    "thankYouSub": "Masukan Anda membantu lebih banyak orang membuat keputusan transfusi yang bijak",
+    "stats": "Distribusi Kepuasan Keseluruhan"
+  },
+  "myth": {
+    "myth1": {
+      "myth": "Transfusi dengan cepat mengisi energi dan membuat Anda langsung merasa lebih baik",
+      "fact": "Transfusi hanya memulihkan kapasitas pembawa oksigen sel darah merah, bukan energi atau protein"
+    },
+    "myth2": {
+      "myth": "Hemoglobin rendah pasti memerlukan transfusi",
+      "fact": "Keputusan transfusi harus mempertimbangkan gejala dan konteks klinis secara komprehensif. Pasien stabil dengan Hb≥7 biasanya tidak perlu transfusi"
+    },
+    "myth3": {
+      "myth": "Semakin banyak kantong transfusi semakin baik dan aman",
+      "fact": "Penelitian menunjukkan transfusi berlebihan meningkatkan risiko infeksi dan edema paru. Strategi restriktif memberikan hasil lebih baik"
+    },
+    "myth4": {
+      "myth": "Vegetarian dengan anemia pasti memerlukan transfusi",
+      "fact": "Anemia pada vegetarian sering disebabkan defisiensi besi atau B12; suplementasi nutrisi biasanya lebih efektif"
+    },
+    "myth5": {
+      "myth": "Darah dari bank darah 100% aman tanpa risiko",
+      "fact": "Skrining bank darah modern sangat ketat, tetapi reaksi transfusi, TACO, dan TRALI masih mungkin terjadi"
+    },
+    "myth6": {
+      "myth": "Hb di atas 7 tidak perlu buru-buru",
+      "fact": "Pasien dengan penyakit jantung, pasca operasi, atau sedang berdarah mungkin memerlukan ambang lebih tinggi（Hb≥8）"
+    }
+  },
+  "risk": {
+    "febrile": "Reaksi Febris Non-Hemolitik（FNHTR）",
+    "allergic": "Reaksi Alergi",
+    "taco": "Kelebihan Sirkulasi Terkait Transfusi（TACO）",
+    "trali": "Cedera Paru Akut Terkait Transfusi（TRALI）",
+    "hemolytic": "Reaksi Hemolitik Transfusi",
+    "infection": "Penularan Penyakit Menular（sangat jarang）",
+    "immunomod": "Imunomodulasi Terkait Transfusi（TRIM）",
+    "iron_overload": "Kelebihan Besi akibat Transfusi Kronis",
+    "factor": {
+      "hbCritical": "Hb sangat rendah（< 6 g/dL）",
+      "hbLow": "Hb rendah（< 7 g/dL）",
+      "hbBorderline": "Hb batas（< 8 g/dL）",
+      "sepsisShock": "Syok septik",
+      "massiveBleed": "Perdarahan masif",
+      "hemolysis": "Hemolisis",
+      "recentChemo": "Kemoterapi baru-baru ini",
+      "ckdEpoResistant": "CKD dengan resistensi EPO",
+      "dialysisEpo": "Dialisis dengan resistensi EPO",
+      "postSurgery": "Pemulihan pasca operasi",
+      "cirrhosisAscites": "Sirosis hati dengan asites",
+      "heartDisease": "Riwayat penyakit jantung",
+      "ckd": "Penyakit ginjal kronis",
+      "cancer": "Keganasan",
+      "bloodDisease": "Penyakit hematologi",
+      "coagPt": "Koagulopati（PT INR > 1.5）",
+      "coagAptt": "Koagulopati（APTT > 1.5）",
+      "pltCritical": "Trombosit sangat rendah（< 10×10³/μL）",
+      "pltLow": "Trombosit rendah（< 50×10³/μL）",
+      "albumin": "Albumin rendah（< 3 g/dL）",
+      "gfrLow": "Gangguan ginjal berat（GFR < 15）",
+      "severeSx": "Gejala anemia berat（berdebar／sesak napas／oliguria）",
+      "multipleSx": "Banyak gejala anemia",
+      "antiplatelet": "Sedang menggunakan antiplatelet"
+    }
+  },
+  "admin": {
+    "downloadTitle": "Unduh Data Admin",
+    "passwordLabel": "Masukkan Kata Sandi Admin",
+    "passwordPlaceholder": "Masukkan kata sandi",
+    "downloadBtn": "Unduh Laporan Excel",
+    "recordCount": "{{count}} catatan tersimpan",
+    "wrongPassword": "Kata sandi salah. Silakan coba lagi.",
+    "noData": "Tidak ada data yang tersedia untuk diunduh",
+    "sheet1": "Catatan Q&A",
+    "sheet2": "Hasil Keputusan",
+    "sheet3": "Referensi Panduan",
+    "sheet4": "Statistik Kepuasan"
+  }
 }

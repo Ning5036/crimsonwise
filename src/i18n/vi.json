@@ -1,24 +1,442 @@
 {
-  "app": { "name": "CrimsonWise", "tagline": "Lựa chọn truyền máu khôn ngoan", "subtitle": "Truyền ít không có nghĩa là thua", "disclaimer": "⚠️ Không phải công cụ chẩn đoán. Dựa trên bằng chứng, hỗ trợ đối thoại giữa bác sĩ và bệnh nhân để đưa ra quyết định y tế tốt nhất.", "start": "Bắt đầu đánh giá", "restart": "Đánh giá lại", "next": "Tiếp theo", "back": "Quay lại", "submit": "Gửi", "confirm": "Xác nhận", "cancel": "Hủy", "optional": "（Tùy chọn）", "required": "Bắt buộc", "edition": "Phiên bản Y tế", "editionFor": "Thiết kế dành cho nhân viên y tế", "prevPage": "Trước", "nextPage": "Tiếp theo", "slogans": ["Tiết kiệm 1 túi máu = Cứu 1 mạng người", "Truyền máu thận trọng mới cứu được người", "Hb≥7 là đủ rồi"] },
-  "landing": { "feature1": "Hướng dẫn định hướng tư vấn, thảo luận trọng điểm", "feature2": "Phương án thay thế truyền máu, ưu tiên liệu pháp không truyền máu", "feature3": "Phá bỏ quan niệm sai lầm, xây dựng kiến thức đúng về truyền máu", "feature4": "Hướng dẫn trong và ngoài nước, căn cứ quyết định dựa trên bằng chứng", "feature5": "Máy tính dự đoán Hb & PLT sau truyền máu", "feature6": "Hỗ trợ 7 ngôn ngữ, không rào cản ngôn ngữ" },
-  "stats": { "today": "Lượt truy cập hôm nay", "total": "Tổng lượt truy cập", "visitors": "người" },
-  "steps": { "1": "Thông tin cơ bản", "2": "Tiền sử bệnh", "3": "Lịch sử dùng thuốc", "4": "Chỉ số xét nghiệm", "5": "Triệu chứng", "6": "Bối cảnh lâm sàng", "progress": "Bước {{step}} / 6" },
-  "basic": { "age": "Tuổi", "agePlaceholder": "VD：65", "ageUnit": "tuổi", "sex": "Giới tính", "male": "Nam", "female": "Nữ", "vegetarian": "Ăn chay", "vegetarianNote": "（ảnh hưởng đến đánh giá dinh dưỡng）", "weight": "Cân nặng", "weightPlaceholder": "VD：65", "weightUnit": "kg", "height": "Chiều cao", "heightPlaceholder": "VD：165", "heightUnit": "cm" },
-  "history": { "title": "Tiền sử bệnh", "subtitle": "Chọn tất cả các bệnh đã được chẩn đoán", "none": "Không có tiền sử đặc biệt", "hypertension": "Tăng huyết áp", "diabetes": "Đái tháo đường", "hyperlipidemia": "Rối loạn mỡ máu", "heartDisease": "Bệnh tim", "pepticUlcer": "Loét dạ dày-tá tràng", "colonPolyp": "Polyp đại tràng / Trĩ", "autoimmune": "Bệnh tự miễn", "bloodDisease": "Bệnh máu", "ckd": "Bệnh thận mạn", "cirrhosis": "Xơ gan", "cancer": "Ung thư", "gynecological": "Bệnh phụ khoa" },
-  "medication": { "title": "Lịch sử dùng thuốc gần đây", "subtitle": "Chọn các thuốc đang sử dụng", "none": "Không dùng thuốc đặc biệt", "antiplatelet": "Thuốc chống kết tập tiểu cầu / Chống đông máu", "anticancer": "Hóa trị", "immunosuppressant": "Thuốc ức chế miễn dịch", "antibiotic": "Kháng sinh", "nsaid": "NSAIDs（thuốc giảm đau chống viêm）" },
-  "lab": { "title": "Chỉ số xét nghiệm gần nhất", "hb": "Hemoglobin（Hb）", "hbUnit": "g/dL", "hbNote": "Bắt buộc", "plt": "Tiểu cầu（PLT）", "pltUnit": "×10³/μL", "ptInr": "PT INR", "ptInrUnit": "", "apttInr": "aPTT INR", "apttInrUnit": "", "albumin": "Albumin", "albuminUnit": "g/dL", "gfr": "eGFR", "gfrUnit": "mL/min/1.73m²" },
-  "symptom": { "title": "Triệu chứng thiếu máu", "subtitle": "Chọn các triệu chứng hiện tại", "none": "Không có triệu chứng rõ ràng", "dizziness": "Chóng mặt", "palpitation": "Hồi hộp", "weakness": "Mệt mỏi toàn thân", "fatigue": "Kiệt sức", "coldExtremities": "Tay chân lạnh", "dyspnea": "Khó thở", "oliguria": "Tiểu ít", "edema": "Phù nề", "other": "Khác（mô tả）", "otherPlaceholder": "Mô tả các triệu chứng khác..." },
-  "scenario": { "title": "Bối cảnh lâm sàng", "subtitle": "Chọn các tình huống phù hợp", "none": "Không có bối cảnh đặc biệt", "sepsisShock": "Nhiễm trùng huyết/sốc", "massiveBleed": "Xuất huyết ồ ạt/sốc", "malnutrition": "Suy dinh dưỡng", "recentChemo": "Hóa trị gần đây", "recentImmunosuppressant": "Điều trị ức chế miễn dịch gần đây", "postSurgery": "Sau phẫu thuật gần đây", "ckdEpoResistant": "CKD giai đoạn 5 kháng EPO", "dialysisEpoResistant": "Chạy thận kháng EPO", "cirrhosisAscites": "Xơ gan với cổ trướng lớn", "hemolysis": "Tan máu", "other": "Khác（mô tả）", "otherPlaceholder": "Mô tả bối cảnh lâm sàng khác..." },
-  "tabs": { "1": "Hướng tư vấn", "2": "Thay thế", "3": "Giáo dục", "4": "Hướng dẫn", "5": "Giá trị máu", "6": "Quyết định", "7": "Tóm tắt", "8": "Khảo sát" },
-  "tab1": { "title": "Hướng dẫn tư vấn", "subtitle": "Dựa trên dữ liệu của bạn, hãy ưu tiên thảo luận với đội ngũ y tế", "riskLevel": "Mức độ đánh giá", "urgent": "Khuyến nghị đánh giá truyền máu tích cực", "consider": "Có thể xem xét truyền máu", "watchful": "Theo dõi chặt chẽ, ưu tiên thay thế", "unlikely": "Hiện tại không cần truyền máu", "keyPoints": "Điểm thảo luận chính", "hbStatus": "Trạng thái Hemoglobin", "hbNormal": "Hb trong phạm vi bình thường", "hbBorderline": "Hb hơi thấp, cần đánh giá triệu chứng", "hbLow": "Hb thấp, khuyến nghị xử lý tích cực", "consult": { "hbCritical": "Hb {{value}} g/dL — dưới 7 g/dL: khuyến nghị đánh giá truyền máu tích cực", "hbBorderline": "Hb {{value}} g/dL — bệnh tim hoặc sau phẫu thuật, nâng ngưỡng lên 8 g/dL", "hbSafe": "Hb {{value}} g/dL — tương đối an toàn. Ưu tiên đánh giá triệu chứng", "heartDisease": "Tiền sử bệnh tim: duy trì Hb≥8 g/dL, thảo luận thời điểm với bác sĩ tim mạch", "antiplatelet": "Đang dùng thuốc chống kết tập tiểu cầu/đông máu: đánh giá ngừng thuốc hoặc cầu nối trước phẫu thuật", "vegetarian": "Người ăn chay: ưu tiên bổ sung sắt, axit folic, B12 trước khi xét truyền máu", "alternativeHigh": "Khả năng thay thế cao: thử sắt hoặc EPO trước", "massiveBleed": "Đang xuất huyết ồ ạt: kích hoạt phác đồ truyền máu ồ ạt, xác nhận nguồn máu", "general": "Thảo luận đầy đủ với đội ngũ y tế để cân nhắc lợi ích và rủi ro" } },
-  "tab2": { "title": "Thay thế truyền máu", "subtitle": "Xem xét các phương án thay thế trước khi truyền máu！", "feasibility": "Tính khả thi", "alternatives": { "iron": { "name": "Bổ sung sắt", "desc": "Cho thiếu máu thiếu sắt; uống hoặc truyền tĩnh mạch", "when": "Hb giảm + chỉ số sắt bất thường", "effect": "Hiệu quả trong 4-8 tuần" }, "epo": { "name": "Erythropoietin（EPO）", "desc": "Kích thích tủy xương sản xuất hồng cầu", "when": "Thiếu máu CKD, thiếu máu do hóa trị", "effect": "Có hiệu quả sau vài tuần" }, "folate_b12": { "name": "Axit folic / Vitamin B12", "desc": "Bổ sung vi chất cần thiết cho tạo máu", "when": "Thiếu máu nguyên bào khổng lồ, người ăn chay", "effect": "Cải thiện trong vài tuần" }, "autologous": { "name": "Truyền máu tự thân", "desc": "Lấy máu trước phẫu thuật, truyền lại khi phẫu thuật", "when": "Phẫu thuật có kế hoạch", "effect": "Không có nguy cơ thải ghép" }, "cellSaver": { "name": "Thu hồi máu trong mổ", "desc": "Thu hồi và tái sử dụng máu trong phẫu thuật", "when": "Phẫu thuật lớn", "effect": "Giảm nhu cầu máu từ người hiến" } } },
-  "tab3": { "title": "Xóa tan hiểu lầm về truyền máu", "subtitle": "Hiểu đúng về truyền máu để đưa ra quyết định khôn ngoan", "mythLabel": "HIỂU LẦM", "factLabel": "SỰ THẬT", "clickToFlip": "Nhấp để xem sự thật", "risks": { "title": "Rủi ro tiềm ẩn của truyền máu", "subtitle": "Truyền máu nói chung an toàn nhưng có rủi ro", "severity": { "low": "Nguy cơ thấp", "medium": "Nguy cơ trung bình", "high": "Nguy cơ cao", "critical": "Nghiêm trọng（hiếm）" } }, "indications": { "title": "Chỉ định truyền máu tham khảo", "items": ["Hb < 7 g/dL（thiếu máu có triệu chứng）", "Hb < 8 g/dL（bệnh tim, sau phẫu thuật）", "Xuất huyết ồ ạt với huyết động không ổn định", "PLT < 10×10³/μL（dự phòng）", "PLT < 50×10³/μL（trước phẫu thuật）", "PT INR > 1.5（có nguy cơ chảy máu）"] } },
-  "tab4": { "title": "Hướng dẫn truyền máu quốc tế", "subtitle": "Tất cả hướng dẫn lớn đều khuyến nghị 'Chiến lược truyền máu hạn chế'", "chart": { "title": "So sánh ngưỡng Hb truyền máu", "yAxis": "Ngưỡng Hb (g/dL)", "threshold": "Ngưỡng khuyến nghị" }, "references": "Tài liệu tham khảo", "viewSource": "Xem nguồn" },
-  "tab5": { "title": "Giá trị của máu", "subtitle": "Mỗi túi máu là món quà quý giá — hãy sử dụng khôn ngoan", "facts": ["1 túi hồng cầu đến từ 1 người hiến máu, cần ~1 giờ xét nghiệm", "Hồng cầu hết hạn sau 35 ngày; tiểu cầu chỉ 5 ngày", "Đài Loan cần ~1,1 triệu túi/năm, hoàn toàn từ hiến máu tình nguyện", "Tiết kiệm 1 túi = giúp được bệnh nhân khác đang cần"], "evidence": { "title": "Bằng chứng: Chiến lược truyền máu hạn chế", "items": [{ "study": "TRICC Trial (1999)", "finding": "Chiến lược hạn chế không thua kém chiến lược tự do ở bệnh nhân ICU", "level": "Grade A" }, { "study": "FOCUS Trial (2011)", "finding": "Ngưỡng Hb≥8 tương đương Hb≥10 sau phẫu thuật thay khớp háng", "level": "Grade A" }, { "study": "TRACS Trial (2011)", "finding": "Tỷ lệ tử vong 30 ngày tương đương sau phẫu thuật tim", "level": "Grade A" }] }, "sloganTitle": "Khẩu hiệu bệnh viện", "bloodJourneyTitle": "Hành trình của một túi máu", "bloodSteps": ["Người hiến máu tình nguyện", "Lấy máu (450 mL)", "Sàng lọc bệnh truyền nhiễm", "Chuẩn bị thành phần", "Bảo quản chuỗi lạnh", "Vận chuyển đến ngân hàng máu", "Truyền máu cho bệnh nhân"] },
-  "tab6": { "title": "Đưa ra quyết định", "subtitle": "Sau khi xem xét thông tin, hãy đưa ra lựa chọn của bạn", "predictor": { "title": "Máy tính dự đoán chỉ số sau truyền máu", "hbTab": "Dự đoán Hb（RLRBC）", "pltTab": "Dự đoán PLT（Tiểu cầu）", "units": "Số túi truyền", "rdp": "Tiểu cầu tập trung（RDP）", "sdp": "Tiểu cầu máy（SDP）", "predicted": "Giá trị dự đoán sau truyền", "delta": "Tăng ước tính", "confidence": "Khoảng dự đoán", "disclaimer": "Đây là ước tính thống kê. Kết quả thực tế thay đổi theo cá nhân, tình trạng chảy máu và chức năng tủy xương.", "cciLabel": "CCI ước tính（sau 1 giờ）", "cciGood": "Đủ（≥7.500）", "cciBad": "Không đủ（<7.500）" }, "decisionTitle": "Quyết định truyền máu của tôi", "transfuse": "Tôi chọn truyền máu", "noTransfuse": "Tôi từ chối truyền máu", "reasonLabel": "Lý do（tùy chọn）", "reasonPlaceholder": "Vui lòng giải thích quyết định của bạn...", "physicianLabel": "Tên bác sĩ/y tá（tùy chọn）", "physicianPlaceholder": "Nhập tên", "confirmTitle": "Xác nhận quyết định", "confirmTransfuse": "Xác nhận: Truyền máu", "confirmNo": "Xác nhận: Từ chối truyền máu" },
-  "tab7": { "title": "Tóm tắt quyết định & Khuyến nghị", "yourDecision": "Quyết định của bạn", "medAdvice": "Khuyến nghị y tế", "agree": "✅ Quyết định của bạn phù hợp với khuyến nghị y tế", "disagree": "⚠️ Quyết định của bạn khác với khuyến nghị y tế. Hãy thảo luận thêm với đội ngũ y tế.", "followUp": "Khuyến nghị theo dõi", "followUpItems": ["Kiểm tra lại Hemoglobin sau 1-2 tuần", "Đến ngay cơ sở y tế nếu triệu chứng xấu hơn", "Tiếp tục bổ sung sắt/axit folic（nếu cần）", "Tái khám định kỳ để đánh giá nguyên nhân thiếu máu"], "urgentLevel": { "urgent": "Khuyến nghị mạnh mẽ truyền máu", "consider": "Xem xét truyền máu", "watchful": "Ưu tiên thay thế", "unlikely": "Hiện không cần truyền máu" }, "notDecided": "Chưa đưa ra quyết định", "riskScore": "Điểm rủi ro", "hbTargetLabel": "Mục tiêu Hb ≥ {{value}} g/dL", "predictedHbLabel": "Hb dự đoán sau {{units}} đơn vị: {{value}} g/dL", "predictedPltLabel": "PLT dự đoán sau {{units}} túi {{type}}: {{value}} ×10³/μL" },
-  "tab8": { "title": "Khảo sát mức độ hài lòng", "subtitle": "Phản hồi của bạn giúp chúng tôi cải thiện. Cảm ơn！", "satisfactionLabel": "Mức độ hài lòng tổng thể", "stars": ["Rất không hài lòng", "Không hài lòng", "Bình thường", "Hài lòng", "Rất hài lòng"], "betterLabel": "Công cụ này có giúp bạn hiểu đúng hơn về truyền máu không?", "betterYes": "Có, tôi hiểu rõ hơn", "betterPartial": "Hơi hữu ích", "betterNo": "Không thay đổi nhiều", "suggestionsLabel": "Góp ý（tùy chọn）", "suggestionsPlaceholder": "Chia sẻ suy nghĩ của bạn...", "submitSurvey": "Gửi khảo sát", "thankYou": "Cảm ơn phản hồi của bạn！", "thankYouSub": "Ý kiến của bạn giúp nhiều người hơn đưa ra quyết định truyền máu khôn ngoan", "stats": "Phân bố mức độ hài lòng tổng thể" },
-  "myth": { "myth1": { "myth": "Truyền máu nhanh chóng bổ sung năng lượng và cảm thấy khỏe ngay", "fact": "Truyền máu chỉ bổ sung khả năng vận chuyển oxy của hồng cầu, không bổ sung năng lượng hay protein" }, "myth2": { "myth": "Hemoglobin thấp là phải truyền máu", "fact": "Quyết định truyền máu phải xem xét tổng thể triệu chứng và bối cảnh lâm sàng. Bệnh nhân ổn định với Hb≥7 thường không cần truyền" }, "myth3": { "myth": "Càng truyền nhiều càng tốt và an toàn hơn", "fact": "Nghiên cứu cho thấy truyền quá mức làm tăng nguy cơ nhiễm trùng và phù phổi. Chiến lược hạn chế cho kết quả tốt hơn" }, "myth4": { "myth": "Người ăn chay bị thiếu máu phải truyền máu", "fact": "Thiếu máu ở người ăn chay thường do thiếu sắt hoặc B12, bổ sung dinh dưỡng thường hiệu quả hơn truyền máu" }, "myth5": { "myth": "Máu từ ngân hàng máu 100% an toàn, không có rủi ro", "fact": "Sàng lọc ngân hàng máu hiện đại rất nghiêm ngặt, nhưng phản ứng truyền máu, TACO và TRALI vẫn có thể xảy ra" }, "myth6": { "myth": "Hb trên 7 là không cần vội", "fact": "Bệnh nhân tim mạch, sau phẫu thuật hoặc đang chảy máu có thể cần ngưỡng cao hơn（Hb≥8）" } },
-  "risk": { "febrile": "Phản ứng sốt không tan máu（FNHTR）", "allergic": "Phản ứng dị ứng", "taco": "Quá tải tuần hoàn liên quan truyền máu（TACO）", "trali": "Tổn thương phổi cấp tính liên quan truyền máu（TRALI）", "hemolytic": "Phản ứng tan máu", "infection": "Lây truyền bệnh truyền nhiễm（cực hiếm）", "immunomod": "Điều chỉnh miễn dịch liên quan truyền máu（TRIM）", "iron_overload": "Tích lũy sắt do truyền máu mạn tính", "factor": { "hbCritical": "Hb rất thấp（< 6 g/dL）", "hbLow": "Hb thấp（< 7 g/dL）", "hbBorderline": "Hb ngưỡng ranh giới（< 8 g/dL）", "sepsisShock": "Sốc nhiễm khuẩn", "massiveBleed": "Xuất huyết ồ ạt", "hemolysis": "Tan máu", "recentChemo": "Hóa trị gần đây", "ckdEpoResistant": "CKD kháng EPO", "dialysisEpo": "Lọc thận kháng EPO", "postSurgery": "Hồi phục sau phẫu thuật", "cirrhosisAscites": "Xơ gan cổ trướng", "heartDisease": "Tiền sử bệnh tim", "ckd": "Bệnh thận mạn", "cancer": "Ung thư ác tính", "bloodDisease": "Bệnh lý máu", "coagPt": "Rối loạn đông máu（PT INR > 1.5）", "coagAptt": "Rối loạn đông máu（APTT > 1.5）", "pltCritical": "Tiểu cầu cực thấp（< 10×10³/μL）", "pltLow": "Tiểu cầu thấp（< 50×10³/μL）", "albumin": "Albumin thấp（< 3 g/dL）", "gfrLow": "Suy thận nặng（GFR < 15）", "severeSx": "Triệu chứng thiếu máu nặng（hồi hộp／khó thở／thiểu niệu）", "multipleSx": "Nhiều triệu chứng thiếu máu", "antiplatelet": "Đang dùng thuốc kháng kết tập tiểu cầu" } },
-  "admin": { "downloadTitle": "Tải dữ liệu quản trị", "passwordLabel": "Nhập mật khẩu quản trị viên", "passwordPlaceholder": "Nhập mật khẩu", "downloadBtn": "Tải báo cáo Excel", "recordCount": "{{count}} bản ghi", "wrongPassword": "Mật khẩu không đúng. Vui lòng thử lại.", "noData": "Không có dữ liệu để tải", "sheet1": "Hồ sơ Q&A", "sheet2": "Kết quả quyết định", "sheet3": "Tham khảo hướng dẫn", "sheet4": "Thống kê hài lòng" }
+  "app": {
+    "name": "CrimsonWise",
+    "tagline": "Lựa chọn truyền máu khôn ngoan",
+    "subtitle": "Truyền ít không có nghĩa là thua",
+    "disclaimer": "⚠️ Không phải công cụ chẩn đoán. Dựa trên bằng chứng, hỗ trợ đối thoại giữa bác sĩ và bệnh nhân để đưa ra quyết định y tế tốt nhất.",
+    "start": "Bắt đầu đánh giá",
+    "restart": "Đánh giá lại",
+    "next": "Tiếp theo",
+    "back": "Quay lại",
+    "submit": "Gửi",
+    "confirm": "Xác nhận",
+    "cancel": "Hủy",
+    "optional": "（Tùy chọn）",
+    "required": "Bắt buộc",
+    "edition": "Phiên bản Y tế",
+    "editionFor": "Thiết kế dành cho nhân viên y tế",
+    "prevPage": "Trước",
+    "nextPage": "Tiếp theo",
+    "slogans": [
+      "Tiết kiệm 1 túi máu = Cứu 1 mạng người",
+      "Truyền máu thận trọng mới cứu được người",
+      "Hb≥7 là đủ rồi"
+    ]
+  },
+  "landing": {
+    "feature1": "Hướng dẫn định hướng tư vấn, thảo luận trọng điểm",
+    "feature2": "Phương án thay thế truyền máu, ưu tiên liệu pháp không truyền máu",
+    "feature3": "Phá bỏ quan niệm sai lầm, xây dựng kiến thức đúng về truyền máu",
+    "feature4": "Hướng dẫn trong và ngoài nước, căn cứ quyết định dựa trên bằng chứng",
+    "feature5": "Máy tính dự đoán Hb & PLT sau truyền máu",
+    "feature6": "Hỗ trợ 7 ngôn ngữ, không rào cản ngôn ngữ"
+  },
+  "stats": {
+    "today": "Lượt truy cập hôm nay",
+    "total": "Tổng lượt truy cập",
+    "visitors": "người"
+  },
+  "steps": {
+    "1": "Thông tin cơ bản",
+    "2": "Tiền sử bệnh",
+    "3": "Lịch sử dùng thuốc",
+    "4": "Chỉ số xét nghiệm",
+    "5": "Triệu chứng",
+    "6": "Bối cảnh lâm sàng",
+    "progress": "Bước {{step}} / 6"
+  },
+  "basic": {
+    "age": "Tuổi",
+    "agePlaceholder": "VD：65",
+    "ageUnit": "tuổi",
+    "sex": "Giới tính",
+    "male": "Nam",
+    "female": "Nữ",
+    "vegetarian": "Ăn chay",
+    "vegetarianNote": "（ảnh hưởng đến đánh giá dinh dưỡng）",
+    "weight": "Cân nặng",
+    "weightPlaceholder": "VD：65",
+    "weightUnit": "kg",
+    "height": "Chiều cao",
+    "heightPlaceholder": "VD：165",
+    "heightUnit": "cm"
+  },
+  "history": {
+    "title": "Tiền sử bệnh",
+    "subtitle": "Chọn tất cả các bệnh đã được chẩn đoán",
+    "none": "Không có tiền sử đặc biệt",
+    "hypertension": "Tăng huyết áp",
+    "diabetes": "Đái tháo đường",
+    "hyperlipidemia": "Rối loạn mỡ máu",
+    "heartDisease": "Bệnh tim",
+    "pepticUlcer": "Loét dạ dày-tá tràng",
+    "colonPolyp": "Polyp đại tràng / Trĩ",
+    "autoimmune": "Bệnh tự miễn",
+    "bloodDisease": "Bệnh máu",
+    "ckd": "Bệnh thận mạn",
+    "cirrhosis": "Xơ gan",
+    "cancer": "Ung thư",
+    "gynecological": "Bệnh phụ khoa"
+  },
+  "medication": {
+    "title": "Lịch sử dùng thuốc gần đây",
+    "subtitle": "Chọn các thuốc đang sử dụng",
+    "none": "Không dùng thuốc đặc biệt",
+    "antiplatelet": "Thuốc chống kết tập tiểu cầu / Chống đông máu",
+    "anticancer": "Hóa trị",
+    "immunosuppressant": "Thuốc ức chế miễn dịch",
+    "antibiotic": "Kháng sinh",
+    "nsaid": "NSAIDs（thuốc giảm đau chống viêm）"
+  },
+  "lab": {
+    "title": "Chỉ số xét nghiệm gần nhất",
+    "hb": "Hemoglobin（Hb）",
+    "hbUnit": "g/dL",
+    "hbNote": "Bắt buộc",
+    "plt": "Tiểu cầu（PLT）",
+    "pltUnit": "×10³/μL",
+    "ptInr": "PT INR",
+    "ptInrUnit": "",
+    "apttInr": "aPTT INR",
+    "apttInrUnit": "",
+    "albumin": "Albumin",
+    "albuminUnit": "g/dL",
+    "gfr": "eGFR",
+    "gfrUnit": "mL/min/1.73m²"
+  },
+  "symptom": {
+    "title": "Triệu chứng thiếu máu",
+    "subtitle": "Chọn các triệu chứng hiện tại",
+    "none": "Không có triệu chứng rõ ràng",
+    "dizziness": "Chóng mặt",
+    "palpitation": "Hồi hộp",
+    "weakness": "Mệt mỏi toàn thân",
+    "fatigue": "Kiệt sức",
+    "coldExtremities": "Tay chân lạnh",
+    "dyspnea": "Khó thở",
+    "oliguria": "Tiểu ít",
+    "edema": "Phù nề",
+    "other": "Khác（mô tả）",
+    "otherPlaceholder": "Mô tả các triệu chứng khác..."
+  },
+  "scenario": {
+    "title": "Bối cảnh lâm sàng",
+    "subtitle": "Chọn các tình huống phù hợp",
+    "none": "Không có bối cảnh đặc biệt",
+    "sepsisShock": "Nhiễm trùng huyết/sốc",
+    "massiveBleed": "Xuất huyết ồ ạt/sốc",
+    "malnutrition": "Suy dinh dưỡng",
+    "recentChemo": "Hóa trị gần đây",
+    "recentImmunosuppressant": "Điều trị ức chế miễn dịch gần đây",
+    "postSurgery": "Sau phẫu thuật gần đây",
+    "ckdEpoResistant": "CKD giai đoạn 5 kháng EPO",
+    "dialysisEpoResistant": "Chạy thận kháng EPO",
+    "cirrhosisAscites": "Xơ gan với cổ trướng lớn",
+    "hemolysis": "Tan máu",
+    "other": "Khác（mô tả）",
+    "otherPlaceholder": "Mô tả bối cảnh lâm sàng khác..."
+  },
+  "tabs": {
+    "1": "Hướng tư vấn",
+    "2": "Thay thế",
+    "3": "Giáo dục",
+    "4": "Hướng dẫn",
+    "5": "Giá trị máu",
+    "6": "Quyết định",
+    "7": "Tóm tắt",
+    "8": "Khảo sát"
+  },
+  "tab1": {
+    "title": "Hướng dẫn tư vấn",
+    "subtitle": "Dựa trên dữ liệu của bạn, hãy ưu tiên thảo luận với đội ngũ y tế",
+    "riskLevel": "Mức độ đánh giá",
+    "urgent": "Khuyến nghị đánh giá truyền máu tích cực",
+    "consider": "Có thể xem xét truyền máu",
+    "watchful": "Theo dõi chặt chẽ, ưu tiên thay thế",
+    "unlikely": "Hiện tại không cần truyền máu",
+    "keyPoints": "Điểm thảo luận chính của bệnh nhân",
+    "hbStatus": "Trạng thái Hemoglobin",
+    "hbNormal": "Hb trong phạm vi bình thường",
+    "hbBorderline": "Hb hơi thấp, cần đánh giá triệu chứng",
+    "hbLow": "Hb thấp, khuyến nghị xử lý tích cực",
+    "consult": {
+      "hbCritical": "Hb {{value}} g/dL — dưới 7 g/dL: khuyến nghị đánh giá truyền máu tích cực",
+      "hbBorderline": "Hb {{value}} g/dL — bệnh tim hoặc sau phẫu thuật, nâng ngưỡng lên 8 g/dL",
+      "hbSafe": "Hb {{value}} g/dL — tương đối an toàn. Ưu tiên đánh giá triệu chứng",
+      "heartDisease": "Tiền sử bệnh tim: duy trì Hb≥8 g/dL, thảo luận thời điểm với bác sĩ tim mạch",
+      "antiplatelet": "Đang dùng thuốc chống kết tập tiểu cầu/đông máu: đánh giá ngừng thuốc hoặc cầu nối trước phẫu thuật",
+      "vegetarian": "Người ăn chay: ưu tiên bổ sung sắt, axit folic, B12 trước khi xét truyền máu",
+      "alternativeHigh": "Khả năng thay thế cao: thử sắt hoặc EPO trước",
+      "massiveBleed": "Đang xuất huyết ồ ạt: kích hoạt phác đồ truyền máu ồ ạt, xác nhận nguồn máu",
+      "general": "Thảo luận đầy đủ với đội ngũ y tế để cân nhắc lợi ích và rủi ro"
+    }
+  },
+  "tab2": {
+    "title": "Thay thế truyền máu",
+    "subtitle": "Xem xét các phương án thay thế trước khi truyền máu！",
+    "feasibility": "Tính khả thi",
+    "alternatives": {
+      "iron": {
+        "name": "Bổ sung sắt",
+        "desc": "Cho thiếu máu thiếu sắt; uống hoặc truyền tĩnh mạch",
+        "when": "Hb giảm + chỉ số sắt bất thường",
+        "effect": "Hiệu quả trong 4-8 tuần"
+      },
+      "epo": {
+        "name": "Erythropoietin（EPO）",
+        "desc": "Kích thích tủy xương sản xuất hồng cầu",
+        "when": "Thiếu máu CKD, thiếu máu do hóa trị",
+        "effect": "Có hiệu quả sau vài tuần"
+      },
+      "folate_b12": {
+        "name": "Axit folic / Vitamin B12",
+        "desc": "Bổ sung vi chất cần thiết cho tạo máu",
+        "when": "Thiếu máu nguyên bào khổng lồ, người ăn chay",
+        "effect": "Cải thiện trong vài tuần"
+      },
+      "autologous": {
+        "name": "Truyền máu tự thân",
+        "desc": "Lấy máu trước phẫu thuật, truyền lại khi phẫu thuật",
+        "when": "Phẫu thuật có kế hoạch",
+        "effect": "Không có nguy cơ thải ghép"
+      },
+      "cellSaver": {
+        "name": "Thu hồi máu trong mổ",
+        "desc": "Thu hồi và tái sử dụng máu trong phẫu thuật",
+        "when": "Phẫu thuật lớn",
+        "effect": "Giảm nhu cầu máu từ người hiến"
+      }
+    }
+  },
+  "tab3": {
+    "title": "Xóa tan hiểu lầm về truyền máu",
+    "subtitle": "Hiểu đúng về truyền máu để đưa ra quyết định khôn ngoan",
+    "mythLabel": "HIỂU LẦM",
+    "factLabel": "SỰ THẬT",
+    "clickToFlip": "Nhấp để xem sự thật",
+    "risks": {
+      "title": "Rủi ro tiềm ẩn của truyền máu",
+      "subtitle": "Truyền máu nói chung an toàn nhưng có rủi ro",
+      "severity": {
+        "low": "Nguy cơ thấp",
+        "medium": "Nguy cơ trung bình",
+        "high": "Nguy cơ cao",
+        "critical": "Nghiêm trọng（hiếm）"
+      }
+    },
+    "indications": {
+      "title": "Chỉ định truyền máu tham khảo",
+      "items": [
+        "Hb < 7 g/dL（thiếu máu có triệu chứng）",
+        "Hb < 8 g/dL（bệnh tim, sau phẫu thuật）",
+        "Xuất huyết ồ ạt với huyết động không ổn định",
+        "PLT < 10×10³/μL（dự phòng）",
+        "PLT < 50×10³/μL（trước phẫu thuật）",
+        "PT INR > 1.5（có nguy cơ chảy máu）"
+      ]
+    }
+  },
+  "tab4": {
+    "title": "Hướng dẫn truyền máu quốc tế",
+    "subtitle": "Tất cả hướng dẫn lớn đều khuyến nghị 'Chiến lược truyền máu hạn chế'",
+    "chart": {
+      "title": "So sánh ngưỡng Hb truyền máu",
+      "yAxis": "Ngưỡng Hb (g/dL)",
+      "threshold": "Ngưỡng khuyến nghị"
+    },
+    "references": "Tài liệu tham khảo",
+    "viewSource": "Xem nguồn"
+  },
+  "tab5": {
+    "title": "Giá trị của máu",
+    "subtitle": "Mỗi túi máu là món quà quý giá — hãy sử dụng khôn ngoan",
+    "facts": [
+      "1 túi hồng cầu đến từ 1 người hiến máu, cần ~1 giờ xét nghiệm",
+      "Hồng cầu hết hạn sau 35 ngày; tiểu cầu chỉ 5 ngày",
+      "Đài Loan cần ~1,1 triệu túi/năm, hoàn toàn từ hiến máu tình nguyện",
+      "Tiết kiệm 1 túi = giúp được bệnh nhân khác đang cần"
+    ],
+    "evidence": {
+      "title": "Bằng chứng: Chiến lược truyền máu hạn chế",
+      "items": [
+        {
+          "study": "TRICC Trial (1999)",
+          "finding": "Chiến lược hạn chế không thua kém chiến lược tự do ở bệnh nhân ICU",
+          "level": "Grade A"
+        },
+        {
+          "study": "FOCUS Trial (2011)",
+          "finding": "Ngưỡng Hb≥8 tương đương Hb≥10 sau phẫu thuật thay khớp háng",
+          "level": "Grade A"
+        },
+        {
+          "study": "TRACS Trial (2011)",
+          "finding": "Tỷ lệ tử vong 30 ngày tương đương sau phẫu thuật tim",
+          "level": "Grade A"
+        }
+      ]
+    },
+    "sloganTitle": "Khẩu hiệu bệnh viện",
+    "bloodJourneyTitle": "Hành trình của một túi máu",
+    "bloodSteps": [
+      "Người hiến máu tình nguyện",
+      "Lấy máu (450 mL)",
+      "Sàng lọc bệnh truyền nhiễm",
+      "Chuẩn bị thành phần",
+      "Bảo quản chuỗi lạnh",
+      "Vận chuyển đến ngân hàng máu",
+      "Truyền máu cho bệnh nhân"
+    ]
+  },
+  "tab6": {
+    "title": "Đưa ra quyết định",
+    "subtitle": "Sau khi xem xét thông tin, hãy đưa ra lựa chọn của bạn",
+    "predictor": {
+      "title": "Máy tính dự đoán chỉ số sau truyền máu",
+      "hbTab": "Dự đoán Hb（RLRBC）",
+      "pltTab": "Dự đoán PLT（Tiểu cầu）",
+      "units": "Số túi truyền",
+      "rdp": "Tiểu cầu tập trung（RDP）",
+      "sdp": "Tiểu cầu máy（SDP）",
+      "predicted": "Giá trị dự đoán sau truyền",
+      "delta": "Tăng ước tính",
+      "confidence": "Khoảng dự đoán",
+      "disclaimer": "Đây là ước tính thống kê. Kết quả thực tế thay đổi theo cá nhân, tình trạng chảy máu và chức năng tủy xương.",
+      "cciLabel": "CCI ước tính（sau 1 giờ）",
+      "cciGood": "Đủ（≥7.500）",
+      "cciBad": "Không đủ（<7.500）"
+    },
+    "decisionTitle": "Quyết định truyền máu của tôi",
+    "transfuse": "Tôi chọn truyền máu",
+    "noTransfuse": "Tôi từ chối truyền máu",
+    "reasonLabel": "Lý do（tùy chọn）",
+    "reasonPlaceholder": "Vui lòng giải thích quyết định của bạn...",
+    "physicianLabel": "Tên bác sĩ/y tá（tùy chọn）",
+    "physicianPlaceholder": "Nhập tên",
+    "confirmTitle": "Xác nhận quyết định",
+    "confirmTransfuse": "Xác nhận: Truyền máu",
+    "confirmNo": "Xác nhận: Từ chối truyền máu"
+  },
+  "tab7": {
+    "title": "Tóm tắt quyết định & Khuyến nghị",
+    "yourDecision": "Quyết định của bạn",
+    "medAdvice": "Khuyến nghị y tế",
+    "agree": "✅ Quyết định của bạn phù hợp với khuyến nghị y tế",
+    "disagree": "⚠️ Quyết định của bạn khác với khuyến nghị y tế. Hãy thảo luận thêm với đội ngũ y tế.",
+    "followUp": "Khuyến nghị theo dõi",
+    "followUpItems": [
+      "Kiểm tra lại Hemoglobin sau 1-2 tuần",
+      "Đến ngay cơ sở y tế nếu triệu chứng xấu hơn",
+      "Tiếp tục bổ sung sắt/axit folic（nếu cần）",
+      "Tái khám định kỳ để đánh giá nguyên nhân thiếu máu"
+    ],
+    "urgentLevel": {
+      "urgent": "Khuyến nghị mạnh mẽ truyền máu",
+      "consider": "Xem xét truyền máu",
+      "watchful": "Ưu tiên thay thế",
+      "unlikely": "Hiện không cần truyền máu"
+    },
+    "notDecided": "Chưa đưa ra quyết định",
+    "riskScore": "Điểm rủi ro",
+    "hbTargetLabel": "Mục tiêu Hb ≥ {{value}} g/dL",
+    "predictedHbLabel": "Hb dự đoán sau {{units}} đơn vị: {{value}} g/dL",
+    "predictedPltLabel": "PLT dự đoán sau {{units}} túi {{type}}: {{value}} ×10³/μL"
+  },
+  "tab8": {
+    "title": "Khảo sát mức độ hài lòng",
+    "subtitle": "Phản hồi của bạn giúp chúng tôi cải thiện. Cảm ơn！",
+    "satisfactionLabel": "Mức độ hài lòng tổng thể",
+    "stars": [
+      "Rất không hài lòng",
+      "Không hài lòng",
+      "Bình thường",
+      "Hài lòng",
+      "Rất hài lòng"
+    ],
+    "betterLabel": "Công cụ này có giúp bạn hiểu đúng hơn về truyền máu không?",
+    "betterYes": "Có, tôi hiểu rõ hơn",
+    "betterPartial": "Hơi hữu ích",
+    "betterNo": "Không thay đổi nhiều",
+    "suggestionsLabel": "Góp ý（tùy chọn）",
+    "suggestionsPlaceholder": "Chia sẻ suy nghĩ của bạn...",
+    "submitSurvey": "Gửi khảo sát",
+    "thankYou": "Cảm ơn phản hồi của bạn！",
+    "thankYouSub": "Ý kiến của bạn giúp nhiều người hơn đưa ra quyết định truyền máu khôn ngoan",
+    "stats": "Phân bố mức độ hài lòng tổng thể"
+  },
+  "myth": {
+    "myth1": {
+      "myth": "Truyền máu nhanh chóng bổ sung năng lượng và cảm thấy khỏe ngay",
+      "fact": "Truyền máu chỉ bổ sung khả năng vận chuyển oxy của hồng cầu, không bổ sung năng lượng hay protein"
+    },
+    "myth2": {
+      "myth": "Hemoglobin thấp là phải truyền máu",
+      "fact": "Quyết định truyền máu phải xem xét tổng thể triệu chứng và bối cảnh lâm sàng. Bệnh nhân ổn định với Hb≥7 thường không cần truyền"
+    },
+    "myth3": {
+      "myth": "Càng truyền nhiều càng tốt và an toàn hơn",
+      "fact": "Nghiên cứu cho thấy truyền quá mức làm tăng nguy cơ nhiễm trùng và phù phổi. Chiến lược hạn chế cho kết quả tốt hơn"
+    },
+    "myth4": {
+      "myth": "Người ăn chay bị thiếu máu phải truyền máu",
+      "fact": "Thiếu máu ở người ăn chay thường do thiếu sắt hoặc B12, bổ sung dinh dưỡng thường hiệu quả hơn truyền máu"
+    },
+    "myth5": {
+      "myth": "Máu từ ngân hàng máu 100% an toàn, không có rủi ro",
+      "fact": "Sàng lọc ngân hàng máu hiện đại rất nghiêm ngặt, nhưng phản ứng truyền máu, TACO và TRALI vẫn có thể xảy ra"
+    },
+    "myth6": {
+      "myth": "Hb trên 7 là không cần vội",
+      "fact": "Bệnh nhân tim mạch, sau phẫu thuật hoặc đang chảy máu có thể cần ngưỡng cao hơn（Hb≥8）"
+    }
+  },
+  "risk": {
+    "febrile": "Phản ứng sốt không tan máu（FNHTR）",
+    "allergic": "Phản ứng dị ứng",
+    "taco": "Quá tải tuần hoàn liên quan truyền máu（TACO）",
+    "trali": "Tổn thương phổi cấp tính liên quan truyền máu（TRALI）",
+    "hemolytic": "Phản ứng tan máu",
+    "infection": "Lây truyền bệnh truyền nhiễm（cực hiếm）",
+    "immunomod": "Điều chỉnh miễn dịch liên quan truyền máu（TRIM）",
+    "iron_overload": "Tích lũy sắt do truyền máu mạn tính",
+    "factor": {
+      "hbCritical": "Hb rất thấp（< 6 g/dL）",
+      "hbLow": "Hb thấp（< 7 g/dL）",
+      "hbBorderline": "Hb ngưỡng ranh giới（< 8 g/dL）",
+      "sepsisShock": "Sốc nhiễm khuẩn",
+      "massiveBleed": "Xuất huyết ồ ạt",
+      "hemolysis": "Tan máu",
+      "recentChemo": "Hóa trị gần đây",
+      "ckdEpoResistant": "CKD kháng EPO",
+      "dialysisEpo": "Lọc thận kháng EPO",
+      "postSurgery": "Hồi phục sau phẫu thuật",
+      "cirrhosisAscites": "Xơ gan cổ trướng",
+      "heartDisease": "Tiền sử bệnh tim",
+      "ckd": "Bệnh thận mạn",
+      "cancer": "Ung thư ác tính",
+      "bloodDisease": "Bệnh lý máu",
+      "coagPt": "Rối loạn đông máu（PT INR > 1.5）",
+      "coagAptt": "Rối loạn đông máu（APTT > 1.5）",
+      "pltCritical": "Tiểu cầu cực thấp（< 10×10³/μL）",
+      "pltLow": "Tiểu cầu thấp（< 50×10³/μL）",
+      "albumin": "Albumin thấp（< 3 g/dL）",
+      "gfrLow": "Suy thận nặng（GFR < 15）",
+      "severeSx": "Triệu chứng thiếu máu nặng（hồi hộp／khó thở／thiểu niệu）",
+      "multipleSx": "Nhiều triệu chứng thiếu máu",
+      "antiplatelet": "Đang dùng thuốc kháng kết tập tiểu cầu"
+    }
+  },
+  "admin": {
+    "downloadTitle": "Tải dữ liệu quản trị",
+    "passwordLabel": "Nhập mật khẩu quản trị viên",
+    "passwordPlaceholder": "Nhập mật khẩu",
+    "downloadBtn": "Tải báo cáo Excel",
+    "recordCount": "{{count}} bản ghi",
+    "wrongPassword": "Mật khẩu không đúng. Vui lòng thử lại.",
+    "noData": "Không có dữ liệu để tải",
+    "sheet1": "Hồ sơ Q&A",
+    "sheet2": "Kết quả quyết định",
+    "sheet3": "Tham khảo hướng dẫn",
+    "sheet4": "Thống kê hài lòng"
+  }
 }

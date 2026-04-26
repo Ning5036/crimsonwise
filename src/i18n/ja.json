@@ -1,24 +1,442 @@
 {
-  "app": { "name": "CrimsonWise", "tagline": "輸血の賢い選択", "subtitle": "少ない輸血が負けではない", "disclaimer": "⚠️ 診断ツールではありません。エビデンスに基づき、医師と患者の対話を支援し、最善の医療選択をサポートします。", "start": "評価を開始", "restart": "再評価", "next": "次へ", "back": "戻る", "submit": "送信", "confirm": "確認", "cancel": "キャンセル", "optional": "（任意）", "required": "必須", "edition": "医療従事者版", "editionFor": "医療従事者向けに設計", "prevPage": "前へ", "nextPage": "次へ", "slogans": ["1袋節約で1命救う", "慎重な輸血が命を救う", "Hb≥7で十分"] },
-  "landing": { "feature1": "診療の方向性をガイド、重要点を精確に議論", "feature2": "輸血代替療法、まず非輸血療法を試みる", "feature3": "誤解を解き、正しい輸血知識を構築", "feature4": "国内外のガイドライン、エビデンスに基づく意思決定", "feature5": "Hb & PLT 輸血後数値予測計算機", "feature6": "7言語対応、言語の壁なし" },
-  "stats": { "today": "本日の訪問", "total": "累計訪問", "visitors": "人" },
-  "steps": { "1": "基本情報", "2": "既往歴", "3": "服薬歴", "4": "検査値", "5": "症状", "6": "臨床状況", "progress": "ステップ {{step}} / 6" },
-  "basic": { "age": "年齢", "agePlaceholder": "例：65", "ageUnit": "歳", "sex": "性別", "male": "男性", "female": "女性", "vegetarian": "菜食主義者", "vegetarianNote": "（栄養状態評価に影響）", "weight": "体重", "weightPlaceholder": "例：65", "weightUnit": "kg", "height": "身長", "heightPlaceholder": "例：165", "heightUnit": "cm" },
-  "history": { "title": "既往歴", "subtitle": "該当する疾患を選択してください", "none": "特記事項なし", "hypertension": "高血圧", "diabetes": "糖尿病", "hyperlipidemia": "高脂血症", "heartDisease": "心疾患", "pepticUlcer": "消化性潰瘍", "colonPolyp": "大腸ポリープ／痔", "autoimmune": "自己免疫疾患", "bloodDisease": "血液疾患", "ckd": "慢性腎臓病", "cirrhosis": "肝硬変", "cancer": "がん", "gynecological": "婦人科疾患" },
-  "medication": { "title": "最近の服薬歴", "subtitle": "現在使用中の薬を選択してください", "none": "特記事項なし", "antiplatelet": "抗血小板薬／抗凝固薬", "anticancer": "抗がん剤", "immunosuppressant": "免疫抑制剤", "antibiotic": "抗生物質", "nsaid": "NSAIDs（消炎鎮痛薬）" },
-  "lab": { "title": "最新の検査値", "hb": "ヘモグロビン（Hb）", "hbUnit": "g/dL", "hbNote": "必須", "plt": "血小板（PLT）", "pltUnit": "×10³/μL", "ptInr": "PT INR", "ptInrUnit": "", "apttInr": "aPTT INR", "apttInrUnit": "", "albumin": "アルブミン", "albuminUnit": "g/dL", "gfr": "eGFR", "gfrUnit": "mL/min/1.73m²" },
-  "symptom": { "title": "貧血症状", "subtitle": "現在の症状を選択してください", "none": "明らかな症状なし", "dizziness": "めまい", "palpitation": "動悸", "weakness": "全身倦怠感", "fatigue": "疲労感", "coldExtremities": "四肢冷感", "dyspnea": "息切れ", "oliguria": "尿量減少", "edema": "浮腫", "other": "その他（記述）", "otherPlaceholder": "その他の症状を記述してください..." },
-  "scenario": { "title": "臨床状況", "subtitle": "該当する状況を選択してください", "none": "特記事項なし", "sepsisShock": "敗血症・発熱からショック状態", "massiveBleed": "大量出血によるショック", "malnutrition": "栄養不良", "recentChemo": "最近の化学療法", "recentImmunosuppressant": "最近の免疫抑制療法", "postSurgery": "最近の手術後", "ckdEpoResistant": "CKD第5期・EPO抵抗性", "dialysisEpoResistant": "透析・EPO抵抗性", "cirrhosisAscites": "肝硬変・大量腹水", "hemolysis": "溶血", "other": "その他（記述）", "otherPlaceholder": "その他の臨床状況を記述してください..." },
-  "tabs": { "1": "相談方向", "2": "代替案", "3": "輸血教育", "4": "ガイドライン", "5": "血液の価値", "6": "決断", "7": "決定まとめ", "8": "満足度調査" },
-  "tab1": { "title": "相談の方向性", "consult": { "hbCritical": "Hb {{value}} g/dL — 7 g/dL未満：積極的な輸血評価を推奨", "hbBorderline": "Hb {{value}} g/dL — 心疾患歴・術後は閾値を8 g/dLに引き上げることを検討", "hbSafe": "Hb {{value}} g/dL — 比較的安全。症状評価を優先", "heartDisease": "心疾患歴：Hb≥8 g/dLを維持。輸血のタイミングを心臓科医と相談", "antiplatelet": "抗血小板・抗凝固薬使用中：手術前の休薬またはブリッジング治療を検討", "vegetarian": "菜食主義者：輸血前に鉄、葉酸、B12の補充を優先", "alternativeHigh": "代替療法の可行性高：まず鉄剤またはEPO療法を試みる", "massiveBleed": "大量出血中：大量輸血プロトコル起動、血液製剤の確保を確認", "general": "医療チームと十分に話し合い、利点とリスクを考慮して最善の決断をしてください" }, "subtitle": "提供されたデータに基づき、医療チームと以下を優先的に話し合ってください", "riskLevel": "評価レベル", "urgent": "輸血の積極的評価を推奨", "consider": "輸血を考慮可", "watchful": "慎重経過観察、代替案優先", "unlikely": "現時点で輸血は不要", "keyPoints": "重点相談事項", "hbStatus": "ヘモグロビン状態", "hbNormal": "Hbは正常範囲内", "hbBorderline": "Hb低め、症状評価が必要", "hbLow": "Hb低値、積極的対処を推奨" },
-  "tab2": { "title": "輸血の代替療法", "subtitle": "輸血前に、これらの代替案を検討してください！", "feasibility": "実行可能性", "alternatives": { "iron": { "name": "鉄剤補充", "desc": "鉄欠乏性貧血に適応、経口または静注", "when": "Hb低下+鉄欠乏指標異常", "effect": "4〜8週で効果" }, "epo": { "name": "エリスロポエチン（EPO）", "desc": "骨髄での赤血球産生を刺激", "when": "CKD貧血、化学療法誘発貧血", "effect": "数週で効果発現" }, "folate_b12": { "name": "葉酸 / ビタミンB12", "desc": "造血に必要な微量栄養素の補充", "when": "巨赤芽球性貧血、菜食主義者", "effect": "数週間で改善" }, "autologous": { "name": "自己血輸血", "desc": "術前に自己血貯血、術中に輸血", "when": "待機的手術の計画", "effect": "拒絶反応リスクなし" }, "cellSaver": { "name": "術中血液回収", "desc": "術中に自己血を回収・再利用", "when": "大規模手術", "effect": "同種血液製剤の需要を減少" } } },
-  "tab3": { "title": "輸血の誤解を解く", "subtitle": "輸血を正しく理解し、賢い選択を", "mythLabel": "誤解", "factLabel": "事実", "clickToFlip": "クリックして真実を見る", "risks": { "title": "輸血の潜在的リスク", "subtitle": "輸血は一般的に安全ですが、リスクがあります", "severity": { "low": "低リスク", "medium": "中リスク", "high": "高リスク", "critical": "重篤（まれ）" } }, "indications": { "title": "輸血適応の参考", "items": ["Hb < 7 g/dL（症状性貧血）", "Hb < 8 g/dL（心疾患、術後）", "大量出血による血行動態不安定", "PLT < 10×10³/μL（予防的）", "PLT < 50×10³/μL（手術前）", "PT INR > 1.5（出血リスクあり）"] } },
-  "tab4": { "title": "国内外の輸血ガイドライン", "subtitle": "すべての主要ガイドラインが「制限的輸血戦略」を推奨", "chart": { "title": "Hb輸血閾値の比較", "yAxis": "Hb閾値 (g/dL)", "threshold": "推奨閾値" }, "references": "参考文献", "viewSource": "原文を見る" },
-  "tab5": { "title": "血液の大切さ", "subtitle": "1袋の血液は貴重な贈り物 — 大切に使いましょう", "facts": ["1袋の赤血球は1人のドナーから、約1時間の検査が必要", "赤血球の有効期限は35日間、血小板はわずか5日間", "台湾では毎年約110万袋が必要、すべて自発的献血によるもの", "1袋節約することで、他の必要な患者を助けることができる"], "evidence": { "title": "エビデンス：制限的輸血戦略", "items": [{ "study": "TRICC Trial (1999)", "finding": "ICU患者で制限的戦略は自由的戦略に劣らない", "level": "Grade A" }, { "study": "FOCUS Trial (2011)", "finding": "股関節術後でHb≥8はHb≥10と同等の効果", "level": "Grade A" }, { "study": "TRACS Trial (2011)", "finding": "心臓手術後の制限的輸血は30日死亡率が同等", "level": "Grade A" }] }, "sloganTitle": "院内スローガン", "bloodJourneyTitle": "血液パックの旅", "bloodSteps": ["自発的献血者", "採血 (450 mL)", "感染症スクリーニング", "成分分離調製", "コールドチェーン保存", "病院血液センター配送", "患者への輸血"] },
-  "tab6": { "title": "決断を下す", "subtitle": "情報を確認した上で、選択してください", "predictor": { "title": "輸血後数値予測計算器", "hbTab": "Hb予測（RLRBC）", "pltTab": "PLT予測（血小板）", "units": "輸注バッグ数", "rdp": "濃縮血小板（RDP）", "sdp": "アフェレーシス血小板（SDP）", "predicted": "予測輸血後値", "delta": "推定上昇", "confidence": "予測範囲", "disclaimer": "これは統計的推定値です。実際の結果は個人差、出血状態、骨髄機能などにより異なります。", "cciLabel": "推定CCI（1時間後）", "cciGood": "十分（≥7,500）", "cciBad": "不十分（<7,500）" }, "decisionTitle": "輸血に関する私の決断", "transfuse": "輸血を選択する", "noTransfuse": "輸血しないことを選択", "reasonLabel": "理由（任意）", "reasonPlaceholder": "決断の理由を説明してください...", "physicianLabel": "医師／看護師名（任意）", "physicianPlaceholder": "名前を入力", "confirmTitle": "決断を確認", "confirmTransfuse": "輸血を確認", "confirmNo": "輸血しないことを確認" },
-  "tab7": { "title": "決定まとめと推奨", "yourDecision": "あなたの決断", "medAdvice": "医療推奨", "agree": "✅ あなたの決断は医療推奨と一致しています", "disagree": "⚠️ あなたの決断は医療推奨と異なります。医療チームとの再相談をお勧めします。", "followUp": "フォローアップ推奨", "followUpItems": ["1〜2週間後にヘモグロビン値を再確認", "症状が悪化した場合はすぐに受診", "鉄剤/葉酸の補充を継続（適用される場合）", "貧血の原因を評価するための定期受診"], "urgentLevel": { "urgent": "輸血を強く推奨", "consider": "輸血を考慮", "watchful": "代替案を優先", "unlikely": "現時点で輸血は不要" }, "notDecided": "まだ決定していません", "riskScore": "リスクスコア", "hbTargetLabel": "目標 Hb ≥ {{value}} g/dL", "predictedHbLabel": "{{units}}バッグ輸血後の予測 Hb: {{value}} g/dL", "predictedPltLabel": "{{units}}バッグ {{type}} 輸血後の予測 PLT: {{value}} ×10³/μL" },
-  "tab8": { "title": "満足度調査", "subtitle": "あなたのフィードバックは改善に役立ちます。ありがとうございます！", "satisfactionLabel": "総合満足度", "stars": ["非常に不満", "不満", "普通", "満足", "非常に満足"], "betterLabel": "このツールにより輸血への理解が深まりましたか？", "betterYes": "はい、理解が深まりました", "betterPartial": "多少役に立ちました", "betterNo": "あまり変化なし", "suggestionsLabel": "提案（任意）", "suggestionsPlaceholder": "ご意見・ご提案をお聞かせください...", "submitSurvey": "アンケートを送信", "thankYou": "フィードバックありがとうございます！", "thankYouSub": "あなたの意見が、より多くの人の賢明な輸血選択を支援します", "stats": "総合満足度分布" },
-  "myth": { "myth1": { "myth": "輸血は素早くエネルギーを補充し、すぐに元気になれる", "fact": "輸血は赤血球の酸素運搬能力を補充するだけで、エネルギーやタンパク質は補充できません" }, "myth2": { "myth": "ヘモグロビンが低ければ必ず輸血が必要", "fact": "輸血の決定は症状と臨床状況を総合的に考慮する必要があります。Hb≥7 g/dLの安定した患者は通常輸血不要" }, "myth3": { "myth": "輸血バッグが多いほど良く、安全", "fact": "研究では過剰輸血は感染や肺水腫のリスクを高めることが示されており、制限的戦略の方が良い結果をもたらします" }, "myth4": { "myth": "菜食主義者の貧血は必ず輸血が必要", "fact": "菜食主義者の貧血は多くが鉄またはB12欠乏によるもので、栄養補充が輸血より効果的" }, "myth5": { "myth": "血液バンクの血液は100%安全でリスクなし", "fact": "現代の血液バンクのスクリーニングは厳格ですが、輸血反応、TACO、TRALIのリスクは依然として存在します" }, "myth6": { "myth": "Hb7以上なら急がなくていい", "fact": "心疾患、術後、出血中の患者はより高い輸血閾値（Hb≥8）が必要な場合があります" } },
-  "risk": { "febrile": "発熱性非溶血性輸血反応（FNHTR）", "allergic": "アレルギー反応", "taco": "輸血関連循環過負荷（TACO）", "trali": "輸血関連急性肺障害（TRALI）", "hemolytic": "溶血性輸血反応", "infection": "感染症伝播（極めてまれ）", "immunomod": "輸血関連免疫調節（TRIM）", "iron_overload": "慢性輸血による鉄過剰", "factor": { "hbCritical": "Hb 重度低下（< 6 g/dL）", "hbLow": "Hb 低下（< 7 g/dL）", "hbBorderline": "Hb 境界値（< 8 g/dL）", "sepsisShock": "敗血症性ショック", "massiveBleed": "大量出血", "hemolysis": "溶血", "recentChemo": "最近の化学療法", "ckdEpoResistant": "CKD + EPO 抵抗性", "dialysisEpo": "透析 + EPO 抵抗性", "postSurgery": "術後回復期", "cirrhosisAscites": "肝硬変・腹水", "heartDisease": "心疾患の既往", "ckd": "慢性腎臓病", "cancer": "悪性腫瘍", "bloodDisease": "血液疾患", "coagPt": "凝固異常（PT INR > 1.5）", "coagAptt": "凝固異常（APTT > 1.5）", "pltCritical": "血小板重度低下（< 10×10³/μL）", "pltLow": "血小板低下（< 50×10³/μL）", "albumin": "低アルブミン血症（< 3 g/dL）", "gfrLow": "重度腎機能障害（GFR < 15）", "severeSx": "重篤な貧血症状（動悸／息切れ／乏尿）", "multipleSx": "多発貧血症状", "antiplatelet": "抗血小板薬使用中" } },
-  "admin": { "downloadTitle": "管理者データダウンロード", "passwordLabel": "管理者パスワードを入力", "passwordPlaceholder": "パスワードを入力", "downloadBtn": "Excelレポートをダウンロード", "recordCount": "{{count}} 件のレコード", "wrongPassword": "パスワードが違います。再試行してください。", "noData": "ダウンロード可能なデータがありません", "sheet1": "Q&A記録", "sheet2": "決定結果", "sheet3": "ガイドライン参照", "sheet4": "満足度統計" }
+  "app": {
+    "name": "CrimsonWise",
+    "tagline": "輸血の賢い選択",
+    "subtitle": "少ない輸血が負けではない",
+    "disclaimer": "⚠️ 診断ツールではありません。エビデンスに基づき、医師と患者の対話を支援し、最善の医療選択をサポートします。",
+    "start": "評価を開始",
+    "restart": "再評価",
+    "next": "次へ",
+    "back": "戻る",
+    "submit": "送信",
+    "confirm": "確認",
+    "cancel": "キャンセル",
+    "optional": "（任意）",
+    "required": "必須",
+    "edition": "医療従事者版",
+    "editionFor": "医療従事者向けに設計",
+    "prevPage": "前へ",
+    "nextPage": "次へ",
+    "slogans": [
+      "1袋節約で1命救う",
+      "慎重な輸血が命を救う",
+      "Hb≥7で十分"
+    ]
+  },
+  "landing": {
+    "feature1": "診療の方向性をガイド、重要点を精確に議論",
+    "feature2": "輸血代替療法、まず非輸血療法を試みる",
+    "feature3": "誤解を解き、正しい輸血知識を構築",
+    "feature4": "国内外のガイドライン、エビデンスに基づく意思決定",
+    "feature5": "Hb & PLT 輸血後数値予測計算機",
+    "feature6": "7言語対応、言語の壁なし"
+  },
+  "stats": {
+    "today": "本日の訪問",
+    "total": "累計訪問",
+    "visitors": "人"
+  },
+  "steps": {
+    "1": "基本情報",
+    "2": "既往歴",
+    "3": "服薬歴",
+    "4": "検査値",
+    "5": "症状",
+    "6": "臨床状況",
+    "progress": "ステップ {{step}} / 6"
+  },
+  "basic": {
+    "age": "年齢",
+    "agePlaceholder": "例：65",
+    "ageUnit": "歳",
+    "sex": "性別",
+    "male": "男性",
+    "female": "女性",
+    "vegetarian": "菜食主義者",
+    "vegetarianNote": "（栄養状態評価に影響）",
+    "weight": "体重",
+    "weightPlaceholder": "例：65",
+    "weightUnit": "kg",
+    "height": "身長",
+    "heightPlaceholder": "例：165",
+    "heightUnit": "cm"
+  },
+  "history": {
+    "title": "既往歴",
+    "subtitle": "該当する疾患を選択してください",
+    "none": "特記事項なし",
+    "hypertension": "高血圧",
+    "diabetes": "糖尿病",
+    "hyperlipidemia": "高脂血症",
+    "heartDisease": "心疾患",
+    "pepticUlcer": "消化性潰瘍",
+    "colonPolyp": "大腸ポリープ／痔",
+    "autoimmune": "自己免疫疾患",
+    "bloodDisease": "血液疾患",
+    "ckd": "慢性腎臓病",
+    "cirrhosis": "肝硬変",
+    "cancer": "がん",
+    "gynecological": "婦人科疾患"
+  },
+  "medication": {
+    "title": "最近の服薬歴",
+    "subtitle": "現在使用中の薬を選択してください",
+    "none": "特記事項なし",
+    "antiplatelet": "抗血小板薬／抗凝固薬",
+    "anticancer": "抗がん剤",
+    "immunosuppressant": "免疫抑制剤",
+    "antibiotic": "抗生物質",
+    "nsaid": "NSAIDs（消炎鎮痛薬）"
+  },
+  "lab": {
+    "title": "最新の検査値",
+    "hb": "ヘモグロビン（Hb）",
+    "hbUnit": "g/dL",
+    "hbNote": "必須",
+    "plt": "血小板（PLT）",
+    "pltUnit": "×10³/μL",
+    "ptInr": "PT INR",
+    "ptInrUnit": "",
+    "apttInr": "aPTT INR",
+    "apttInrUnit": "",
+    "albumin": "アルブミン",
+    "albuminUnit": "g/dL",
+    "gfr": "eGFR",
+    "gfrUnit": "mL/min/1.73m²"
+  },
+  "symptom": {
+    "title": "貧血症状",
+    "subtitle": "現在の症状を選択してください",
+    "none": "明らかな症状なし",
+    "dizziness": "めまい",
+    "palpitation": "動悸",
+    "weakness": "全身倦怠感",
+    "fatigue": "疲労感",
+    "coldExtremities": "四肢冷感",
+    "dyspnea": "息切れ",
+    "oliguria": "尿量減少",
+    "edema": "浮腫",
+    "other": "その他（記述）",
+    "otherPlaceholder": "その他の症状を記述してください..."
+  },
+  "scenario": {
+    "title": "臨床状況",
+    "subtitle": "該当する状況を選択してください",
+    "none": "特記事項なし",
+    "sepsisShock": "敗血症・発熱からショック状態",
+    "massiveBleed": "大量出血によるショック",
+    "malnutrition": "栄養不良",
+    "recentChemo": "最近の化学療法",
+    "recentImmunosuppressant": "最近の免疫抑制療法",
+    "postSurgery": "最近の手術後",
+    "ckdEpoResistant": "CKD第5期・EPO抵抗性",
+    "dialysisEpoResistant": "透析・EPO抵抗性",
+    "cirrhosisAscites": "肝硬変・大量腹水",
+    "hemolysis": "溶血",
+    "other": "その他（記述）",
+    "otherPlaceholder": "その他の臨床状況を記述してください..."
+  },
+  "tabs": {
+    "1": "相談方向",
+    "2": "代替案",
+    "3": "輸血教育",
+    "4": "ガイドライン",
+    "5": "血液の価値",
+    "6": "決断",
+    "7": "決定まとめ",
+    "8": "満足度調査"
+  },
+  "tab1": {
+    "title": "相談の方向性",
+    "consult": {
+      "hbCritical": "Hb {{value}} g/dL — 7 g/dL未満：積極的な輸血評価を推奨",
+      "hbBorderline": "Hb {{value}} g/dL — 心疾患歴・術後は閾値を8 g/dLに引き上げることを検討",
+      "hbSafe": "Hb {{value}} g/dL — 比較的安全。症状評価を優先",
+      "heartDisease": "心疾患歴：Hb≥8 g/dLを維持。輸血のタイミングを心臓科医と相談",
+      "antiplatelet": "抗血小板・抗凝固薬使用中：手術前の休薬またはブリッジング治療を検討",
+      "vegetarian": "菜食主義者：輸血前に鉄、葉酸、B12の補充を優先",
+      "alternativeHigh": "代替療法の可行性高：まず鉄剤またはEPO療法を試みる",
+      "massiveBleed": "大量出血中：大量輸血プロトコル起動、血液製剤の確保を確認",
+      "general": "医療チームと十分に話し合い、利点とリスクを考慮して最善の決断をしてください"
+    },
+    "subtitle": "提供されたデータに基づき、医療チームと以下を優先的に話し合ってください",
+    "riskLevel": "評価レベル",
+    "urgent": "輸血の積極的評価を推奨",
+    "consider": "輸血を考慮可",
+    "watchful": "慎重経過観察、代替案優先",
+    "unlikely": "現時点で輸血は不要",
+    "keyPoints": "患者重点相談事項",
+    "hbStatus": "ヘモグロビン状態",
+    "hbNormal": "Hbは正常範囲内",
+    "hbBorderline": "Hb低め、症状評価が必要",
+    "hbLow": "Hb低値、積極的対処を推奨"
+  },
+  "tab2": {
+    "title": "輸血の代替療法",
+    "subtitle": "輸血前に、これらの代替案を検討してください！",
+    "feasibility": "実行可能性",
+    "alternatives": {
+      "iron": {
+        "name": "鉄剤補充",
+        "desc": "鉄欠乏性貧血に適応、経口または静注",
+        "when": "Hb低下+鉄欠乏指標異常",
+        "effect": "4〜8週で効果"
+      },
+      "epo": {
+        "name": "エリスロポエチン（EPO）",
+        "desc": "骨髄での赤血球産生を刺激",
+        "when": "CKD貧血、化学療法誘発貧血",
+        "effect": "数週で効果発現"
+      },
+      "folate_b12": {
+        "name": "葉酸 / ビタミンB12",
+        "desc": "造血に必要な微量栄養素の補充",
+        "when": "巨赤芽球性貧血、菜食主義者",
+        "effect": "数週間で改善"
+      },
+      "autologous": {
+        "name": "自己血輸血",
+        "desc": "術前に自己血貯血、術中に輸血",
+        "when": "待機的手術の計画",
+        "effect": "拒絶反応リスクなし"
+      },
+      "cellSaver": {
+        "name": "術中血液回収",
+        "desc": "術中に自己血を回収・再利用",
+        "when": "大規模手術",
+        "effect": "同種血液製剤の需要を減少"
+      }
+    }
+  },
+  "tab3": {
+    "title": "輸血の誤解を解く",
+    "subtitle": "輸血を正しく理解し、賢い選択を",
+    "mythLabel": "誤解",
+    "factLabel": "事実",
+    "clickToFlip": "クリックして真実を見る",
+    "risks": {
+      "title": "輸血の潜在的リスク",
+      "subtitle": "輸血は一般的に安全ですが、リスクがあります",
+      "severity": {
+        "low": "低リスク",
+        "medium": "中リスク",
+        "high": "高リスク",
+        "critical": "重篤（まれ）"
+      }
+    },
+    "indications": {
+      "title": "輸血適応の参考",
+      "items": [
+        "Hb < 7 g/dL（症状性貧血）",
+        "Hb < 8 g/dL（心疾患、術後）",
+        "大量出血による血行動態不安定",
+        "PLT < 10×10³/μL（予防的）",
+        "PLT < 50×10³/μL（手術前）",
+        "PT INR > 1.5（出血リスクあり）"
+      ]
+    }
+  },
+  "tab4": {
+    "title": "国内外の輸血ガイドライン",
+    "subtitle": "すべての主要ガイドラインが「制限的輸血戦略」を推奨",
+    "chart": {
+      "title": "Hb輸血閾値の比較",
+      "yAxis": "Hb閾値 (g/dL)",
+      "threshold": "推奨閾値"
+    },
+    "references": "参考文献",
+    "viewSource": "原文を見る"
+  },
+  "tab5": {
+    "title": "血液の大切さ",
+    "subtitle": "1袋の血液は貴重な贈り物 — 大切に使いましょう",
+    "facts": [
+      "1袋の赤血球は1人のドナーから、約1時間の検査が必要",
+      "赤血球の有効期限は35日間、血小板はわずか5日間",
+      "台湾では毎年約110万袋が必要、すべて自発的献血によるもの",
+      "1袋節約することで、他の必要な患者を助けることができる"
+    ],
+    "evidence": {
+      "title": "エビデンス：制限的輸血戦略",
+      "items": [
+        {
+          "study": "TRICC Trial (1999)",
+          "finding": "ICU患者で制限的戦略は自由的戦略に劣らない",
+          "level": "Grade A"
+        },
+        {
+          "study": "FOCUS Trial (2011)",
+          "finding": "股関節術後でHb≥8はHb≥10と同等の効果",
+          "level": "Grade A"
+        },
+        {
+          "study": "TRACS Trial (2011)",
+          "finding": "心臓手術後の制限的輸血は30日死亡率が同等",
+          "level": "Grade A"
+        }
+      ]
+    },
+    "sloganTitle": "院内スローガン",
+    "bloodJourneyTitle": "血液パックの旅",
+    "bloodSteps": [
+      "自発的献血者",
+      "採血 (450 mL)",
+      "感染症スクリーニング",
+      "成分分離調製",
+      "コールドチェーン保存",
+      "病院血液センター配送",
+      "患者への輸血"
+    ]
+  },
+  "tab6": {
+    "title": "決断を下す",
+    "subtitle": "情報を確認した上で、選択してください",
+    "predictor": {
+      "title": "輸血後数値予測計算器",
+      "hbTab": "Hb予測（RLRBC）",
+      "pltTab": "PLT予測（血小板）",
+      "units": "輸注バッグ数",
+      "rdp": "濃縮血小板（RDP）",
+      "sdp": "アフェレーシス血小板（SDP）",
+      "predicted": "予測輸血後値",
+      "delta": "推定上昇",
+      "confidence": "予測範囲",
+      "disclaimer": "これは統計的推定値です。実際の結果は個人差、出血状態、骨髄機能などにより異なります。",
+      "cciLabel": "推定CCI（1時間後）",
+      "cciGood": "十分（≥7,500）",
+      "cciBad": "不十分（<7,500）"
+    },
+    "decisionTitle": "輸血に関する私の決断",
+    "transfuse": "輸血を選択する",
+    "noTransfuse": "輸血しないことを選択",
+    "reasonLabel": "理由（任意）",
+    "reasonPlaceholder": "決断の理由を説明してください...",
+    "physicianLabel": "医師／看護師名（任意）",
+    "physicianPlaceholder": "名前を入力",
+    "confirmTitle": "決断を確認",
+    "confirmTransfuse": "輸血を確認",
+    "confirmNo": "輸血しないことを確認"
+  },
+  "tab7": {
+    "title": "決定まとめと推奨",
+    "yourDecision": "あなたの決断",
+    "medAdvice": "医療推奨",
+    "agree": "✅ あなたの決断は医療推奨と一致しています",
+    "disagree": "⚠️ あなたの決断は医療推奨と異なります。医療チームとの再相談をお勧めします。",
+    "followUp": "フォローアップ推奨",
+    "followUpItems": [
+      "1〜2週間後にヘモグロビン値を再確認",
+      "症状が悪化した場合はすぐに受診",
+      "鉄剤/葉酸の補充を継続（適用される場合）",
+      "貧血の原因を評価するための定期受診"
+    ],
+    "urgentLevel": {
+      "urgent": "輸血を強く推奨",
+      "consider": "輸血を考慮",
+      "watchful": "代替案を優先",
+      "unlikely": "現時点で輸血は不要"
+    },
+    "notDecided": "まだ決定していません",
+    "riskScore": "リスクスコア",
+    "hbTargetLabel": "目標 Hb ≥ {{value}} g/dL",
+    "predictedHbLabel": "{{units}}バッグ輸血後の予測 Hb: {{value}} g/dL",
+    "predictedPltLabel": "{{units}}バッグ {{type}} 輸血後の予測 PLT: {{value}} ×10³/μL"
+  },
+  "tab8": {
+    "title": "満足度調査",
+    "subtitle": "あなたのフィードバックは改善に役立ちます。ありがとうございます！",
+    "satisfactionLabel": "総合満足度",
+    "stars": [
+      "非常に不満",
+      "不満",
+      "普通",
+      "満足",
+      "非常に満足"
+    ],
+    "betterLabel": "このツールにより輸血への理解が深まりましたか？",
+    "betterYes": "はい、理解が深まりました",
+    "betterPartial": "多少役に立ちました",
+    "betterNo": "あまり変化なし",
+    "suggestionsLabel": "提案（任意）",
+    "suggestionsPlaceholder": "ご意見・ご提案をお聞かせください...",
+    "submitSurvey": "アンケートを送信",
+    "thankYou": "フィードバックありがとうございます！",
+    "thankYouSub": "あなたの意見が、より多くの人の賢明な輸血選択を支援します",
+    "stats": "総合満足度分布"
+  },
+  "myth": {
+    "myth1": {
+      "myth": "輸血は素早くエネルギーを補充し、すぐに元気になれる",
+      "fact": "輸血は赤血球の酸素運搬能力を補充するだけで、エネルギーやタンパク質は補充できません"
+    },
+    "myth2": {
+      "myth": "ヘモグロビンが低ければ必ず輸血が必要",
+      "fact": "輸血の決定は症状と臨床状況を総合的に考慮する必要があります。Hb≥7 g/dLの安定した患者は通常輸血不要"
+    },
+    "myth3": {
+      "myth": "輸血バッグが多いほど良く、安全",
+      "fact": "研究では過剰輸血は感染や肺水腫のリスクを高めることが示されており、制限的戦略の方が良い結果をもたらします"
+    },
+    "myth4": {
+      "myth": "菜食主義者の貧血は必ず輸血が必要",
+      "fact": "菜食主義者の貧血は多くが鉄またはB12欠乏によるもので、栄養補充が輸血より効果的"
+    },
+    "myth5": {
+      "myth": "血液バンクの血液は100%安全でリスクなし",
+      "fact": "現代の血液バンクのスクリーニングは厳格ですが、輸血反応、TACO、TRALIのリスクは依然として存在します"
+    },
+    "myth6": {
+      "myth": "Hb7以上なら急がなくていい",
+      "fact": "心疾患、術後、出血中の患者はより高い輸血閾値（Hb≥8）が必要な場合があります"
+    }
+  },
+  "risk": {
+    "febrile": "発熱性非溶血性輸血反応（FNHTR）",
+    "allergic": "アレルギー反応",
+    "taco": "輸血関連循環過負荷（TACO）",
+    "trali": "輸血関連急性肺障害（TRALI）",
+    "hemolytic": "溶血性輸血反応",
+    "infection": "感染症伝播（極めてまれ）",
+    "immunomod": "輸血関連免疫調節（TRIM）",
+    "iron_overload": "慢性輸血による鉄過剰",
+    "factor": {
+      "hbCritical": "Hb 重度低下（< 6 g/dL）",
+      "hbLow": "Hb 低下（< 7 g/dL）",
+      "hbBorderline": "Hb 境界値（< 8 g/dL）",
+      "sepsisShock": "敗血症性ショック",
+      "massiveBleed": "大量出血",
+      "hemolysis": "溶血",
+      "recentChemo": "最近の化学療法",
+      "ckdEpoResistant": "CKD + EPO 抵抗性",
+      "dialysisEpo": "透析 + EPO 抵抗性",
+      "postSurgery": "術後回復期",
+      "cirrhosisAscites": "肝硬変・腹水",
+      "heartDisease": "心疾患の既往",
+      "ckd": "慢性腎臓病",
+      "cancer": "悪性腫瘍",
+      "bloodDisease": "血液疾患",
+      "coagPt": "凝固異常（PT INR > 1.5）",
+      "coagAptt": "凝固異常（APTT > 1.5）",
+      "pltCritical": "血小板重度低下（< 10×10³/μL）",
+      "pltLow": "血小板低下（< 50×10³/μL）",
+      "albumin": "低アルブミン血症（< 3 g/dL）",
+      "gfrLow": "重度腎機能障害（GFR < 15）",
+      "severeSx": "重篤な貧血症状（動悸／息切れ／乏尿）",
+      "multipleSx": "多発貧血症状",
+      "antiplatelet": "抗血小板薬使用中"
+    }
+  },
+  "admin": {
+    "downloadTitle": "管理者データダウンロード",
+    "passwordLabel": "管理者パスワードを入力",
+    "passwordPlaceholder": "パスワードを入力",
+    "downloadBtn": "Excelレポートをダウンロード",
+    "recordCount": "{{count}} 件のレコード",
+    "wrongPassword": "パスワードが違います。再試行してください。",
+    "noData": "ダウンロード可能なデータがありません",
+    "sheet1": "Q&A記録",
+    "sheet2": "決定結果",
+    "sheet3": "ガイドライン参照",
+    "sheet4": "満足度統計"
+  }
 }

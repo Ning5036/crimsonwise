@@ -31,69 +31,134 @@
     "feature5": "Post-transfusion Hb & PLT predictor",
     "feature6": "7 languages — no language barriers"
   },
-  "stats": { "today": "Today's Visits", "total": "Total Visits", "visitors": "visitors" },
+  "stats": {
+    "today": "Today's Visits",
+    "total": "Total Visits",
+    "visitors": "visitors"
+  },
   "steps": {
-    "1": "Basic Info", "2": "Medical History", "3": "Medications",
-    "4": "Lab Values", "5": "Symptoms", "6": "Clinical Context",
+    "1": "Basic Info",
+    "2": "Medical History",
+    "3": "Medications",
+    "4": "Lab Values",
+    "5": "Symptoms",
+    "6": "Clinical Context",
     "progress": "Step {{step}} / 6"
   },
   "basic": {
-    "age": "Age", "agePlaceholder": "e.g. 65", "ageUnit": "yrs",
-    "sex": "Sex", "male": "Male", "female": "Female",
-    "vegetarian": "Vegetarian", "vegetarianNote": "(affects nutritional assessment)",
-    "weight": "Weight", "weightPlaceholder": "e.g. 65", "weightUnit": "kg",
-    "height": "Height", "heightPlaceholder": "e.g. 165", "heightUnit": "cm"
+    "age": "Age",
+    "agePlaceholder": "e.g. 65",
+    "ageUnit": "yrs",
+    "sex": "Sex",
+    "male": "Male",
+    "female": "Female",
+    "vegetarian": "Vegetarian",
+    "vegetarianNote": "(affects nutritional assessment)",
+    "weight": "Weight",
+    "weightPlaceholder": "e.g. 65",
+    "weightUnit": "kg",
+    "height": "Height",
+    "heightPlaceholder": "e.g. 165",
+    "heightUnit": "cm"
   },
   "history": {
-    "title": "Medical History", "subtitle": "Check all that apply", "none": "No significant history",
-    "hypertension": "Hypertension", "diabetes": "Diabetes", "hyperlipidemia": "Hyperlipidemia",
-    "heartDisease": "Heart Disease", "pepticUlcer": "Peptic Ulcer", "colonPolyp": "Colon Polyp / Hemorrhoids",
-    "autoimmune": "Autoimmune Disease", "bloodDisease": "Hematologic Disease",
-    "ckd": "Chronic Kidney Disease", "cirrhosis": "Liver Cirrhosis",
-    "cancer": "Cancer", "gynecological": "Gynecological Disease"
+    "title": "Medical History",
+    "subtitle": "Check all that apply",
+    "none": "No significant history",
+    "hypertension": "Hypertension",
+    "diabetes": "Diabetes",
+    "hyperlipidemia": "Hyperlipidemia",
+    "heartDisease": "Heart Disease",
+    "pepticUlcer": "Peptic Ulcer",
+    "colonPolyp": "Colon Polyp / Hemorrhoids",
+    "autoimmune": "Autoimmune Disease",
+    "bloodDisease": "Hematologic Disease",
+    "ckd": "Chronic Kidney Disease",
+    "cirrhosis": "Liver Cirrhosis",
+    "cancer": "Cancer",
+    "gynecological": "Gynecological Disease"
   },
   "medication": {
-    "title": "Recent Medications", "subtitle": "Check all current medications", "none": "No significant medications",
-    "antiplatelet": "Antiplatelet / Anticoagulant", "anticancer": "Chemotherapy",
-    "immunosuppressant": "Immunosuppressant", "antibiotic": "Antibiotic", "nsaid": "NSAID / Anti-inflammatory"
+    "title": "Recent Medications",
+    "subtitle": "Check all current medications",
+    "none": "No significant medications",
+    "antiplatelet": "Antiplatelet / Anticoagulant",
+    "anticancer": "Chemotherapy",
+    "immunosuppressant": "Immunosuppressant",
+    "antibiotic": "Antibiotic",
+    "nsaid": "NSAID / Anti-inflammatory"
   },
   "lab": {
     "title": "Recent Lab Values",
-    "hb": "Hemoglobin (Hb)", "hbUnit": "g/dL", "hbNote": "Required",
-    "plt": "Platelets (PLT)", "pltUnit": "×10³/μL",
-    "ptInr": "PT INR", "ptInrUnit": "",
-    "apttInr": "aPTT INR", "apttInrUnit": "",
-    "albumin": "Albumin", "albuminUnit": "g/dL",
-    "gfr": "eGFR", "gfrUnit": "mL/min/1.73m²"
+    "hb": "Hemoglobin (Hb)",
+    "hbUnit": "g/dL",
+    "hbNote": "Required",
+    "plt": "Platelets (PLT)",
+    "pltUnit": "×10³/μL",
+    "ptInr": "PT INR",
+    "ptInrUnit": "",
+    "apttInr": "aPTT INR",
+    "apttInrUnit": "",
+    "albumin": "Albumin",
+    "albuminUnit": "g/dL",
+    "gfr": "eGFR",
+    "gfrUnit": "mL/min/1.73m²"
   },
   "symptom": {
-    "title": "Anemia Symptoms", "subtitle": "Check all current symptoms", "none": "No significant symptoms",
-    "dizziness": "Dizziness", "palpitation": "Palpitation", "weakness": "General Weakness",
-    "fatigue": "Fatigue", "coldExtremities": "Cold Extremities", "dyspnea": "Shortness of Breath",
-    "oliguria": "Decreased Urine Output", "edema": "Edema",
-    "other": "Other (describe)", "otherPlaceholder": "Describe other symptoms..."
+    "title": "Anemia Symptoms",
+    "subtitle": "Check all current symptoms",
+    "none": "No significant symptoms",
+    "dizziness": "Dizziness",
+    "palpitation": "Palpitation",
+    "weakness": "General Weakness",
+    "fatigue": "Fatigue",
+    "coldExtremities": "Cold Extremities",
+    "dyspnea": "Shortness of Breath",
+    "oliguria": "Decreased Urine Output",
+    "edema": "Edema",
+    "other": "Other (describe)",
+    "otherPlaceholder": "Describe other symptoms..."
   },
   "scenario": {
-    "title": "Clinical Context", "subtitle": "Check all applicable scenarios", "none": "No special context",
-    "sepsisShock": "Sepsis/Fever progressing to shock", "massiveBleed": "Massive hemorrhage with shock",
-    "malnutrition": "Poor nutritional status", "recentChemo": "Recent chemotherapy",
-    "recentImmunosuppressant": "Recent immunosuppressive therapy", "postSurgery": "Recent surgery",
-    "ckdEpoResistant": "CKD Stage 5 with EPO resistance", "dialysisEpoResistant": "Dialysis with EPO resistance",
-    "cirrhosisAscites": "Cirrhosis with massive ascites", "hemolysis": "Hemolysis",
-    "other": "Other (describe)", "otherPlaceholder": "Describe other clinical context..."
+    "title": "Clinical Context",
+    "subtitle": "Check all applicable scenarios",
+    "none": "No special context",
+    "sepsisShock": "Sepsis/Fever progressing to shock",
+    "massiveBleed": "Massive hemorrhage with shock",
+    "malnutrition": "Poor nutritional status",
+    "recentChemo": "Recent chemotherapy",
+    "recentImmunosuppressant": "Recent immunosuppressive therapy",
+    "postSurgery": "Recent surgery",
+    "ckdEpoResistant": "CKD Stage 5 with EPO resistance",
+    "dialysisEpoResistant": "Dialysis with EPO resistance",
+    "cirrhosisAscites": "Cirrhosis with massive ascites",
+    "hemolysis": "Hemolysis",
+    "other": "Other (describe)",
+    "otherPlaceholder": "Describe other clinical context..."
   },
   "tabs": {
-    "1": "Consultation", "2": "Alternatives", "3": "Education",
-    "4": "Guidelines", "5": "Blood Value", "6": "Decision",
-    "7": "Summary", "8": "Survey"
+    "1": "Consultation",
+    "2": "Alternatives",
+    "3": "Education",
+    "4": "Guidelines",
+    "5": "Blood Value",
+    "6": "Decision",
+    "7": "Summary",
+    "8": "Survey"
   },
   "tab1": {
-    "title": "Consultation Direction", "subtitle": "Based on your data, consider discussing these points with your care team",
-    "riskLevel": "Assessment Level", "urgent": "Active transfusion evaluation recommended",
-    "consider": "Transfusion may be considered", "watchful": "Monitor closely, prioritize alternatives",
-    "unlikely": "Transfusion currently not recommended", "keyPoints": "Key Discussion Points",
-    "hbStatus": "Hemoglobin Status", "hbNormal": "Hb within normal range",
-    "hbBorderline": "Hb borderline low, evaluate symptoms", "hbLow": "Hb low, active management recommended",
+    "title": "Consultation Direction",
+    "subtitle": "Based on your data, consider discussing these points with your care team",
+    "riskLevel": "Assessment Level",
+    "urgent": "Active transfusion evaluation recommended",
+    "consider": "Transfusion may be considered",
+    "watchful": "Monitor closely, prioritize alternatives",
+    "unlikely": "Transfusion currently not recommended",
+    "keyPoints": "Patient Key Discussion Points",
+    "hbStatus": "Hemoglobin Status",
+    "hbNormal": "Hb within normal range",
+    "hbBorderline": "Hb borderline low, evaluate symptoms",
+    "hbLow": "Hb low, active management recommended",
     "consult": {
       "hbCritical": "Hb {{value}} g/dL — below 7 g/dL: active transfusion evaluation recommended",
       "hbBorderline": "Hb {{value}} g/dL — with cardiac history or post-surgery, consider raising threshold to 8 g/dL",
@@ -107,50 +172,170 @@
     }
   },
   "tab2": {
-    "title": "Transfusion Alternatives", "subtitle": "Consider these alternatives before transfusion!",
+    "title": "Transfusion Alternatives",
+    "subtitle": "Consider these alternatives before transfusion!",
     "feasibility": "Feasibility",
     "alternatives": {
-      "iron": { "name": "Iron Supplementation", "desc": "For iron-deficiency anemia; oral or IV iron", "when": "Low Hb + abnormal iron indices", "effect": "Effective in 4-8 weeks" },
-      "epo": { "name": "Erythropoietin (EPO)", "desc": "Stimulates bone marrow RBC production", "when": "CKD anemia, chemo-induced anemia", "effect": "Weeks to take effect" },
-      "folate_b12": { "name": "Folate / Vitamin B12", "desc": "Replenish hematopoietic micronutrients", "when": "Macrocytic anemia, vegetarians", "effect": "Improvement in weeks" },
-      "autologous": { "name": "Autologous Transfusion", "desc": "Pre-operative self-donation for re-infusion", "when": "Planned surgery", "effect": "Zero rejection risk" },
-      "cellSaver": { "name": "Intraoperative Cell Salvage", "desc": "Recycle blood lost during surgery", "when": "Major surgery", "effect": "Reduces allogeneic transfusion needs" }
+      "iron": {
+        "name": "Iron Supplementation",
+        "desc": "For iron-deficiency anemia; oral or IV iron",
+        "when": "Low Hb + abnormal iron indices",
+        "effect": "Effective in 4-8 weeks"
+      },
+      "epo": {
+        "name": "Erythropoietin (EPO)",
+        "desc": "Stimulates bone marrow RBC production",
+        "when": "CKD anemia, chemo-induced anemia",
+        "effect": "Weeks to take effect"
+      },
+      "folate_b12": {
+        "name": "Folate / Vitamin B12",
+        "desc": "Replenish hematopoietic micronutrients",
+        "when": "Macrocytic anemia, vegetarians",
+        "effect": "Improvement in weeks"
+      },
+      "autologous": {
+        "name": "Autologous Transfusion",
+        "desc": "Pre-operative self-donation for re-infusion",
+        "when": "Planned surgery",
+        "effect": "Zero rejection risk"
+      },
+      "cellSaver": {
+        "name": "Intraoperative Cell Salvage",
+        "desc": "Recycle blood lost during surgery",
+        "when": "Major surgery",
+        "effect": "Reduces allogeneic transfusion needs"
+      }
     }
   },
   "tab3": {
-    "title": "Transfusion Myths & Education", "subtitle": "Understand transfusion correctly for wise decisions",
-    "mythLabel": "MYTH", "factLabel": "FACT", "clickToFlip": "Click to reveal the truth",
-    "risks": { "title": "Potential Transfusion Risks", "subtitle": "Transfusion is generally safe, but carries risks", "severity": { "low": "Low Risk", "medium": "Moderate Risk", "high": "High Risk", "critical": "Serious (Rare)" } },
-    "indications": { "title": "Transfusion Indications", "items": ["Hb < 7 g/dL (symptomatic anemia)", "Hb < 8 g/dL (cardiac disease, post-surgery)", "Massive hemorrhage with hemodynamic instability", "PLT < 10×10³/μL (prophylactic)", "PLT < 50×10³/μL (pre-surgery)", "PT INR > 1.5 (with bleeding risk)"] }
+    "title": "Transfusion Myths & Education",
+    "subtitle": "Understand transfusion correctly for wise decisions",
+    "mythLabel": "MYTH",
+    "factLabel": "FACT",
+    "clickToFlip": "Click to reveal the truth",
+    "risks": {
+      "title": "Potential Transfusion Risks",
+      "subtitle": "Transfusion is generally safe, but carries risks",
+      "severity": {
+        "low": "Low Risk",
+        "medium": "Moderate Risk",
+        "high": "High Risk",
+        "critical": "Serious (Rare)"
+      }
+    },
+    "indications": {
+      "title": "Transfusion Indications",
+      "items": [
+        "Hb < 7 g/dL (symptomatic anemia)",
+        "Hb < 8 g/dL (cardiac disease, post-surgery)",
+        "Massive hemorrhage with hemodynamic instability",
+        "PLT < 10×10³/μL (prophylactic)",
+        "PLT < 50×10³/μL (pre-surgery)",
+        "PT INR > 1.5 (with bleeding risk)"
+      ]
+    }
   },
   "tab4": {
-    "title": "International Transfusion Guidelines", "subtitle": "All major guidelines recommend 'Restrictive Transfusion Strategy'",
-    "chart": { "title": "Hb Transfusion Threshold Comparison", "yAxis": "Hb Threshold (g/dL)", "threshold": "Threshold" },
-    "references": "References", "viewSource": "View Source"
+    "title": "International Transfusion Guidelines",
+    "subtitle": "All major guidelines recommend 'Restrictive Transfusion Strategy'",
+    "chart": {
+      "title": "Hb Transfusion Threshold Comparison",
+      "yAxis": "Hb Threshold (g/dL)",
+      "threshold": "Threshold"
+    },
+    "references": "References",
+    "viewSource": "View Source"
   },
   "tab5": {
-    "title": "The Value of Blood", "subtitle": "Every unit is a precious gift — use it wisely",
-    "facts": ["Each unit of RBC comes from one donor, requiring ~1 hour of testing", "RBCs expire in 35 days; platelets in just 5 days", "Taiwan needs ~1.1 million units/year, all from voluntary donors", "Save one unit, help another patient in need"],
-    "evidence": { "title": "Evidence: Restrictive Transfusion Strategy", "items": [{ "study": "TRICC Trial (1999)", "finding": "Restrictive strategy non-inferior to liberal in ICU patients", "level": "Grade A" }, { "study": "FOCUS Trial (2011)", "finding": "Hb≥8 threshold comparable to Hb≥10 post-hip surgery", "level": "Grade A" }, { "study": "TRACS Trial (2011)", "finding": "30-day mortality similar after cardiac surgery", "level": "Grade A" }] },
+    "title": "The Value of Blood",
+    "subtitle": "Every unit is a precious gift — use it wisely",
+    "facts": [
+      "Each unit of RBC comes from one donor, requiring ~1 hour of testing",
+      "RBCs expire in 35 days; platelets in just 5 days",
+      "Taiwan needs ~1.1 million units/year, all from voluntary donors",
+      "Save one unit, help another patient in need"
+    ],
+    "evidence": {
+      "title": "Evidence: Restrictive Transfusion Strategy",
+      "items": [
+        {
+          "study": "TRICC Trial (1999)",
+          "finding": "Restrictive strategy non-inferior to liberal in ICU patients",
+          "level": "Grade A"
+        },
+        {
+          "study": "FOCUS Trial (2011)",
+          "finding": "Hb≥8 threshold comparable to Hb≥10 post-hip surgery",
+          "level": "Grade A"
+        },
+        {
+          "study": "TRACS Trial (2011)",
+          "finding": "30-day mortality similar after cardiac surgery",
+          "level": "Grade A"
+        }
+      ]
+    },
     "sloganTitle": "Hospital Slogans",
     "bloodJourneyTitle": "The Journey of a Blood Unit",
-    "bloodSteps": ["Voluntary Donor", "Blood Collection (450 mL)", "Infectious Disease Screening", "Component Preparation", "Cold Chain Storage", "Hospital Blood Bank", "Transfusion to Patient"]
+    "bloodSteps": [
+      "Voluntary Donor",
+      "Blood Collection (450 mL)",
+      "Infectious Disease Screening",
+      "Component Preparation",
+      "Cold Chain Storage",
+      "Hospital Blood Bank",
+      "Transfusion to Patient"
+    ]
   },
   "tab6": {
-    "title": "Make Your Decision", "subtitle": "After reviewing the information, please make your choice",
-    "predictor": { "title": "Post-Transfusion Value Predictor", "hbTab": "Hb Predictor (RLRBC)", "pltTab": "PLT Predictor", "units": "Units to Transfuse", "rdp": "Random Donor Platelet (RDP)", "sdp": "Apheresis Platelet (SDP)", "predicted": "Predicted Post-Tx Value", "delta": "Estimated Increase", "confidence": "Prediction Range", "disclaimer": "This is a statistical estimate. Actual results vary by individual factors, bleeding status, and bone marrow function.", "cciLabel": "Estimated CCI (1 hr post-tx)", "cciGood": "Adequate (≥7,500)", "cciBad": "Inadequate (<7,500)" },
-    "decisionTitle": "My Transfusion Decision", "transfuse": "I Choose Transfusion", "noTransfuse": "I Choose No Transfusion",
-    "reasonLabel": "Reason (optional)", "reasonPlaceholder": "Please explain your decision...",
-    "physicianLabel": "Physician / Nurse Name (optional)", "physicianPlaceholder": "Enter name",
-    "confirmTitle": "Confirm Your Decision", "confirmTransfuse": "Confirm: Proceed with Transfusion", "confirmNo": "Confirm: Decline Transfusion"
+    "title": "Make Your Decision",
+    "subtitle": "After reviewing the information, please make your choice",
+    "predictor": {
+      "title": "Post-Transfusion Value Predictor",
+      "hbTab": "Hb Predictor (RLRBC)",
+      "pltTab": "PLT Predictor",
+      "units": "Units to Transfuse",
+      "rdp": "Random Donor Platelet (RDP)",
+      "sdp": "Apheresis Platelet (SDP)",
+      "predicted": "Predicted Post-Tx Value",
+      "delta": "Estimated Increase",
+      "confidence": "Prediction Range",
+      "disclaimer": "This is a statistical estimate. Actual results vary by individual factors, bleeding status, and bone marrow function.",
+      "cciLabel": "Estimated CCI (1 hr post-tx)",
+      "cciGood": "Adequate (≥7,500)",
+      "cciBad": "Inadequate (<7,500)"
+    },
+    "decisionTitle": "My Transfusion Decision",
+    "transfuse": "I Choose Transfusion",
+    "noTransfuse": "I Choose No Transfusion",
+    "reasonLabel": "Reason (optional)",
+    "reasonPlaceholder": "Please explain your decision...",
+    "physicianLabel": "Physician / Nurse Name (optional)",
+    "physicianPlaceholder": "Enter name",
+    "confirmTitle": "Confirm Your Decision",
+    "confirmTransfuse": "Confirm: Proceed with Transfusion",
+    "confirmNo": "Confirm: Decline Transfusion"
   },
   "tab7": {
-    "title": "Decision Summary & Recommendations", "yourDecision": "Your Decision", "medAdvice": "Medical Recommendation",
+    "title": "Decision Summary & Recommendations",
+    "yourDecision": "Your Decision",
+    "medAdvice": "Medical Recommendation",
     "agree": "✅ Your decision aligns with medical recommendations",
     "disagree": "⚠️ Your decision differs from medical recommendations. Consider discussing further with your care team.",
     "followUp": "Follow-up Recommendations",
-    "followUpItems": ["Recheck hemoglobin in 1-2 weeks", "Seek immediate care if symptoms worsen", "Continue iron/folate supplementation if applicable", "Regular follow-up to investigate anemia etiology"],
-    "urgentLevel": { "urgent": "Strongly Recommend Transfusion", "consider": "Consider Transfusion", "watchful": "Prioritize Alternatives", "unlikely": "Transfusion Not Currently Recommended" },
+    "followUpItems": [
+      "Recheck hemoglobin in 1-2 weeks",
+      "Seek immediate care if symptoms worsen",
+      "Continue iron/folate supplementation if applicable",
+      "Regular follow-up to investigate anemia etiology"
+    ],
+    "urgentLevel": {
+      "urgent": "Strongly Recommend Transfusion",
+      "consider": "Consider Transfusion",
+      "watchful": "Prioritize Alternatives",
+      "unlikely": "Transfusion Not Currently Recommended"
+    },
     "notDecided": "No decision made yet",
     "riskScore": "Risk Score",
     "hbTargetLabel": "Target Hb ≥ {{value}} g/dL",
@@ -158,28 +343,62 @@
     "predictedPltLabel": "Predicted PLT after {{units}} bag(s) {{type}}: {{value}} ×10³/μL"
   },
   "tab8": {
-    "title": "Satisfaction Survey", "subtitle": "Your feedback helps us improve. Thank you!",
-    "satisfactionLabel": "Overall Satisfaction", "stars": ["Very Unsatisfied", "Unsatisfied", "Neutral", "Satisfied", "Very Satisfied"],
+    "title": "Satisfaction Survey",
+    "subtitle": "Your feedback helps us improve. Thank you!",
+    "satisfactionLabel": "Overall Satisfaction",
+    "stars": [
+      "Very Unsatisfied",
+      "Unsatisfied",
+      "Neutral",
+      "Satisfied",
+      "Very Satisfied"
+    ],
     "betterLabel": "Did this tool improve your understanding of transfusion?",
-    "betterYes": "Yes, I understand better now", "betterPartial": "Somewhat helpful", "betterNo": "No significant change",
-    "suggestionsLabel": "Suggestions (optional)", "suggestionsPlaceholder": "Share your thoughts...",
-    "submitSurvey": "Submit Survey", "thankYou": "Thank you for your feedback!",
+    "betterYes": "Yes, I understand better now",
+    "betterPartial": "Somewhat helpful",
+    "betterNo": "No significant change",
+    "suggestionsLabel": "Suggestions (optional)",
+    "suggestionsPlaceholder": "Share your thoughts...",
+    "submitSurvey": "Submit Survey",
+    "thankYou": "Thank you for your feedback!",
     "thankYouSub": "Your input helps more people make wise transfusion decisions",
     "stats": "Overall Satisfaction Distribution"
   },
   "myth": {
-    "myth1": { "myth": "Transfusion quickly replenishes energy and makes you feel better immediately", "fact": "Transfusion only restores RBC oxygen-carrying capacity, not energy or protein. Effects vary by individual." },
-    "myth2": { "myth": "Low hemoglobin always requires transfusion", "fact": "Transfusion decisions must consider symptoms and clinical context. Stable patients with Hb≥7 g/dL often don't need transfusion." },
-    "myth3": { "myth": "More transfusion bags is always better and safer", "fact": "Studies show excessive transfusion increases infection risk and pulmonary edema. Restrictive strategies show better outcomes." },
-    "myth4": { "myth": "Vegetarians with anemia must receive transfusion", "fact": "Vegetarian anemia is often due to iron or B12 deficiency. Nutritional supplementation is usually more effective." },
-    "myth5": { "myth": "Blood bank products are 100% safe with no risks", "fact": "Modern blood banks have rigorous screening, but transfusion reactions, TACO, and TRALI remain possible." },
-    "myth6": { "myth": "Hb above 7 is fine — no urgency needed", "fact": "Patients with heart disease, post-surgery, or active bleeding may need a higher threshold (Hb≥8)." }
+    "myth1": {
+      "myth": "Transfusion quickly replenishes energy and makes you feel better immediately",
+      "fact": "Transfusion only restores RBC oxygen-carrying capacity, not energy or protein. Effects vary by individual."
+    },
+    "myth2": {
+      "myth": "Low hemoglobin always requires transfusion",
+      "fact": "Transfusion decisions must consider symptoms and clinical context. Stable patients with Hb≥7 g/dL often don't need transfusion."
+    },
+    "myth3": {
+      "myth": "More transfusion bags is always better and safer",
+      "fact": "Studies show excessive transfusion increases infection risk and pulmonary edema. Restrictive strategies show better outcomes."
+    },
+    "myth4": {
+      "myth": "Vegetarians with anemia must receive transfusion",
+      "fact": "Vegetarian anemia is often due to iron or B12 deficiency. Nutritional supplementation is usually more effective."
+    },
+    "myth5": {
+      "myth": "Blood bank products are 100% safe with no risks",
+      "fact": "Modern blood banks have rigorous screening, but transfusion reactions, TACO, and TRALI remain possible."
+    },
+    "myth6": {
+      "myth": "Hb above 7 is fine — no urgency needed",
+      "fact": "Patients with heart disease, post-surgery, or active bleeding may need a higher threshold (Hb≥8)."
+    }
   },
   "risk": {
-    "febrile": "Febrile Non-Hemolytic Reaction (FNHTR)", "allergic": "Allergic Reaction",
-    "taco": "Transfusion-Associated Circulatory Overload (TACO)", "trali": "Transfusion-Related Acute Lung Injury (TRALI)",
-    "hemolytic": "Hemolytic Transfusion Reaction", "infection": "Infectious Disease Transmission (extremely rare)",
-    "immunomod": "Transfusion-Related Immunomodulation (TRIM)", "iron_overload": "Chronic Transfusion Iron Overload",
+    "febrile": "Febrile Non-Hemolytic Reaction (FNHTR)",
+    "allergic": "Allergic Reaction",
+    "taco": "Transfusion-Associated Circulatory Overload (TACO)",
+    "trali": "Transfusion-Related Acute Lung Injury (TRALI)",
+    "hemolytic": "Hemolytic Transfusion Reaction",
+    "infection": "Infectious Disease Transmission (extremely rare)",
+    "immunomod": "Transfusion-Related Immunomodulation (TRIM)",
+    "iron_overload": "Chronic Transfusion Iron Overload",
     "factor": {
       "hbCritical": "Hb critically low (< 6 g/dL)",
       "hbLow": "Hb low (< 7 g/dL)",
@@ -208,9 +427,16 @@
     }
   },
   "admin": {
-    "downloadTitle": "Admin Data Download", "passwordLabel": "Enter Admin Password",
-    "passwordPlaceholder": "Enter password", "downloadBtn": "Download Excel Report",
-    "recordCount": "{{count}} record(s) stored", "wrongPassword": "Incorrect password. Please try again.", "noData": "No data available for download",
-    "sheet1": "Q&A Records", "sheet2": "Decision Results", "sheet3": "Guidelines Reference", "sheet4": "Survey Statistics"
+    "downloadTitle": "Admin Data Download",
+    "passwordLabel": "Enter Admin Password",
+    "passwordPlaceholder": "Enter password",
+    "downloadBtn": "Download Excel Report",
+    "recordCount": "{{count}} record(s) stored",
+    "wrongPassword": "Incorrect password. Please try again.",
+    "noData": "No data available for download",
+    "sheet1": "Q&A Records",
+    "sheet2": "Decision Results",
+    "sheet3": "Guidelines Reference",
+    "sheet4": "Survey Statistics"
   }
 }

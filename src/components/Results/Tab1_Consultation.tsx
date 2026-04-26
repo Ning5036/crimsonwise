@@ -41,18 +41,18 @@ export default function Tab1_Consultation() {
 
   return (
     <div className="space-y-5">
-      {/* Key factors */}
-      {risk.keyFactors.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="glass-card p-4"
-        >
-          <h3 className="font-semibold mb-3" style={{ color: "#1a1a1a" }}>
-            🎯 {t("tab1.keyPoints")}
-          </h3>
-          <ul className="space-y-2">
+      {/* Combined: 病人重點諮詢方向 (key factors + consultation points) */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="glass-card p-4"
+      >
+        <h3 className="font-semibold mb-3" style={{ color: "#1a1a1a" }}>
+          💬 {t("tab1.keyPoints")}
+        </h3>
+        {risk.keyFactors.length > 0 && (
+          <ul className="space-y-2 mb-3">
             {risk.keyFactors.map((f, i) => (
               <motion.li
                 key={i}
@@ -70,19 +70,7 @@ export default function Tab1_Consultation() {
               </motion.li>
             ))}
           </ul>
-        </motion.div>
-      )}
-
-      {/* Consultation points */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="glass-card p-4"
-      >
-        <h3 className="font-semibold mb-3" style={{ color: "#1a1a1a" }}>
-          💬 {t("tab1.keyPoints")}
-        </h3>
+        )}
         <ul className="space-y-2">
           {keyPoints.map((pt, i) => (
             <li

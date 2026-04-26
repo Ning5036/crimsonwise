@@ -154,7 +154,7 @@
     "consider": "可考慮輸血",
     "watchful": "密切觀察，優先替代方案",
     "unlikely": "目前不建議輸血",
-    "keyPoints": "重點諮詢方向",
+    "keyPoints": "病人重點諮詢方向",
     "hbStatus": "血色素狀態",
     "hbNormal": "血色素在正常範圍",
     "hbBorderline": "血色素偏低，需評估症狀",
@@ -259,14 +259,34 @@
     "evidence": {
       "title": "實證支持：限制性輸血策略",
       "items": [
-        { "study": "TRICC Trial (1999)", "finding": "重症患者限制性輸血存活率不劣於自由性輸血", "level": "Grade A" },
-        { "study": "FOCUS Trial (2011)", "finding": "髖關節術後Hb≥8策略與Hb≥10效果相當", "level": "Grade A" },
-        { "study": "TRACS Trial (2011)", "finding": "心臟手術後限制性輸血30天死亡率相當", "level": "Grade A" }
+        {
+          "study": "TRICC Trial (1999)",
+          "finding": "重症患者限制性輸血存活率不劣於自由性輸血",
+          "level": "Grade A"
+        },
+        {
+          "study": "FOCUS Trial (2011)",
+          "finding": "髖關節術後Hb≥8策略與Hb≥10效果相當",
+          "level": "Grade A"
+        },
+        {
+          "study": "TRACS Trial (2011)",
+          "finding": "心臟手術後限制性輸血30天死亡率相當",
+          "level": "Grade A"
+        }
       ]
     },
     "sloganTitle": "院內口號",
     "bloodJourneyTitle": "一袋血的旅程",
-    "bloodSteps": ["自願捐血者", "血液採集 (450 mL)", "多項傳染病篩檢", "成分分離製備", "冷鏈儲存", "醫院血庫配送", "輸血給病患"]
+    "bloodSteps": [
+      "自願捐血者",
+      "血液採集 (450 mL)",
+      "多項傳染病篩檢",
+      "成分分離製備",
+      "冷鏈儲存",
+      "醫院血庫配送",
+      "輸血給病患"
+    ]
   },
   "tab6": {
     "title": "做出您的決定",
@@ -326,7 +346,13 @@
     "title": "滿意度調查",
     "subtitle": "您的回饋有助於我們持續改善，謝謝！",
     "satisfactionLabel": "整體使用滿意度",
-    "stars": ["非常不滿意", "不滿意", "普通", "滿意", "非常滿意"],
+    "stars": [
+      "非常不滿意",
+      "不滿意",
+      "普通",
+      "滿意",
+      "非常滿意"
+    ],
     "betterLabel": "使用後對輸血是否有更正確的觀念？",
     "betterYes": "是，有更正確的認識",
     "betterPartial": "部分有幫助",
