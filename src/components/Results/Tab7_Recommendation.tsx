@@ -74,13 +74,18 @@ export default function Tab7_Recommendation() {
           )}
         </motion.div>
 
-        {/* Medical advice */}
+        {/* Medical advice (borderless) */}
         <motion.div
           initial={{ opacity: 0, x: 15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          className="glass-card p-4"
-          style={{ borderColor: `${urgencyColor}40` }}
+          className="p-4"
+          style={{
+            background: "transparent",
+            border: "none",
+            boxShadow: "none",
+            borderRadius: 0,
+          }}
         >
           <h3 className="text-sm font-medium text-gray-400 mb-2">
             {t("tab7.medAdvice")}
