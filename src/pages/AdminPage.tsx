@@ -39,7 +39,7 @@ export default function AdminPage() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-    } catch (e) {
+    } catch {
       setError("網路錯誤 / Network error");
     } finally {
       setBusy(false);
