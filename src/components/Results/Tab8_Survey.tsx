@@ -197,6 +197,7 @@ export default function Tab8_Survey() {
                 value={survey.suggestions}
                 onChange={(e) => updateSurvey({ suggestions: e.target.value })}
                 placeholder={t("tab8.suggestionsPlaceholder")}
+                maxLength={2000}
                 style={{ resize: "none", fontSize: "0.9rem" }}
               />
             </div>

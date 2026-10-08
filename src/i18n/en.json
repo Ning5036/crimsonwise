@@ -313,6 +313,7 @@
     "reasonPlaceholder": "Please explain your decision...",
     "physicianLabel": "Physician / Nurse Name (optional)",
     "physicianPlaceholder": "Enter name",
+    "noIdentifiersHint": "Do not enter patient identifiers (name, chart number, ID number, date of birth).",
     "confirmTitle": "Confirm Your Decision",
     "confirmTransfuse": "Confirm: Proceed with Transfusion",
     "confirmNo": "Confirm: Decline Transfusion"

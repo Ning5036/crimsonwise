@@ -313,6 +313,7 @@
     "reasonPlaceholder": "決断の理由を説明してください...",
     "physicianLabel": "医師／看護師名（任意）",
     "physicianPlaceholder": "名前を入力",
+    "noIdentifiersHint": "患者の氏名・カルテ番号・ID番号・生年月日などの識別情報は入力しないでください。",
     "confirmTitle": "決断を確認",
     "confirmTransfuse": "輸血を確認",
     "confirmNo": "輸血しないことを確認"

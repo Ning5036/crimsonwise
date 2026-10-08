@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { sbInsert, supabaseConfigured } from "../utils/supabaseClient";
+import { sbInsert, SbPermanentError, supabaseConfigured } from "../utils/supabaseClient";
 
 /* ── i18n ────────────────────────────────────────────────────────────── */
 type Lang = "zh-TW" | "en" | "id" | "vi";
@@ -126,6 +126,7 @@ interface Strings {
   satOpts: string[];
   satSug: string;
   satPh: string;
+  saveFailed: string;
   satBtn: string;
   satTy: string;
   satFin: string;
@@ -270,6 +271,7 @@ const T: Record<Lang, Strings> = {
     satOpts: ["非常沒有幫助", "沒幫助", "普通", "有幫助", "非常有幫助"],
     satSug: "您的意見或建議(非必填)",
     satPh: "請填寫您的意見…",
+    saveFailed: "很抱歉，這份回饋無法儲存。",
     satBtn: "完成送出",
     satTy: "🎉 感謝您的參與！",
     satFin:
@@ -433,6 +435,7 @@ const T: Record<Lang, Strings> = {
     ],
     satSug: "Suggestions (optional)",
     satPh: "Share your thoughts…",
+    saveFailed: "Sorry, this feedback could not be saved.",
     satBtn: "Submit",
     satTy: "🎉 Thank You for Participating!",
     satFin:
@@ -604,6 +607,7 @@ const T: Record<Lang, Strings> = {
     ],
     satSug: "Saran (opsional)",
     satPh: "Bagikan pemikiran Anda…",
+    saveFailed: "Maaf, masukan ini tidak dapat disimpan.",
     satBtn: "Kirim",
     satTy: "🎉 Terima Kasih atas Partisipasi Anda!",
     satFin:
@@ -768,6 +772,7 @@ const T: Record<Lang, Strings> = {
     ],
     satSug: "Góp ý (tùy chọn)",
     satPh: "Chia sẻ suy nghĩ của bạn…",
+    saveFailed: "Rất tiếc, phản hồi này không thể lưu.",
     satBtn: "Gửi",
     satTy: "🎉 Cảm ơn bạn đã tham gia!",
     satFin:
@@ -1040,8 +1045,8 @@ async function flushQueue(): Promise<void> {
       : { ...row, client_id: newClientId() };
     try {
       await sbInsert("public_feedback", withId);
-    } catch {
-      remaining.push(withId);
+    } catch (e) {
+      if (!(e instanceof SbPermanentError)) remaining.push(withId);
     }
   }
   localStorage.setItem(QUEUE_KEY, JSON.stringify(remaining));
@@ -1074,7 +1079,8 @@ async function saveSubmission(
   try {
     await sbInsert("public_feedback", row);
     return { ok: true, queued: false };
-  } catch {
+  } catch (e) {
+    if (e instanceof SbPermanentError) return { ok: false, queued: false };
     const q: Feedback[] = JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]");
     q.push(row);
     localStorage.setItem(QUEUE_KEY, JSON.stringify(q));
@@ -2063,6 +2069,7 @@ function SSat({
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
   const [queued, setQueued] = useState(false);
+  const [failed, setFailed] = useState(false);
   const ready = stars > 0 && concept !== "";
 
   if (done)
@@ -2103,6 +2110,21 @@ function SSat({
             }}
           >
             ℹ️ {t.offlineNotice}
+          </div>
+        )}
+        {failed && (
+          <div
+            style={{
+              fontSize: 12,
+              color: "#991b1b",
+              background: "#fef2f2",
+              padding: "8px 14px",
+              borderRadius: 10,
+              maxWidth: 320,
+              margin: "0 auto 20px",
+            }}
+          >
+            ⚠️ {t.saveFailed}
           </div>
         )}
         <div
@@ -2163,6 +2185,7 @@ function SSat({
       quizTotal,
     );
     setQueued(res.queued);
+    setFailed(!res.ok);
     setDone(true);
     setSending(false);
   };
@@ -2261,6 +2284,7 @@ function SSat({
           value={sug}
           onChange={(e) => setSug(e.target.value)}
           rows={3}
+          maxLength={2000}
           placeholder={t.satPh}
           style={{
             width: "100%",

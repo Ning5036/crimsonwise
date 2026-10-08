@@ -313,6 +313,7 @@
     "reasonPlaceholder": "Jelaskan alasan keputusan Anda...",
     "physicianLabel": "Nama Dokter/Perawat（opsional）",
     "physicianPlaceholder": "Masukkan nama",
+    "noIdentifiersHint": "Jangan masukkan data identitas pasien (nama, nomor rekam medis, nomor ID, tanggal lahir).",
     "confirmTitle": "Konfirmasi Keputusan",
     "confirmTransfuse": "Konfirmasi: Transfusi",
     "confirmNo": "Konfirmasi: Tolak Transfusi"

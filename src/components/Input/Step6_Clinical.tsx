@@ -38,6 +38,7 @@ export default function Step6_Clinical() {
           rows={2}
           value={patient.clinicalOther}
           onChange={e => updatePatient({ clinicalOther: e.target.value })}
+          maxLength={1000}
           placeholder={t('scenario.otherPlaceholder')}
           style={{ resize: "none", fontSize: "0.9rem" }}
         />

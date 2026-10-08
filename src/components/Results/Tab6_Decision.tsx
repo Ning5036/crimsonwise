@@ -132,6 +132,7 @@ export default function Tab6_Decision({ onDecisionMade }: Props) {
             value={decision.reason}
             onChange={(e) => updateDecision({ reason: e.target.value })}
             placeholder={t("tab6.reasonPlaceholder")}
+            maxLength={2000}
             className="input-field"
             style={{ resize: "none" }}
           />
@@ -143,8 +144,12 @@ export default function Tab6_Decision({ onDecisionMade }: Props) {
             value={decision.physicianName}
             onChange={(e) => updateDecision({ physicianName: e.target.value })}
             placeholder={t("tab6.physicianPlaceholder")}
+            maxLength={100}
             className="input-field"
           />
+          <p className="text-xs" style={{ opacity: 0.7, marginTop: "0.35rem" }}>
+            {t("tab6.noIdentifiersHint")}
+          </p>
         </div>
       </div>
 

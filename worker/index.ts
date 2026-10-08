@@ -24,16 +24,26 @@ interface Env {
 
 const ALLOWED_TABLES = new Set(["public_feedback", "sessions"]);
 
-function timingSafeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
+// Compare SHA-256 digests so neither the comparison time nor the early
+// length check leaks anything about the stored password.
+export async function passwordMatches(given: string, expected: string): Promise<boolean> {
+  const enc = new TextEncoder();
+  const [a, b] = await Promise.all(
+    [given, expected].map((s) => crypto.subtle.digest("SHA-256", enc.encode(s))),
+  );
+  const x = new Uint8Array(a);
+  const y = new Uint8Array(b);
   let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  for (let i = 0; i < x.length; i++) diff |= x[i] ^ y[i];
   return diff === 0;
 }
 
-function csvEscape(v: unknown): string {
+export function csvEscape(v: unknown): string {
   if (v === null || v === undefined) return "";
-  const s = typeof v === "object" ? JSON.stringify(v) : String(v);
+  let s = typeof v === "object" ? JSON.stringify(v) : String(v);
+  // Formula injection: a cell starting with = + - @ \t \r runs as a formula
+  // when the CSV is opened in Excel/Sheets. Prefix it so it reads as text.
+  if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
   return `"${s.replace(/"/g, '""')}"`;
 }
 
@@ -69,9 +79,8 @@ async function handleAdminExport(
     !env.SUPABASE_SERVICE_ROLE_KEY ||
     !env.ADMIN_PASSWORD
   ) {
-    return new Response("Server misconfigured: missing env vars", {
-      status: 500,
-    });
+    console.error("admin export: missing env vars");
+    return new Response("Server error", { status: 500 });
   }
 
   let body: { password?: string; table?: string };
@@ -82,7 +91,7 @@ async function handleAdminExport(
   }
 
   const password = typeof body.password === "string" ? body.password : "";
-  if (!password || !timingSafeEqual(password, env.ADMIN_PASSWORD)) {
+  if (!password || !(await passwordMatches(password, env.ADMIN_PASSWORD))) {
     return new Response(JSON.stringify({ error: "unauthorized" }), {
       status: 401,
       headers: { "Content-Type": "application/json" },
@@ -108,10 +117,8 @@ async function handleAdminExport(
 
     if (!res.ok) {
       const text = await res.text().catch(() => "");
-      return new Response(
-        `Supabase error (${res.status}): ${text.slice(0, 500)}`,
-        { status: 502 },
-      );
+      console.error("admin export: upstream", res.status, text.slice(0, 500));
+      return new Response("Upstream error", { status: 502 });
     }
 
     const rows = (await res.json()) as Row[];
@@ -127,8 +134,8 @@ async function handleAdminExport(
       },
     });
   } catch (e) {
-    const msg = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
-    return new Response(`Worker threw: ${msg}`, { status: 500 });
+    console.error("admin export:", e);
+    return new Response("Server error", { status: 500 });
   }
 }
 

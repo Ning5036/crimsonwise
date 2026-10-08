@@ -313,6 +313,7 @@
     "reasonPlaceholder": "Vui lòng giải thích quyết định của bạn...",
     "physicianLabel": "Tên bác sĩ/y tá（tùy chọn）",
     "physicianPlaceholder": "Nhập tên",
+    "noIdentifiersHint": "Không nhập thông tin nhận dạng bệnh nhân (tên, số hồ sơ, số CMND/CCCD, ngày sinh).",
     "confirmTitle": "Xác nhận quyết định",
     "confirmTransfuse": "Xác nhận: Truyền máu",
     "confirmNo": "Xác nhận: Từ chối truyền máu"

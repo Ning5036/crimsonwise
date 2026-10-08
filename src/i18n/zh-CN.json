@@ -313,6 +313,7 @@
     "reasonPlaceholder": "请说明您做出此决定的原因...",
     "physicianLabel": "医师／护理师姓名（选填）",
     "physicianPlaceholder": "请输入姓名",
+    "noIdentifiersHint": "请勿填写病人姓名、病历号、身份证号或生日等识别资料。",
     "confirmTitle": "确认您的决定",
     "confirmTransfuse": "确认选择输血",
     "confirmNo": "确认选择不输血"

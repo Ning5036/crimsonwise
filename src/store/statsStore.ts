@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { sbInsert, supabaseConfigured } from "../utils/supabaseClient";
+import { sbInsert, SbPermanentError, supabaseConfigured } from "../utils/supabaseClient";
 
 const TODAY_KEY = () => `cw_daily_${new Date().toISOString().split("T")[0]}`;
 const TOTAL_KEY = "cw_total";
@@ -143,8 +143,8 @@ async function sendOrQueue(row: SessionInsert): Promise<void> {
   }
   try {
     await sbInsert("sessions", row);
-  } catch {
-    pushToQueue(row);
+  } catch (e) {
+    if (!(e instanceof SbPermanentError)) pushToQueue(row);
   }
 }
 
@@ -164,8 +164,8 @@ export async function flushClinicalQueue(): Promise<void> {
       : { ...row, client_id: newClientId() };
     try {
       await sbInsert("sessions", withId);
-    } catch {
-      remaining.push(withId);
+    } catch (e) {
+      if (!(e instanceof SbPermanentError)) remaining.push(withId);
     }
   }
   localStorage.setItem(CLINICAL_QUEUE_KEY, JSON.stringify(remaining));

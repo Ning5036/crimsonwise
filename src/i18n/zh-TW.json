@@ -313,6 +313,7 @@
     "reasonPlaceholder": "請說明您做出此決定的原因...",
     "physicianLabel": "醫師／護理師姓名（選填）",
     "physicianPlaceholder": "請輸入姓名",
+    "noIdentifiersHint": "請勿填寫病人姓名、病歷號、身分證字號或生日等識別資料。",
     "confirmTitle": "確認您的決定",
     "confirmTransfuse": "確認選擇輸血",
     "confirmNo": "確認選擇不輸血"

@@ -14,7 +14,14 @@ create table if not exists public.public_feedback (
   suggestion  text,
   client_id   uuid,
   quiz_score  smallint,
-  quiz_total  smallint
+  quiz_total  smallint,
+  -- Input bounds (anon INSERT policy is `with check (true)`); names match supabase/migrations/.
+  constraint public_feedback_concept_len    check (char_length(concept) <= 200),
+  constraint public_feedback_suggestion_len check (char_length(suggestion) <= 2000),
+  constraint public_feedback_quiz_score     check (quiz_score between 0 and 50),
+  constraint public_feedback_quiz_total     check (quiz_total between 0 and 50),
+  constraint public_feedback_quiz_range
+    check (quiz_score is null or quiz_total is null or quiz_score <= quiz_total)
 );
 
 -- Partial unique index: legacy rows with NULL client_id are allowed; new rows
@@ -46,7 +53,14 @@ create table if not exists public.sessions (
   survey          jsonb,       -- satisfaction, betterUnderstanding, suggestions
   risk_level      text,
   physician_name  text,
-  client_id       uuid
+  client_id       uuid,
+  -- Input bounds; names match supabase/migrations/. UI maxLength keeps each jsonb well under 8 KB.
+  constraint sessions_lang_len      check (char_length(lang) <= 10),
+  constraint sessions_patient_size  check (pg_column_size(patient) < 8192),
+  constraint sessions_decision_size check (pg_column_size(decision) < 8192),
+  constraint sessions_survey_size   check (pg_column_size(survey) < 8192),
+  constraint sessions_risk_level    check (risk_level in ('urgent','consider','watchful','unlikely')),
+  constraint sessions_physician_len check (char_length(physician_name) <= 100)
 );
 
 create unique index if not exists sessions_client_id_key

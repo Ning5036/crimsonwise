@@ -38,6 +38,7 @@ export default function Step5_Symptoms() {
           rows={2}
           value={patient.symptomsOther}
           onChange={e => updatePatient({ symptomsOther: e.target.value })}
+          maxLength={1000}
           placeholder={t('symptom.otherPlaceholder')}
           style={{ resize: "none", fontSize: "0.9rem" }}
         />
